@@ -1,0 +1,80 @@
+[class*="col"]{
+    padding-top: 200px;
+    padding: 20px;
+    background-color: #33b5eb;
+    
+    color: #fff;
+    text-align: left;
+    height: 200px;
+    
+}
+
+.container{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+}
+
+
+
+
+#categories{
+    padding-top: 75px;
+    justify-content: space-around;
+}
+#dessert{
+    padding-top: 100px;
+}
+
+[id^=cBox]{
+    border-radius: 8px;
+}
+
+.row{
+    padding: 3px;
+    column-gap: 5px;
+}
+
+#cBox1{
+    background-color: #6EB6FF;
+    
+}
+
+#cBox2{
+    background-color: #002157;
+}
+
+#cBox3{
+    background-color: #00FF0A;
+}
+#cBox4{
+    background-color: #C502FF;
+}
+#cBox5{
+    background-color: #35A235;
+}
+#cBox6 {
+    background-color: #CC2304;
+}
+#cBox7{
+    background-color: #6EB6FF;
+}
+#cBox8{
+    background-color: #707070;
+}
+#cBox9{
+    background-color: #FF00C4;
+}
+
+.totalItems{
+    color: black;
+    display: flex;
+    justify-content: flex-start;
+    align-items:flex-end;
+    
+    height: 150px;
+    font-size: ;
+    
+
+    
+    
+}
