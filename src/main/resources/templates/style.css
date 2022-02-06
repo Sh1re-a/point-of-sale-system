@@ -20,6 +20,16 @@
 #categories{
     padding-top: 75px;
     justify-content: space-around;
+    
+}
+.categoriesText{
+    position: relative;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 25px;
+    
+  
 }
 #dessert{
     padding-top: 100px;
@@ -27,6 +37,7 @@
 
 [id^=cBox]{
     border-radius: 8px;
+    font-size: 22px;
 }
 
 .row{
@@ -36,6 +47,7 @@
 
 #cBox1{
     background-color: #6EB6FF;
+    
     
 }
 
@@ -66,13 +78,13 @@
 }
 
 .totalItems{
-    color: black;
+    color: white;
     display: flex;
     justify-content: flex-start;
     align-items:flex-end;
     
-    height: 150px;
-    font-size: ;
+    height: 130px;
+    font-size: 12px;
     
 
     
