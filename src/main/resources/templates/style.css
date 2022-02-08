@@ -16,29 +16,48 @@
 
 
 
-
 #categories{
     padding-top: 75px;
     justify-content: space-around;
     
 }
 .categoriesText{
-    position: relative;
-    color: white;
-    display: flex;
-    justify-content: flex-start;
+    
+    
     font-size: 25px;
+    position: relative;
+    top: -25px;
     
   
 }
 #dessert{
-    padding-top: 100px;
+    padding-top: 75px;
+    justify-content: space-around;
 }
 
 [id^=cBox]{
     border-radius: 8px;
     font-size: 22px;
+    
+    
 }
+
+[id^=dBox]{
+    border-radius: 8px;
+    font-size: 22px;
+    background-color: #313131;
+    
+}
+
+.colhead1{
+    background-color: transparent;
+    
+}
+.button{
+    text-align: left;
+}
+
+
 
 .row{
     padding: 3px;
@@ -47,8 +66,13 @@
 
 #cBox1{
     background-color: #6EB6FF;
-    
-    
+    text-align: start;
+    transition: 0.4s;  
+}
+
+#cBox1:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
 }
 
 #cBox2{
@@ -77,7 +101,7 @@
     background-color: #FF00C4;
 }
 
-.totalItems{
+.totalItems1{
     color: white;
     display: flex;
     justify-content: flex-start;
@@ -85,8 +109,14 @@
     
     height: 130px;
     font-size: 12px;
-    
+    position: relative;
+    left: -15px;
+    top: 2px;
 
     
     
+}
+.body{
+    margin: auto;
+    background-color: black;
 }
