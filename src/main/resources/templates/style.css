@@ -10,6 +10,7 @@
 }
 
 .container{
+    
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
 }
@@ -17,6 +18,7 @@
 
 
 #categories{
+    
     padding-top: 75px;
     justify-content: space-around;
     
@@ -26,15 +28,30 @@
     
     font-size: 25px;
     position: relative;
-    top: -25px;
+    top: -30px;
+    
     
   
 }
+
+.categoriesText2{
+    font-size: 25px;
+    position: relative;
+    top: -30px;
+    color:rgba(0,0,0,0);
+   transition: 0.9s;
+}
+
+
 
 
 #dessert{
     padding-top: 75px;
     justify-content: space-around;
+}
+
+.dessertBox{
+    color:rgba(0,0,0,0);
 }
 
 [id^=cBox]{
@@ -48,9 +65,9 @@
 
 [id^=dBox]{
     border-radius: 8px;
-    font-size: 22px;
+    font-size: 60px;
     background-color: #31313180;
-    
+    transition: 0.9s;
 }
 
  

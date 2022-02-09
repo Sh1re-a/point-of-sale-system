@@ -12,48 +12,49 @@
    
 <div class="container">
     <div class="row">
-        <div id ="categories" class="col">
+        <div id ="categories" class = "col" id = "colHeaders">
            <span class="categoriesText">Categories</span> 
             <div class="row ">
                   
-                <div id = "cBox1"class="col"><button type = "button" class = "btn block"><span class="colhead1">Pre</span> <span class="totalItems1">10 items</span></button></div>
-                <input type="button" id="mybutton" name="test" class="btn block col text-left"> 
-              <!--   <div id = "cBox2"class="col">Mains</div>-->
-                <div id = "cBox3"class="col">Dessert</div>
+                <div id = "cBox1"class="col" onclick="cateClick()">Pre</span> <span class="totalItems1">10 items</span></div>
+                
+                <div id = "cBox2"class="col" onclick="return cateClick1(this)">Mains<span class="totalItems1">10 items</span></div>
+                <div id = "cBox3"class="col" onclick="cateClick()">Dessert<span class="totalItems1">10 items</span></div>
             </div>
             <div class="row">
-                <div id = "cBox4"class="col">Wines</div>
-                <div id = "cBox5"class="col">Beers</div>
-                <div id = "cBox6"class="col">Drinks</div>
+                <div id = "cBox4"class="col" onclick="cateClick()">Wines<span class="totalItems1">10 items</span></div>
+                <div id = "cBox5"class="col" onclick="cateClick()">Beers<span class="totalItems1">10 items</span></div>
+                <div id = "cBox6"class="col" onclick="cateClick()">Drinks<span class="totalItems1">10 items</span></div>
             </div>
             <div class="row">
-                <div id = "cBox7"class="col">Snacks</div>
-                <div id = "cBox8"class="col">Addons</div>
-                <div id = "cBox9"class="col">Extra</div>
+                <div id = "cBox7"class="col" onclick="cateClick()">Snacks<span class="totalItems1">10 items</span></div>
+                <div id = "cBox8"class="col" onclick="cateClick()">Addons<span class="totalItems1">10 items</span></div>
+                <div id = "cBox9"class="col" onclick="cateClick()">Extra<span class="totalItems1">10 items</span></div>
             </div>
         </div>
         <div id ="dessert"class="col">
-            <span class="categoriesText">Dessert</span>
+            <span id ="desText" class="categoriesText2">Dessert</span> 
             <div class="row">
-                <div id = "dBox1"class="col">Pre</div>
-                <div id = "dBox2"class="col">Main</div>
-                <div id = "dBox3"class="col">Dessert</div>
+                <div id = "dBox1"class="col"><h1 class="dessertBox">0</h1></div>
+                <div id = "dBox2"class="col"><h1 class="dessertBox">0</h1></div>
+                <div id = "dBox3"class="col"><h1 class="dessertBox">0</h1></div>
             </div>
             <div class="row">
-                <div id = "dBox4"class="col">Pre</div>
-                <div id = "dBox5"class="col">Main</div>
-                <div id = "dBox6"class="col">Dessert</div>
+                <div id = "dBox4"class="col"><h1 class="dessertBox">0</h1></div>
+                <div id = "dBox5"class="col"><h1 class="dessertBox">0</h1></div>
+                <div id = "dBox6"class="col"><h1 class="dessertBox">0</h1></div>
             </div>
             <div class="row">
-                <div id = "dBox7"class="col">Pre</div>
-                <div id = "dBox8"class="col">Main</div>
-                <div id = "dBox9"class="col">Dessert</div>
+                <div id = "dBox7"class="col"><h1 class="dessertBox">0</h1></div>
+                <div id = "dBox8"class="col"><h1 class="dessertBox">0</h1></div>
+                <div id = "dBox9"class="col"><h1 class="dessertBox">0</h1></div>
             </div>
         </div>
-        <div id = "cashier" class="col"></div>
+        <div id = "cashier" class="col" id = "colHeaders"></div>
     </div>
 </div>
 
+    <script src="index.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
 </body>
 </html>
