@@ -30,6 +30,8 @@
     
   
 }
+
+
 #dessert{
     padding-top: 75px;
     justify-content: space-around;
@@ -38,24 +40,23 @@
 [id^=cBox]{
     border-radius: 8px;
     font-size: 22px;
-    
+    transition: 0.4s; 
     
 }
+
+
 
 [id^=dBox]{
     border-radius: 8px;
     font-size: 22px;
-    background-color: #313131;
+    background-color: #31313180;
     
 }
 
-.colhead1{
-    background-color: transparent;
-    
-}
-.button{
-    text-align: left;
-}
+ 
+
+
+
 
 
 
@@ -65,40 +66,74 @@
 }
 
 #cBox1{
-    background-color: #6EB6FF;
+    background-color: #6EB6C4;
     text-align: start;
     transition: 0.4s;  
 }
 
 #cBox1:hover {
-    background-color: #4CAF50; /* Green */
+    background-color: #6EB6FF; 
     color: white;
 }
 
 #cBox2{
     background-color: #002157;
+    text-align: start;
 }
-
+#cBox2:hover {
+    background-color: #6EB6FF; 
+    color: white;
+}
 #cBox3{
     background-color: #00FF0A;
+    text-align: start;
+}
+#cBox3:hover {
+    background-color: #6EB6FF; 
+    color: white;
 }
 #cBox4{
     background-color: #C502FF;
+    text-align: start;
+}
+#cBox4:hover {
+    background-color: #6EB6FF; 
+    color: white;
 }
 #cBox5{
     background-color: #35A235;
 }
+#cBox5:hover {
+    background-color: #6EB6FF; 
+    color: white;
+}
 #cBox6 {
     background-color: #CC2304;
+}
+#cBox6:hover {
+    background-color: #6EB6FF; 
+    color: white;
 }
 #cBox7{
     background-color: #6EB6FF;
 }
+#cBox7:hover {
+    background-color: #6EB6FF; 
+    color: white;
+}
 #cBox8{
     background-color: #707070;
 }
+#cBox8:hover {
+    background-color: #6EB6FF; 
+    color: white;
+}
 #cBox9{
     background-color: #FF00C4;
+}
+#cBox9:hover {
+    background-color: #6EB6FF; 
+    color: white;
 }
 
 .totalItems1{
@@ -109,9 +144,7 @@
     
     height: 130px;
     font-size: 12px;
-    position: relative;
-    left: -15px;
-    top: 2px;
+   
 
     
     
