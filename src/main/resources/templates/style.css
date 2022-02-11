@@ -5,9 +5,10 @@
     
     color: #fff;
     text-align: left;
-    height: 200px;
+    
     
 }
+
 
 .container{
     width: 100%;
@@ -16,9 +17,59 @@
   margin-right: auto;
   margin-left: auto;
     font-family: Arial, Helvetica, sans-serif;
+   
     font-style: normal;
 }
 
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+.toast-container {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    max-width: 100%;
+    pointer-events: none;
+  }
+  .toast-container > :not(:last-child) {
+    margin-bottom: 0.75rem;
+  }
+
+@media (min-width: 576px) {
+    .container-sm, .container {
+      max-width: 540px;
+    }
+  }
+  @media (min-width: 768px) {
+    .container-md, .container-sm, .container {
+      max-width: 720px;
+    }
+  }
+  @media (min-width: 992px) {
+    .container-lg, .container-md, .container-sm, .container {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container-xl, .container-lg, .container-md, .container-sm, .container {
+      max-width: 1140px;
+    }
+  }
+  @media (min-width: 1400px) {
+    .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+      max-width: 1320px;
+    }
+  }
 
 
 #categories{
@@ -28,14 +79,9 @@
     
 }
 .categoriesText{
-    
-    
     font-size: 25px;
     position: relative;
-    top: -30px;
-    
-    
-  
+    top: -30px; 
 }
 
 .categoriesText2{
@@ -46,12 +92,10 @@
    transition: 0.9s;
 }
 
-
-
-
 #dessert{
     padding-top: 75px;
     justify-content: space-around;
+    
 }
 
 .dessertBox{
@@ -62,16 +106,53 @@
     border-radius: 8px;
     font-size: 22px;
     transition: 0.4s; 
-    
+    height: 195px;
 }
 
 
 
 [id^=dBox]{
     border-radius: 8px;
-    font-size: 60px;
+    
     background-color: #31313180;
     transition: 0.9s;
+    height: 195px;
+    -webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+
+.itemCount{
+    font-size: 40px;
+    position: relative;
+    top: -10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.item{
+    font-style:normal;
+   font-size: 22px; 
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   position: relative;
+   top: 20px;
+   
+   
+}
+
+.price{
+    font-size: 12px;
+    font-style: italic;
+    display: flex;
+    justify-content: flex-start;
+    align-items:flex-end;
+    position: relative;
+    top: 80px;
 }
 
  
