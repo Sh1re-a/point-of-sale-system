@@ -1,12 +1,16 @@
 [class*="col"]{
     padding-top: 200px;
     padding: 20px;
-    background-color: #33b5eb;
+    background-color: black;
     
     color: #fff;
     text-align: left;
     
     
+}
+body{
+    
+    background-color: black;
 }
 
 
@@ -92,6 +96,8 @@
    transition: 0.9s;
 }
 
+
+
 #dessert{
     padding-top: 75px;
     justify-content: space-around;
@@ -123,6 +129,8 @@
 -ms-user-select: none;
 -o-user-select: none;
 user-select: none;
+opacity: 0.5;
+transition: 0.6s;
 }
 
 .itemCount{
@@ -168,7 +176,7 @@ user-select: none;
 }
 
 #cBox1{
-    background-color: #6EB6C4;
+    background-color: #C46EB6C4;
     text-align: start;
     transition: 0.4s;  
 }
@@ -179,7 +187,7 @@ user-select: none;
 }
 
 #cBox2{
-    background-color: #002157;
+    background-color: #C4002157;
     text-align: start;
 }
 #cBox2:hover {
@@ -187,7 +195,7 @@ user-select: none;
     color: white;
 }
 #cBox3{
-    background-color: #00FF0A;
+    background-color: #C400FF0A;
     text-align: start;
 }
 #cBox3:hover {
@@ -199,7 +207,7 @@ user-select: none;
     text-align: start;
 }
 #cBox4:hover {
-    background-color: #6EB6FF; 
+    background-color: #C46EB6FF; 
     color: white;
 }
 #cBox5{
@@ -210,28 +218,28 @@ user-select: none;
     color: white;
 }
 #cBox6 {
-    background-color: #CC2304;
+    background-color: #C4CC2304;
 }
 #cBox6:hover {
     background-color: #6EB6FF; 
     color: white;
 }
 #cBox7{
-    background-color: #6EB6FF;
+    background-color: #C46EB6FF;
 }
 #cBox7:hover {
     background-color: #6EB6FF; 
     color: white;
 }
 #cBox8{
-    background-color: #707070;
+    background-color: #C4707070;
 }
 #cBox8:hover {
     background-color: #6EB6FF; 
     color: white;
 }
 #cBox9{
-    background-color: #FF00C4;
+    background-color: #C4FF00C4;
 }
 #cBox9:hover {
     background-color: #6EB6FF; 
@@ -250,8 +258,4 @@ user-select: none;
 
     
     
-}
-.body{
-    margin: auto;
-    background-color: black;
 }
