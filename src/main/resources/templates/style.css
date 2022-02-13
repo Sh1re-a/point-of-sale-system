@@ -63,20 +63,22 @@ body{
 }
 
 [id^=cBox]{
-    border-radius: 8px;
+    border-radius: 4px;
     font-size: 22px;
     transition: 0.4s; 
     height: 195px;
+    width: 300px;
 }
 
 
 
 [id^=dBox]{
-    border-radius: 8px;
+    border-radius: 4px;
     
     background-color: #31313180;
     transition: 0.9s;
     height: 195px;
+    width: 300px;
     -webkit-user-select: none;
 -khtml-user-select: none;
 -moz-user-select: none;
