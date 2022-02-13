@@ -15,65 +15,19 @@ body{
 
 
 .container{
-    width: 100%;
-   padding-right: var(--bs-gutter-x, 0.75rem);
-  padding-left: var(--bs-gutter-x, 0.75rem);
-  margin-right: auto;
-  margin-left: auto;
+    
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 130px;
+    margin-right: 130px;
+    
+    
+    
     font-family: Arial, Helvetica, sans-serif;
    
     font-style: normal;
 }
 
-.container,
-.container-fluid,
-.container-xxl,
-.container-xl,
-.container-lg,
-.container-md,
-.container-sm {
-  width: 100%;
-  padding-right: var(--bs-gutter-x, 0.75rem);
-  padding-left: var(--bs-gutter-x, 0.75rem);
-  margin-right: auto;
-  margin-left: auto;
-}
-.toast-container {
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
-    max-width: 100%;
-    pointer-events: none;
-  }
-  .toast-container > :not(:last-child) {
-    margin-bottom: 0.75rem;
-  }
-
-@media (min-width: 576px) {
-    .container-sm, .container {
-      max-width: 540px;
-    }
-  }
-  @media (min-width: 768px) {
-    .container-md, .container-sm, .container {
-      max-width: 720px;
-    }
-  }
-  @media (min-width: 992px) {
-    .container-lg, .container-md, .container-sm, .container {
-      max-width: 960px;
-    }
-  }
-  @media (min-width: 1200px) {
-    .container-xl, .container-lg, .container-md, .container-sm, .container {
-      max-width: 1140px;
-    }
-  }
-  @media (min-width: 1400px) {
-    .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-      max-width: 1320px;
-    }
-  }
 
 
 #categories{
@@ -160,7 +114,7 @@ transition: 0.6s;
     justify-content: flex-start;
     align-items:flex-end;
     position: relative;
-    top: 80px;
+    top: 73px;
 }
 
  
@@ -176,7 +130,7 @@ transition: 0.6s;
 }
 
 #cBox1{
-    background-color: #C46EB6C4;
+    background-color: #C46EB6FF;
     text-align: start;
     transition: 0.4s;  
 }
@@ -187,7 +141,7 @@ transition: 0.6s;
 }
 
 #cBox2{
-    background-color: #C4002157;
+    background-color: #002157C4;
     text-align: start;
 }
 #cBox2:hover {
