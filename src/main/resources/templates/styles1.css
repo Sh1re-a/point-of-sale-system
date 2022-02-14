@@ -1,7 +1,4 @@
-body{
-    min-width: 1280px;
-    
-}
+
 .container{
     width: 100vw;
     height: 100vh;
@@ -11,7 +8,7 @@ body{
     font-size: 20px;
     display:grid;
 
-    grid-template-columns: repeat(8, 1fr) ;
+    grid-template-columns: repeat(7, 1fr) ;
     grid-template-rows: repeat(8, 1fr) ;
 
     gap: 15px;
@@ -29,7 +26,7 @@ body{
     grid-column: 1;
     grid-column-end: 1;
     grid-row: 1;
-    grid-row-end: 4;
+    grid-row-end: 9;
 
     
 }
@@ -38,6 +35,10 @@ body{
     grid-column: 2;
     grid-column-end: 4;
     grid-row: 1;
+
+    display: flex;
+    
+
    
 }
 
@@ -61,6 +62,7 @@ body{
     gap:4px;
     grid-template-columns: repeat(3, 1fr) ;
     grid-template-rows: repeat(3, 1fr) ;
+    overflow: auto;
     
 }
 .content2{
@@ -80,16 +82,21 @@ body{
     grid-column-end: 8;
     grid-row-start: 2;
     grid-row-end:  8;
-
+    gap: 10px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 1fr);
 }
 
+.content3text4{
+    grid-column: 1;
+    grid-row: 5;
+
+    position: relative;
+    top:30px
+}
+
 .contentBox1{
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 1;
-    grid-row-end: 1;
+    height: 1fr;
     
 }
 .contentBox2{
@@ -104,5 +111,12 @@ body{
     grid-column-end: 3;
     grid-row: 1;
     grid-row-end: 1;
+    
+}
+
+.footer{
+    grid-column: 2;
+    grid-column-end:6;
+    grid-row: 8;
     
 }
