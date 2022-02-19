@@ -1,20 +1,46 @@
+@font-face {
+    font-family: "HelveticaNeue";
+    font-weight: 100;
+    src: local("Helvetica Neue Thin"),
+    local("HelveticaNeue-Thin");
+}
 
+@font-face {
+    font-family: "HelveticaNeue";
+    font-weight: 300;
+    src: local("Helvetica Neue Light"),
+    local("HelveticaNeue-Light");
+}
+
+@font-face {
+    font-family: "HelveticaNeue";
+    font-weight: normal;
+    src: local("Helvetica Neue"),
+    local("HelveticaNeue");
+}
+
+@font-face {
+    font-family: "HelveticaNeue";
+    font-weight: bold;
+    src: local("Helvetica Neue Bold"),
+    local("HelveticaNeue-Bold");
+}
 .container{
     width: 100vw;
     height: 100vh;
 
-    font-family:  Arial, Helvetica, sans-serif;
-    font-style: normal;
+    font-family: HelveticaNeue, Helvetica, Arial, Verdana, sans-serif;
     font-weight: normal;
+    
     font-size: 20px;
     display:grid;
 
-    grid-template-columns: repeat(7, 1fr) ;
+    grid-template-columns: repeat(8, 1fr) ;
     grid-template-rows: repeat(8, 1fr) ;
 
     gap: 5px;
 
-    padding: 10px;
+    
     box-sizing: border-box;
 }
 
@@ -24,12 +50,28 @@
 }
 
 .header {
+    background-color: black;
+    
     grid-column: 1;
     grid-column-end: 1;
     grid-row: 1;
     grid-row-end: 9;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     
+    justify-content: space-between;
+
+    
+}
+
+img{
+    height: 30px;
+    width: 30px;
+
+    
+
 }
 
 .content1Text{
@@ -146,4 +188,10 @@ justify-content: flex-end;
     grid-column-end:6;
     grid-row: 8;
     
+}
+
+.buyButton {
+    grid-column-start: 6;
+    grid-column-end: 8;
+    grid-row: 8;
 }

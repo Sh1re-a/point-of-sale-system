@@ -1,0 +1,29 @@
+.content1Text{
+    grid-column: 2;
+    grid-column-end: 6;
+    grid-row: 1;
+
+    display: flex;
+    align-self: flex-end;
+
+}
+
+.content2Text{
+    grid-column: 6;
+    grid-column-end: 10;
+    grid-row: 1;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.content3Text{
+    grid-column: 10;
+    grid-column-end: 14;
+    grid-row: 1;
+
+    display: flex;
+    align-items: flex-end;
+    
+}
