@@ -25,6 +25,11 @@
     src: local("Helvetica Neue Bold"),
     local("HelveticaNeue-Bold");
 }
+body{
+    overflow: hidden;
+}
+
+
 .container{
     width: 100vw;
     height: 100vh;
@@ -98,15 +103,26 @@ img{
 
 .content2Text1{
 
-
-
-
+    color: black;
     font-size: 15px;
+    display: flex;
     justify-content: flex-end;
+    align-items: flex-start;
     
 
  
 }
+
+#hej{
+    color: black;
+    font-size: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    
+}
+
+
 
 
 
