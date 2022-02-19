@@ -3,6 +3,15 @@
     color: white;
     transition: 0.9s; 
     border-radius: 4px;
+    display: flex;
+    flex-direction:column; 
+    flex:1;
+}
+
+.itemCount{
+    font-size: 12px;
+   
+    margin-top: auto;
 }
 
 #cBox1{
