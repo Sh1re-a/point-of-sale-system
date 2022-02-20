@@ -190,12 +190,8 @@ img{
     grid-template-rows: repeat(5, 1fr);
 }
 
-.content3text4{
-    grid-column: 1;
-    grid-row: 5;
-
-    position: relative;
-    top:30px
+.content3text1{
+    height: 100px;
 }
 
 .contentBox1{
@@ -203,7 +199,11 @@ img{
     
 }
 .contentBox2{
+    display: flex;
     height: 145px;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 4px;
     
     
 }

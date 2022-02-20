@@ -1,0 +1,15 @@
+.itemCountS{
+font-size: 50px;
+margin-bottom: auto;
+}
+
+.item{
+    text-align: left;
+    font-size: 15px;
+}
+
+.price{
+    font-size: 12px;
+    margin-top: auto;
+    
+}
