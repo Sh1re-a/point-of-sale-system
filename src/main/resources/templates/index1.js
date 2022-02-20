@@ -2,6 +2,8 @@
 
 function showDishes(idElement){
     var id = idElement.id
+    var allId = []
+    allId.push(id)
     var idElement = document.getElementById(id)
     var categoryText = idElement.innerHTML
     var stringCut = categoryText.split('<span')[0]
@@ -23,18 +25,36 @@ function showDishes(idElement){
    // var getCategory = document.getElementById("BoxHeader")
   //  var categoryText1 = getCategory.innerHTML
    // var splitText = categoryText1.split('<span')[0]
-    createContent.innerHTML = stringCut
+    //createContent.innerHTML = stringCut
 
     
     
-    var check = document.getElementsByClassName("content3")
-  // for(var i = 0; i < check.length; i++){
+    var check = document.getElementById("3").children
+    
+   // var children = document.querySelectorAll("3");
+
+    var count = 0;
+        
+            for(var j = 0; j < check.length; j++){
+                var x = check[j]
+                if(id == x.id){
+                    count++
+            }
+            }
+
+            if(count > 0){
+                console.log("already exisist")
+            }
+            else
+            divId.append(createContent)
+
      //  if(!check[i].id == cutIdNumber){
-           divId.appendChild(createContent)
+           
     //   }
 
   // }
-   
+   console.log(check[0])
+   console.log(check[1])
 
     
 
