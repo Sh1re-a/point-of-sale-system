@@ -94,33 +94,31 @@ img{
 
 .headtext1{
     display: flex;
-    justify-content: flex-end;
+    
     align-items: flex-end;
     align-content: flex-end;
+    
 }
 
-
+.boxHeader1{
+    font-size: 22px;
+}
 
 .content2Text1{
 
     color: black;
-    font-size: 15px;
+    font-size: 13px;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
+    justify-content: space-evenly;
+   
+    
+
     
 
  
 }
 
-#hej{
-    color: black;
-    font-size: 15px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    
-}
+
 
 
 
@@ -135,6 +133,7 @@ img{
     
     align-items: flex-end;
     justify-content: space-between;
+    
 }
 .content3Text{
     grid-column: 6;
