@@ -1,14 +1,14 @@
-
+var id1;
 
 function showDishes(idElement){
-    var id = idElement.id
+    id1 = idElement.id
     var allId = []
-    allId.push(id)
-    var idElement = document.getElementById(id)
+   
+    var idElement = document.getElementById(id1)
     var categoryText = idElement.innerHTML
     var stringCut = categoryText.split('<span')[0]
     document.getElementById("BoxHeader").innerHTML = stringCut +"<div id ='hej'class='content2Text1'><span class='headtext1'>Popular</span>&nbsp; &nbsp;&nbsp;<span class='headtext2'>A/z</span>&nbsp; &nbsp;&nbsp;<span class='headtext3'>Price</span></div>"
-    var cutIdNumber = id.split('cbox')
+    var cutIdNumber = id1
     
 
     var element = document.getElementsByClassName("contentBox2")
@@ -19,13 +19,14 @@ function showDishes(idElement){
     createDishes(totalDish)
 
     var createContent = document.createElement("div")
-    createContent.setAttribute("class", "content3text1")
+    createContent.setAttribute("class", cutIdNumber)
     createContent.setAttribute("id", cutIdNumber )
     var divId = document.getElementById("3")
-   // var getCategory = document.getElementById("BoxHeader")
-  //  var categoryText1 = getCategory.innerHTML
-   // var splitText = categoryText1.split('<span')[0]
-    //createContent.innerHTML = stringCut
+    var getCategory = document.getElementById("BoxHeader")
+    var categoryText1 = getCategory.innerHTML
+    var splitText = categoryText1.split('<span')[0]
+    createContent.innerHTML = stringCut
+    
 
     
     
@@ -37,7 +38,7 @@ function showDishes(idElement){
         
             for(var j = 0; j < check.length; j++){
                 var x = check[j]
-                if(id == x.id){
+                if(id1 == x.id){
                     count++
             }
             }
@@ -97,24 +98,26 @@ function addToCashier(idBox){
 
     
     
-    var getCategory = document.getElementById("BoxHeader")
-    var categoryText1 = getCategory.innerHTML
-    var splitText = categoryText1.split('<span')[0]
 
     
+    var check = document.getElementById("3").children
 
-    createContent.innerHTML = splitText
+
+    var count = 0;
+        var save = ""
+            for(var j = 0; j < check.length; j++){
+                var x = check[j]
+                if(id1 == x.id){
+                    save = x.id
+            }
+            }
+
+           var findElement = document.getElementsByClassName(save)[0]
+           findElement.innerHTML = findElement.innerHTML + item +" "+ price + " "
     
-    createContent.innerHTML = createContent.innerHTML + item[0] + price
-    var divId = document.getElementById("3")
-divId.appendChild(createContent)
+ 
     
 
 }
 
-function allItem(array){
-    for(var i = 0; i < array.length; i++){
-       return array[i];
-    }
 
-}
