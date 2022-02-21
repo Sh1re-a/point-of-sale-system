@@ -1,0 +1,28 @@
+.varaHeader{
+    
+    justify-content: flex-start;
+}
+
+
+.vara{
+    
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    
+    align-self: flex-start;
+    flex-wrap: nowrap;
+font-size: 12px;
+    
+    
+}
+
+.priset{
+    align-self: flex-end;
+    font-size: 12px;
+    flex-wrap: nowrap;
+}
+[id*="cBox"]{
+    animation: append-animate .7s
+    
+    
+}

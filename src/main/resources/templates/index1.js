@@ -14,7 +14,7 @@ function showDishes(idElement){
     var element = document.getElementsByClassName("contentBox2")
     removeDishes(element)
 
-    var totalDish = 9;
+    var totalDish = 14;
 
     createDishes(totalDish)
 
@@ -25,7 +25,7 @@ function showDishes(idElement){
     var getCategory = document.getElementById("BoxHeader")
     var categoryText1 = getCategory.innerHTML
     var splitText = categoryText1.split('<span')[0]
-    createContent.innerHTML = stringCut
+    createContent.innerHTML = '<span class="varaHeader">' + stringCut + '</span>'
     
 
     
@@ -75,13 +75,19 @@ function createDishes(totalDish){
     createContent.setAttribute("class", "contentBox2")
     createContent.setAttribute("onclick", "addToCashier(this)")
     createContent.innerHTML = "<span class='itemCountS'>0</span> <span class='item'>Marabou</span> <span class='price'>€12.50</span>"
-
+    
     var divId2 = document.getElementById("2")
     
     divId2.appendChild(createContent)
+    createContent.classList.add("dbox" + 1, "faded-out")
+    createContent.classList.remove("faded-out")
+    requestAnimationFrame(() => {
+        createContent.classList.remove("faded-out")
+      })
     }
 }
 
+var antal = 0;
 
 function addToCashier(idBox){
     //TODO: Skapa en loop som lägger till
@@ -102,18 +108,41 @@ function addToCashier(idBox){
     
     var check = document.getElementById("3").children
 
-
-    var count = 0;
-        var save = ""
+    
+    
+    var save = ""
             for(var j = 0; j < check.length; j++){
-                var x = check[j]
+            var x = check[j]
                 if(id1 == x.id){
                     save = x.id
+                    
             }
             }
 
+            var howMany = document.getElementById("2").children
+            
+            
+
            var findElement = document.getElementsByClassName(save)[0]
-           findElement.innerHTML = findElement.innerHTML + item +" "+ price + " "
+
+            //var findElement2 = document.getElementById("2").children
+
+            // for(var i = 0; i < findElement2.length; i++){ }
+
+            
+
+            
+            if(findElement.innerHTML.includes(item)){
+                antal++;
+                var int  = price.substring(1);
+                var number = parseFloat(int)
+                var totalSumma = number * antal
+                findElement.innerHTML = '<div class ="content31"><span class ="cashierCount"> x' + antal + '</span><span class ="vara">'+ item + '</span>' + '<span class ="priset">€' +totalSumma + '</span></div>'
+            }
+            else
+           
+           findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span class ="vara">'+ item + '</span>' + '<span class ="priset">' +price + '</span></div>'
+
     
  
     
