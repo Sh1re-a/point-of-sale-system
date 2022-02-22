@@ -79,7 +79,7 @@ function createBox(){
     var divId = document.getElementById("3")
     var getCategory = document.getElementById("BoxHeader")
     var categoryText1 = getCategory.innerHTML
-    var splitText = categoryText1.split('<span')[0]
+    var splitText = categoryText1.split('<div')[0]
     createContent.innerHTML = '<span class="varaHeader">' + splitText + '</span>'
 
     var check = document.getElementById("3").children
@@ -140,7 +140,7 @@ function createDishes(data){
 }
 
 var antal = 0
-var alltihop;
+var alltihop = 0;
 
 function addToCashier(idBox){
     //TODO: Skapa en loop som lägger till
@@ -188,6 +188,7 @@ function addToCashier(idBox){
            var findPrice2 = findPrice.innerHTML;
 
            var findId = document.getElementById(id)
+           var kassanId = document.getElementById("kassa")
 
             
             if(findElement.innerHTML.includes(item)){
@@ -203,7 +204,10 @@ function addToCashier(idBox){
                 var priceTotal = document.getElementById("priset" + theCut)
                 counter.innerHTML ="x" + antal
                 priceTotal.innerHTML = "£" + totalSumma
-                alltihop = alltihop + totalSumma
+                alltihop = alltihop + (totalSumma/2)
+                var ja = alltihop.toFixed(2)
+                kassanId.innerHTML = " €"+ja
+                
                 
                // findElement.innerHTML = + '<div class ="content31"><span class ="cashierCount"> x' + array[theCut] + '</span><span class ="vara">'+ item + '</span>' + '<span class ="priset">€' +totalSumma + '</span></div>'
             }
@@ -215,7 +219,11 @@ function addToCashier(idBox){
            findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span id ="räknare'+theCut+'"class ="cashierCount"> x' + 1 + '</span><span class ="vara">'+ item + '</span>' + '<span id="priset'+theCut +'" class ="priset">' +price + '</span></div>'
                     antal++
                     array.splice(theCut,1, antal)
-                    alltihop = alltihop + price
+                    var number = price.substring(1)
+                    var lastNumber = parseFloat(number)
+                    alltihop = lastNumber +alltihop
+                   var ja = alltihop.toFixed(2)
+                    kassanId.innerHTML = " €"+ja;
             }
  
     

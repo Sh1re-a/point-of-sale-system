@@ -27,6 +27,7 @@
 }
 body{
     overflow: hidden;
+    background-color: white
 }
 
 
@@ -222,8 +223,13 @@ img{
 
 .content31{
     font-size: 16px;
+    
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
 }
 
 

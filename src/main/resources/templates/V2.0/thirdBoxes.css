@@ -3,23 +3,29 @@
     justify-content: flex-start;
 }
 
+.cashierCount{
+    order: 0;
+    flex: 0 1 auto;
+    align-self: flex-end;
+    font-size: 14px;
+}
+
 
 .vara{
     
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    
-    align-self: flex-start;
-    flex-wrap: nowrap;
-font-size: 12px;
+    order: 0;
+    flex: 0 1 auto;
+    align-self: flex-end;
+font-size: 16px;
     
     
 }
 
 .priset{
+    order: 0;
+    flex: 0 1 auto;
     align-self: flex-end;
     font-size: 12px;
-    flex-wrap: nowrap;
 }
 [id*="cBox"]{
     animation: append-animate .7s
