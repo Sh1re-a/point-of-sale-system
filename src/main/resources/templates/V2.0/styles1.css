@@ -40,11 +40,11 @@ body{
     font-size: 20px;
     display:grid;
 
-    grid-template-columns: repeat(8, 1fr) ;
+    grid-template-columns: repeat(10, 1fr) ;
     grid-template-rows: repeat(8, 1fr) ;
 
     gap: 5px;
-
+    padding-right: 20px;
     
     box-sizing: border-box;
 }
@@ -84,7 +84,7 @@ img{
 
 .content1Text{
     grid-column: 2;
-    grid-column-end: 4;
+    grid-column-end: 5;
     grid-row: 1;
 
     display: flex;
@@ -115,9 +115,7 @@ img{
  
 }
 
-.contentBox2{
-    animation: append-animate .7s 
-    }
+
 @keyframes append-animate {
 	from {
 		
@@ -130,10 +128,7 @@ img{
 }
 
 
-.content2{
-    
-   
-}
+
 
 
 
@@ -141,8 +136,8 @@ img{
 
 
 .content2Text{
-    grid-column: 4;
-    grid-column-end: 6;
+    grid-column: 5;
+    grid-column-end: 8;
     grid-row: 1;
 
     display: flex;
@@ -153,12 +148,14 @@ img{
     
 }
 .content3Text{
-    grid-column: 6;
-    grid-column-end: 8;
+    grid-column: 8;
+    grid-column-end: 11;
     grid-row: 1;
 
     display: flex;
     align-items: flex-end;
+    justify-content: space-between;
+    font-size: 12px;
     
 }
 
@@ -169,7 +166,7 @@ img{
 .content1{
     display: grid;
     grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end:  8;
     gap:4px;
@@ -190,8 +187,8 @@ img{
   }
 .content2{
     display: grid;
-    grid-column-start: 4;
-    grid-column-end: 6;
+    grid-column-start: 5;
+    grid-column-end: 8;
     grid-row-start: 2;
     grid-row-end:  8;
     gap: 4px;
@@ -203,13 +200,15 @@ img{
 .content3{
     display: grid;
     overflow: auto;
-    grid-column-start: 6;
-    grid-column-end: 8;
+    grid-column-start: 8;
+    grid-column-end: 11;
     grid-row-start: 2;
     grid-row-end:  7;
     gap: 10px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 1fr);
+
+    
 
     
 
@@ -239,7 +238,8 @@ img{
     flex-direction: column;
     justify-content: space-between;
     border-radius: 4px;
-    
+    opacity: 0.5;
+    animation: append-animate 0.2s
     
 }
 .contentBox3{
@@ -258,9 +258,14 @@ img{
 }
 
 .buyButton {
-    grid-column-start: 6;
-    grid-column-end: 8;
+    grid-column-start: 8;
+    grid-column-end: 11;
     grid-row: 7;
-    
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 15px;
 
 }
