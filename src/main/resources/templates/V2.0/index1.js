@@ -22,7 +22,7 @@ function showDishes(idElement){
     xhr.open("GET", "data/"+lowerCase+".json")
     xhr.onload = function(){
         var data = JSON.parse(this.response)
-        createDishes(data)
+        createDishes(data,lowerCase)
     }
     xhr.send()
 
@@ -78,14 +78,23 @@ function removeDishes(elements){
 
 }
 
+
+var array  = []
+
 function createDishes(data){
+    
+    for(var x = 0; x < data.length; x++){
+        array.push("0")
+    }
+
     for(var i = 0; i < data.length; i++){
     var createContent = document.createElement("div")
     createContent.setAttribute("id", "dBox"+ i)
     createContent.setAttribute("class", "contentBox2")
     createContent.setAttribute("onclick", "addToCashier(this)")
-    createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+antal +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+    createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
     
+   
     var divId2 = document.getElementById("2")
     
     divId2.appendChild(createContent)
@@ -139,28 +148,29 @@ function addToCashier(idBox){
 
            var theCut = id.substring(4);
 
-
+           var findItem = document.getElementById("tjo"+theCut)
+           var findItem2 = findItem.innerHTML;
+           var findPrice = document.getElementById("tjena"+theCut)
+           var findPrice2 = findPrice.innerHTML;
             
             if(findElement.innerHTML.includes(item)){
-                
+                var antal = array[theCut]
                 antal++;
+                array.splice(theCut, 1, antal)
                 var int  = price.substring(1);
                 var number = parseFloat(int)
                 var totalSumma = number * antal
-               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+antal +"</span> <span class='item'>Marabou</span> <span class='price'>€12.50</span>"
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                 
-                findElement.innerHTML = '<div class ="content31"><span class ="cashierCount"> x' + antal + '</span><span class ="vara">'+ item + '</span>' + '<span class ="priset">€' +totalSumma + '</span></div>'
+                findElement.innerHTML = + '<div class ="content31"><span class ="cashierCount"> x' + array[theCut] + '</span><span class ="vara">'+ item + '</span>' + '<span class ="priset">€' +totalSumma + '</span></div>'
             }
             else {
                 
-                var findItem = document.getElementById("tjo"+theCut)
-                var findItem2 = findItem.innerHTML;
-                var findPrice = document.getElementById("tjena"+theCut)
-                var findPrice2 = findPrice.innerHTML;
-                
-            document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+1 +"</span> <span class='item'>"+findItem2+"</span> <span class='price'>"+findPrice2+"</span>"
+                    var antal = array[theCut]
+            document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
            findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span class ="cashierCount"> x' + 1 + '</span><span class ="vara">'+ item + '</span>' + '<span class ="priset">' +price + '</span></div>'
-
+                    antal++
+                    array.splice(theCut,1, antal)
             }
  
     
