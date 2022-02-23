@@ -22,10 +22,45 @@ function showDishes(idElement){
     xhr.open("GET", "data/"+lowerCase+".json")
     xhr.onload = function(){
         var data = JSON.parse(this.response)
-        createDishes(data,lowerCase)
+    //    if(lowerCase.includes("pre")){
+            x = 0;
+            createDishes(data)
+     /*   }
+        else if(lowerCase == "mains"){
+            x = 1;
+            createDishes(data,x)
+        }
+        else if(lowerCase == "dessert"){
+            x = 2;
+            createDishes(data,x)
+        }
+        else if(lowerCase == "wines"){
+            x = 3;
+            createDishes(data,x)
+        }
+        else if(lowerCase == "beers"){
+            x = 4;
+            createDishes(data,x)
+        }
+        else if(lowerCase == "drinks"){
+            x = 5;
+            createDishes(data,x)
+        }
+        else if(lowerCase == "snacks"){
+            x = 6;
+            createDishes(data,x)
+        }
+        else if(lowerCase == "addons"){
+            x = 7;
+            createDishes(data,x)
+        }
+        else if(lowerCase == "extra"){
+            x = 8;
+            createDishes(data,x)
+        } */
     }
     xhr.send()
-
+    
     
     
 
@@ -113,11 +148,13 @@ function removeDishes(elements){
 
 
 var array  = []
+var x = 0;
 
 function createDishes(data){
     
+
     for(var x = 0; x < data.length; x++){
-        array.push("0")
+        array[x].push("0")
     }
 
     for(var i = 0; i < data.length; i++){
@@ -125,7 +162,7 @@ function createDishes(data){
     createContent.setAttribute("id", "dBox"+ i)
     createContent.setAttribute("class", "contentBox2")
     createContent.setAttribute("onclick", "addToCashier(this)")
-    createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+    createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array[x][i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
     
    
     var divId2 = document.getElementById("2")
@@ -190,15 +227,17 @@ function addToCashier(idBox){
            var findId = document.getElementById(id)
            var kassanId = document.getElementById("kassa")
 
+           
+
             
             if(findElement.innerHTML.includes(item)){
-                var antal = array[theCut]
+                var antal = array[x][theCut]
                 antal++;
-                array.splice(theCut, 1, antal)
+                array.splice(theCut, 1, [x][theCut])
                 var int  = price.substring(1);
                 var number = parseFloat(int)
                 var totalSumma = number * antal
-               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array[x][theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                findId.style.opacity = "1"
                 var counter = document.getElementById("räknare" + theCut)
                 var priceTotal = document.getElementById("priset" + theCut)
@@ -213,12 +252,12 @@ function addToCashier(idBox){
             }
             else {
                 
-                    var antal = array[theCut]
+                    var antal = array[x][theCut]
             document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
             findId.style.opacity = "1"
            findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span id ="räknare'+theCut+'"class ="cashierCount"> x' + 1 + '</span><span class ="vara">'+ item + '</span>' + '<span id="priset'+theCut +'" class ="priset">' +price + '</span></div>'
                     antal++
-                    array.splice(theCut,1, antal)
+                    array.splice(theCut,1, [x][theCut])
                     var number = price.substring(1)
                     var lastNumber = parseFloat(number)
                     alltihop = lastNumber +alltihop
@@ -230,16 +269,6 @@ function addToCashier(idBox){
 
 }
 
-function howManyDishesAdded(antal){
-    for (var i = 0; i < antal.length; i++){
 
-    }
-}
-
-function arraymove(arr, fromIndex, toIndex) {
-    var element = arr[fromIndex];
-    arr.splice(fromIndex, 1);
-    arr.splice(toIndex, 0, element);
-}
 
 
