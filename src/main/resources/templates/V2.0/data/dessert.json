@@ -1,32 +1,42 @@
 [{
     "dishName": "Voyatouch",
-    "price": 14.98
+    "price": 14.98,
+    "add" : 0
   }, {
     "dishName": "Vagram",
-    "price": 50.66
+    "price": 50.66,
+    "add" : 0
   }, {
     "dishName": "Bitchip",
-    "price": 13.05
+    "price": 13.05,
+    "add" : 0
   }, {
     "dishName": "Regrant",
-    "price": 99.48
+    "price": 99.48,
+    "add" : 0
   }, {
     "dishName": "Konklab",
-    "price": 84.71
+    "price": 84.71,
+    "add" : 0
   }, {
     "dishName": "Alphazap",
-    "price": 63.03
+    "price": 63.03,
+    "add" : 0
   }, {
     "dishName": "Treeflex",
-    "price": 73.72
+    "price": 73.72,
+    "add" : 0
   }, {
     "dishName": "Sub-Ex",
-    "price": 77.95
+    "price": 77.95,
+    "add" : 0
   }, {
     "dishName": "Asoka",
-    "price": 64.26
+    "price": 64.26,
+    "add" : 0
   }, {
     "dishName": "Bitwolf",
-    "price": 83.52
+    "price": 83.52,
+    "add" : 0
   }]
   

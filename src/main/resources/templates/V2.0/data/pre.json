@@ -1,48 +1,63 @@
 [{
     "dishName": "Tampflex",
-    "price": 88.42
+    "price": 88.42,
+    "add" : 0
   }, {
     "dishName": "Stim",
-    "price": 88.63
+    "price": 88.63,
+    "add" : 0
   }, {
     "dishName": "Temp",
-    "price": 39.19
+    "price": 39.19,
+    "add" : 0
   }, {
     "dishName": "Aerified",
-    "price": 69.25
+    "price": 69.25,
+    "add" : 0
   }, {
     "dishName": "Zontrax",
-    "price": 58.66
+    "price": 58.66,
+    "add" : 0
   }, {
     "dishName": "Voyatouch",
-    "price": 52.62
+    "price": 52.62,
+    "add" : 0
   }, {
     "dishName": "Ronstring",
-    "price": 2.6
+    "price": 2.6,
+    "add" : 0
   }, {
     "dishName": "Lotlux",
-    "price": 13.37
+    "price": 13.37,
+    "add" : 0
   }, {
     "dishName": "Y-Solowarm",
-    "price": 3.02
+    "price": 3.02,
+    "add" : 0
   }, {
     "dishName": "Namfix",
-    "price": 60.37
+    "price": 60.37,
+    "add" : 0
   }, {
     "dishName": "Zaam-Dox",
-    "price": 35.37
+    "price": 35.37,
+    "add" : 0
   }, {
     "dishName": "Stim",
-    "price": 37.23
+    "price": 37.23,
+    "add" : 0
   }, {
     "dishName": "Duobam",
-    "price": 97.58
+    "price": 97.58,
+    "add" : 0
   }, {
     "dishName": "Sonsing",
-    "price": 11.57
+    "price": 11.57,
+    "add" : 0
   }, {
     "dishName": "Otcom",
-    "price": 13.8
+    "price": 13.8,
+    "add" : 0
   }]
   
   
