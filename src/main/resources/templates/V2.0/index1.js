@@ -1,5 +1,35 @@
 
 var id1;
+function click(idPass){
+    var id = idPass.id
+    if(id = "bra"){
+        var dt = document.getElementById("bra")
+        dt.style.opacity = "1"
+        dt.style.fontSize = "15px"
+    }
+    if(id = "bra1"){
+        var dt = document.getElementById("bra")
+        dt.style.opacity = "0.5";
+        var dt2 = document.getElementById("bra1")
+        dt2.style.opacity = "1"
+        dt2.style.fontSize = "15px"
+        var dt3 = document.getElementById("bra2")
+        dt3.style.opacity = "1"
+    }
+    if(id = "bra2"){
+        var dt = document.getElementById("bra")
+        dt.style.opacity = "0.5";
+        var dt2 = document.getElementById("bra1")
+        dt2.style.opacity = "0.5"
+        
+        var dt3 = document.getElementById("bra2")
+        dt3.style.opacity = "1"
+        dt3.style.fontSize = "15px"
+    }
+
+    console.log("knapp tryckt")
+    
+}
 
 function showDishes(idElement){
     id1 = idElement.id
@@ -8,7 +38,7 @@ function showDishes(idElement){
     var idElement = document.getElementById(id1)
     var categoryText = idElement.innerHTML
     var stringCut = categoryText.split('<span')[0]
-    document.getElementById("BoxHeader").innerHTML = stringCut +"<div id ='hej'class='content2Text1'><span class='headtext1'>Popular</span>&nbsp; &nbsp;&nbsp;<span class='headtext2'>A/z</span>&nbsp; &nbsp;&nbsp;<span class='headtext3'>Price</span></div>"
+    document.getElementById("BoxHeader").innerHTML = stringCut +"<div id ='hej'class='content2Text1'><span id ='bra' class='headtext1' onclick='click(this)' >Popular</span>&nbsp; &nbsp;&nbsp;<span id ='bra1' class='headtext2' onclick='click(this)' >A-z</span>&nbsp; &nbsp;&nbsp;<span id='bra2' class='headtext3' onclick='click(this)'>Price</span></div>"
     var cutIdNumber = id1
     let lowerCase = stringCut.toLowerCase();
     
@@ -109,9 +139,11 @@ function showDishes(idElement){
 }
 
 function createBox(){
+    var number = id1.substring(4)
+
     var createContent = document.createElement("div")
-    createContent.setAttribute("class", id1)
-    createContent.setAttribute("id", id1 )
+    createContent.setAttribute("class", "ebox"+number)
+    createContent.setAttribute("id", "ebox" +number )
     var divId = document.getElementById("3")
     var getCategory = document.getElementById("BoxHeader")
     var categoryText1 = getCategory.innerHTML
@@ -126,7 +158,7 @@ function createBox(){
         
             for(var j = 0; j < check.length; j++){
                 var x = check[j]
-                if(id1 == x.id){
+                if(id1.substring(4) == x.id.substring(4)){
                     count++
             }
             }
@@ -196,7 +228,11 @@ function saveAllItem(){
 
 
 
+
+var array0 = []
 var array1 = []
+var array2 = []
+
 
 
 saveAllItem()
@@ -209,7 +245,7 @@ function createDishes(data,s){
     if(s == 0){
     for(var i = 0; i < data.length; i++){
     var createContent = document.createElement("div")
-    createContent.setAttribute("id", "dBox"+ i)
+    createContent.setAttribute("id", s+ "Box"+ i)
     createContent.setAttribute("class", "contentBox2")
     createContent.setAttribute("onclick", "addToCashier(this)")
     createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array0[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
@@ -228,7 +264,7 @@ function createDishes(data,s){
     if(s == 1){
         for(var i = 0; i < data.length; i++){
         var createContent = document.createElement("div")
-        createContent.setAttribute("id", "dBox"+ i)
+        createContent.setAttribute("id", s +"Box"+ i)
         createContent.setAttribute("class", "contentBox2")
         createContent.setAttribute("onclick", "addToCashier(this)")
         createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array1[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
@@ -247,7 +283,7 @@ function createDishes(data,s){
         if(s == 2){
             for(var i = 0; i < data.length; i++){
             var createContent = document.createElement("div")
-            createContent.setAttribute("id", "dBox"+ i)
+            createContent.setAttribute("id", s+"Box"+ i)
             createContent.setAttribute("class", "contentBox2")
             createContent.setAttribute("onclick", "addToCashier(this)")
             createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array2[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
@@ -297,12 +333,13 @@ function addToCashier(idBox){
     
     var check = document.getElementById("3").children
 
+    var num2 = id1.substring(4)
     
     
     var save = ""
             for(var j = 0; j < check.length; j++){
             var x = check[j]
-                if(id1 == x.id){
+                if(num2 == x.id.substring(4)){
                     save = x.id
                     
             }
@@ -310,7 +347,7 @@ function addToCashier(idBox){
 
         
 
-           var findElement = document.getElementsByClassName(save)[0]
+           var findElement = document.getElementById(save)
 
             
 
@@ -349,10 +386,10 @@ function addToCashier(idBox){
                var totalSumma = found[0].price * array0[theCut]
                document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array0[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                findId.style.opacity = "1"
-                var counter = document.getElementById("räknare" + theCut)
-                var priceTotal = document.getElementById("priset" + theCut)
-                counter.innerHTML ="x" + array0[theCut]
-                priceTotal.innerHTML = "£" + totalSumma
+                var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
+                var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
+                counter.innerHTML ="x" + array0[theCut] + " "
+                priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
                 alltihop = alltihop + totalSumma
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
@@ -361,17 +398,17 @@ function addToCashier(idBox){
                 if(dataNameLowerCase == "mains"){
                     var antal = array1[theCut]
                 antal++;
-                array0.splice(theCut, 1, antal)
+                array1.splice(theCut, 1, antal)
                 var int  = price.substring(1);
                 var number = parseFloat(int)
                // var totalSumma = number * antal
                var totalSumma = found[0].price * array1[theCut]
                document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array1[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                findId.style.opacity = "1"
-                var counter = document.getElementById("räknare" + theCut)
-                var priceTotal = document.getElementById("priset" + theCut)
-                counter.innerHTML ="x" + array1[theCut]
-                priceTotal.innerHTML = "£" + totalSumma
+                var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
+                var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
+                counter.innerHTML ="x" + array1[theCut] + " "
+                priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
                 alltihop = alltihop + totalSumma
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
@@ -379,17 +416,17 @@ function addToCashier(idBox){
                 if(dataNameLowerCase == "dessert"){
                     var antal = array2[theCut]
                 antal++;
-                array0.splice(theCut, 1, antal)
+                array2.splice(theCut, 1, antal)
                 var int  = price.substring(1);
                 var number = parseFloat(int)
                // var totalSumma = number * antal
                var totalSumma = found[0].price * array2[theCut]
                document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array2[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                findId.style.opacity = "1"
-                var counter = document.getElementById("räknare" + theCut)
-                var priceTotal = document.getElementById("priset" + theCut)
-                counter.innerHTML ="x" + array2[theCut]
-                priceTotal.innerHTML = "£" + totalSumma
+                var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
+                var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
+                counter.innerHTML ="x" + array2[theCut] + " "
+                priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
                 alltihop = alltihop + totalSumma
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
@@ -404,7 +441,7 @@ function addToCashier(idBox){
 
                 document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                 findId.style.opacity = "1"
-                findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span id ="räknare'+theCut+'"class ="cashierCount"> x' + 1 + '</span><span class ="vara">'+ item + '</span>' + '<span id="priset'+theCut +'" class ="priset">' +price + '</span></div>'
+                findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span id ="räknare'+dataNameLowerCase+ theCut+'"class ="cashierCount"> x' + 1 + ' ' + '</span><span class ="vara">'+ item +" " + '</span>' + '<span id="priset'+dataNameLowerCase+ theCut+'" class ="priset">' +price + '</span></div>'
                     
                     var number = price.substring(1)
                     var lastNumber = parseFloat(number)
@@ -420,7 +457,7 @@ function addToCashier(idBox){
                     
             document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
             findId.style.opacity = "1"
-           findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span id ="räknare'+theCut+'"class ="cashierCount"> x' + 1 + '</span><span class ="vara">'+ item + '</span>' + '<span id="priset'+theCut +'" class ="priset">' +price + '</span></div>'
+           findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span id ="räknare'+dataNameLowerCase+ theCut+'"class ="cashierCount"> x' + 1 + ' ' + '</span><span class ="vara">'+ item + '</span>' + '<span id="priset'+dataNameLowerCase+ theCut+'" class ="priset">' +price + '</span></div>'
                     
                     var number = price.substring(1)
                     var lastNumber = parseFloat(number)
@@ -436,7 +473,7 @@ function addToCashier(idBox){
 
         document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
         findId.style.opacity = "1"
-       findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span id ="räknare'+theCut+'"class ="cashierCount"> x' + 1 + '</span><span class ="vara">'+ item + '</span>' + '<span id="priset'+theCut +'" class ="priset">' +price + '</span></div>'
+       findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span id ="räknare'+dataNameLowerCase+ theCut+'"class ="cashierCount"> x' + 1 + ' ' + '</span><span class ="vara">'+ item + '</span>' + '<span id="priset'+dataNameLowerCase+ theCut +'" class ="priset">' +price + '</span></div>'
                 
                 var number = price.substring(1)
                 var lastNumber = parseFloat(number)

@@ -2,7 +2,7 @@
     
     color: white;
     transition: 0.9s; 
-    border-radius: 4px;
+    border-radius: 6px;
     display: flex;
     flex-direction:column; 
     flex:1;

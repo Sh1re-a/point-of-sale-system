@@ -27,7 +27,7 @@
 }
 body{
     overflow: hidden;
-    background-color: white
+    background-color: #105E65
 }
 
 
@@ -40,7 +40,8 @@ body{
     
     font-size: 20px;
     display:grid;
-
+    color: white;
+    background-color: #105E65;
     grid-template-columns: repeat(10, 1fr) ;
     grid-template-rows: repeat(8, 1fr) ;
 
@@ -52,25 +53,53 @@ body{
 
 .container div{
     padding: 10px;
-    border: 1px solid black;
+    
+    
+}
+
+.first{
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+    
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    list-style-type: none;
+    position: relative;
+    top: 28px;
+    left: 6px;
+}
+
+#bild1{
+    height: 40px;
+    width: 40px;
+    
 }
 
 .nav {
-    background-color: black;
+    
     display: grid;
     grid-column: 1;
     grid-column-end: 1;
-    grid-row: 1;
-    grid-row-end: 9;
-
+    grid-row: 2;
+    grid-row-end: 4;
+    list-style-type: none;
     display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-around;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    position: relative;
+    left:  6px;
+    top: 17px;
+    
+    
   
     
     
-    gap: 50px;
+    
 
     
 }
@@ -108,7 +137,7 @@ img{
 
 .content2Text1{
 
-    color: black;
+    
     font-size: 13px;
     display: flex;
     justify-content: space-evenly;
@@ -130,12 +159,6 @@ img{
 
 
 
-
-
-
-
-
-
 .content2Text{
     grid-column: 5;
     grid-column-end: 8;
@@ -154,10 +177,46 @@ img{
     grid-row: 1;
 
     display: flex;
+    
     align-items: flex-end;
     justify-content: space-between;
     font-size: 12px;
     
+}
+.broke{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.content3text2{
+    display: flex;
+    flex-direction: column;
+   
+    border-bottom: 1px solid white;
+    
+}
+
+.c31{
+    
+    text-align: left;
+    font-size: 16px;
+    padding-bottom: 5px;
+    
+}
+
+.c32{
+    
+    
+    
+    font-size: 10px;
+    opacity: 0.5;
+}
+
+.broke{
+    display: flex;
+    justify-content: space-between;
 }
 
 .content3{
@@ -170,7 +229,7 @@ img{
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end:  8;
-    gap:4px;
+    gap:10px;
     grid-template-columns: repeat(3, 1fr) ;
     grid-template-rows: repeat(3, 1fr) ;
     overflow: auto;
@@ -192,10 +251,12 @@ img{
     grid-column-end: 8;
     grid-row-start: 2;
     grid-row-end:  8;
-    gap: 4px;
+    gap: 10px;
     grid-template-columns: repeat(3, 1fr) ;
     grid-template-rows: repeat(3, 1fr) ;
     overflow: auto;
+    
+    
     
 }
 .content3{
@@ -236,6 +297,8 @@ img{
 
 .contentBox1{
     height: 145px;
+    cursor:pointer;
+    
     
 }
 .contentBox2{
@@ -243,9 +306,11 @@ img{
     height: 145px;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 4px;
+    border-radius: 6px;
+    cursor: pointer;
     opacity: 0.5;
-    animation: append-animate 0.2s
+    background-color: #313131
+    
     
 }
 .contentBox3{
@@ -260,6 +325,9 @@ img{
     grid-column: 2;
     grid-column-end:6;
     grid-row: 8;
+
+    font-size: 12px;
+    opacity: 0.5;
     
 }
 
@@ -267,11 +335,26 @@ img{
     grid-column-start: 8;
     grid-column-end: 11;
     grid-row: 7;
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
     font-size: 15px;
+    background-color: #008395;
 
+}
+
+#bra{
+    cursor: pointer;
+}
+
+#bra1{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#bra2{
+    opacity: 0.5;
+    cursor: pointer;
 }
