@@ -332,6 +332,7 @@ img{
 }
 
 .buyButton {
+    display: grid;
     grid-column-start: 8;
     grid-column-end: 11;
     grid-row: 7;
@@ -343,6 +344,15 @@ img{
     font-size: 15px;
     background-color: #008395;
 
+}
+
+.knapp{
+    display: grid;
+    grid-column-start: 10;
+    grid-column-end: 11;
+    grid-row: 7;
+    position: sticky;
+    left: 50px;
 }
 
 #bra{
