@@ -7,6 +7,7 @@
 }
 
 .cashierCount{
+    display: flex;
     order: 0;
     flex: 0 1 auto;
     align-self: flex-end;
@@ -15,18 +16,19 @@
 
 
 .vara{
-    
+    display: flex;
     order: 0;
-    flex: 1;
+    flex: 1 1 auto;
     align-self: flex-end;
     font-size: 16px;
-    
+    margin-left: 10px;
 
     
     
 }
 
 .priset{
+    display: flex;
     order: 0;
     flex: 0 1 auto;
     align-self: flex-end;

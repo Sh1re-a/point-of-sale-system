@@ -140,7 +140,7 @@ function showDishes(idElement){
 
 function createBox(){
     var number = id1.substring(4)
-
+    //Skapar boxen i kassan
     var createContent = document.createElement("div")
     createContent.setAttribute("class", "ebox"+number)
     createContent.setAttribute("id", "ebox" +number )
@@ -152,17 +152,15 @@ function createBox(){
 
     var check = document.getElementById("3").children
     
-   // var children = document.querySelectorAll("3");
+    //För att checka ifall category redan finns
 
     var count = 0;
-        
-            for(var j = 0; j < check.length; j++){
-                var x = check[j]
-                if(id1.substring(4) == x.id.substring(4)){
-                    count++
+    for(var j = 0; j < check.length; j++){
+        var x = check[j]
+        if(id1.substring(4) == x.id.substring(4)){
+                count++
             }
             }
-
             if(count > 0){
                 console.log("already exisist")
             }
@@ -227,7 +225,7 @@ function saveAllItem(){
 }
 
 
-
+//Sparar alla antalet rätter som är tillagda
 
 var array0 = []
 var array1 = []
@@ -316,26 +314,15 @@ function addToCashier(idBox){
     //TODO: Skapa en loop som lägger till
     createBox()
     var id = idBox.id
-
-
     var idElementItem = document.getElementById(id).getElementsByClassName("item")[0]
     var idElementPrice= document.getElementById(id).getElementsByClassName("price")[0]
-    
     var item = idElementItem.innerHTML
-    
-    
     var price = idElementPrice.innerHTML
 
-
-    
-    
-
-    
     var check = document.getElementById("3").children
-
     var num2 = id1.substring(4)
     
-    
+    //För att matcha rätt kassa med rätt kategori
     var save = ""
             for(var j = 0; j < check.length; j++){
             var x = check[j]
@@ -347,45 +334,39 @@ function addToCashier(idBox){
 
         
 
-           var findElement = document.getElementById(save)
+    var findElement = document.getElementById(save)
+    var theCut = id.substring(4);
 
-            
+    var findItem = document.getElementById("tjo"+theCut)
+    var findItem2 = findItem.innerHTML;
+    var findPrice = document.getElementById("tjena"+theCut)
+    var findPrice2 = findPrice.innerHTML;
 
-           var theCut = id.substring(4);
+    var findId = document.getElementById(id)
+    var kassanId = document.getElementById("kassa")
 
-           var findItem = document.getElementById("tjo"+theCut)
-           var findItem2 = findItem.innerHTML;
-           var findPrice = document.getElementById("tjena"+theCut)
-           var findPrice2 = findPrice.innerHTML;
-
-           var findId = document.getElementById(id)
-           var kassanId = document.getElementById("kassa")
-
-           var dataName = document.getElementById("BoxHeader").innerHTML
-           var cutDataName = dataName.split('<div')[0]
-           var dataNameLowerCase = cutDataName.toLowerCase()
+    var dataName = document.getElementById("BoxHeader").innerHTML
+    var cutDataName = dataName.split('<div')[0]
+    var dataNameLowerCase = cutDataName.toLowerCase()
            
-            
 
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "data/"+dataNameLowerCase+".json")
+    xhr.onload = function(){
+    var data = JSON.parse(this.response) 
 
-           var xhr = new XMLHttpRequest()
-            xhr.open("GET", "data/"+dataNameLowerCase+".json")
-            xhr.onload = function(){
-            var data = JSON.parse(this.response) 
-
-            var found = getItemCounterByItemName(findItem2,data)
+    var found = getItemCounterByItemName(findItem2,data)
         
-            if(findElement.innerHTML.includes(item)){
-                if(dataNameLowerCase == "pre"){
-                var antal = array0[theCut]
-                antal++;
-                array0.splice(theCut, 1, antal)
-                var int  = price.substring(1);
-                var number = parseFloat(int)
-               // var totalSumma = number * antal
-               var totalSumma = found[0].price * array0[theCut]
-               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array0[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
-               findId.style.opacity = "1"
+    if(findElement.innerHTML.includes(item)){
+        if(dataNameLowerCase == "pre"){
+            var antal = array0[theCut]
+            antal++;
+            array0.splice(theCut, 1, antal)
+            var int  = price.substring(1);
+            var number = parseFloat(int)
+            var totalSumma = found[0].price * array0[theCut]
+            document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array0[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+            findId.style.opacity = "1"
                 var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
                 var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
                 counter.innerHTML ="x" + array0[theCut] + " "

@@ -68,7 +68,7 @@ body{
     align-items: center;
     list-style-type: none;
     position: relative;
-    top: 28px;
+    top: 21px;
     left: 6px;
 }
 
@@ -318,7 +318,6 @@ img{
     grid-column-end: 3;
     grid-row: 1;
     grid-row-end: 1;
-    
 }
 
 .footer{
@@ -339,20 +338,32 @@ img{
     border-radius: 10px;
     display: flex;
     justify-content: center;
-    text-align: center;
+    text-align: left;
     align-items: center;
     font-size: 15px;
     background-color: #008395;
+   
+    
 
 }
 
 .knapp{
     display: grid;
-    grid-column-start: 10;
     grid-column-end: 11;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     grid-row: 7;
-    position: sticky;
-    left: 50px;
+    width: 40px;
+    border-left: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: #008395;
+    position: relative;
+    left: 35px
+    
+    
 }
 
 #bra{
@@ -367,4 +378,9 @@ img{
 #bra2{
     opacity: 0.5;
     cursor: pointer;
+}
+
+.buttonText{
+    position: relative;
+    left: -40px;
 }

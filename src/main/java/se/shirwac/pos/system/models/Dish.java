@@ -12,10 +12,10 @@ public class Dish {
     @Column(name="Price")
     private double price;
     @Column(name= "Category")
-    private DishCategory dishCategory;
+    private String dishCategory;
 
 
-    public Dish(long id, String name, double price, DishCategory dishCategory) {
+    public Dish(long id, String name, double price, String dishCategory) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -46,11 +46,11 @@ public class Dish {
         this.price = price;
     }
 
-    public DishCategory getDishCategory() {
+    public String getDishCategory() {
         return dishCategory;
     }
 
-    public void setDishCategory(DishCategory dishCategory) {
+    public void setDishCategory(String dishCategory) {
         this.dishCategory = dishCategory;
     }
 

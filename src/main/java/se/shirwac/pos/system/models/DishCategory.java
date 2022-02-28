@@ -1,12 +1,23 @@
 package se.shirwac.pos.system.models;
 
-public class DishCategory {
-   private long categoryID;
-   private String categoryName;
+import javax.persistence.*;
+import java.util.List;
 
-   public DishCategory(long categoryID, String categoryName) {
+
+@Entity
+public class DishCategory {
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   private long categoryID;
+   @Column(name = "CategoryName")
+   private String categoryName;
+   @Column(name = "Dishes")
+   private List<Dish> allDishes;
+
+   public DishCategory(long categoryID, String categoryName, List<Dish> allDishes) {
       this.categoryID = categoryID;
       this.categoryName = categoryName;
+      this.allDishes = allDishes;
    }
 
    public long getCategoryID() {
@@ -25,11 +36,20 @@ public class DishCategory {
       this.categoryName = categoryName;
    }
 
+   public List<Dish> getAllDishes() {
+      return allDishes;
+   }
+
+   public void setAllDishes(List<Dish> allDishes) {
+      this.allDishes = allDishes;
+   }
+
    @Override
    public String toString() {
       return "DishCategory{" +
               "categoryID=" + categoryID +
               ", categoryName='" + categoryName + '\'' +
+              ", allDishes=" + allDishes +
               '}';
    }
 }
