@@ -1,5 +1,7 @@
 package se.shirwac.pos.system.models;
 
+import se.shirwac.pos.system.enums.CategoryType;
+
 import javax.persistence.*;
 
 @Entity

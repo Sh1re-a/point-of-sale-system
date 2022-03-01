@@ -7,11 +7,14 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import springfox.documentation.builders.PathSelectors;
+import se.shirwac.pos.system.service.DatabaseSQL;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import java.io.FileNotFoundException;
+import java.sql.SQLException;
 
 @SpringBootApplication(scanBasePackages = {"se.shirwac.pos.system.*"})
 @ComponentScan(basePackages = {"se.shirwac.pos.system.*"})
@@ -19,7 +22,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableJpaRepositories(basePackages = {"se.shirwac.pos.system.*"})
 @EnableSwagger2
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException, FileNotFoundException {
+        DatabaseSQL x = new DatabaseSQL();
+        x.insert();
         SpringApplication.run(App.class, args);
     }
 
