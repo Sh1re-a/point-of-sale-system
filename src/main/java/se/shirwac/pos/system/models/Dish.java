@@ -3,23 +3,30 @@ package se.shirwac.pos.system.models;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Dish")
 public class Dish {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name="Name")
-    private String name;
+    @Column(name="DishName")
+    private String dishName;
     @Column(name="Price")
     private double price;
-    @Column(name= "Category")
-    private String dishCategory;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "dishCategory")
+    private CategoryType categoryType;
+    @Column(name = "orders")
+    private int orders;
 
 
-    public Dish(long id, String name, double price, String dishCategory) {
-        this.id = id;
-        this.name = name;
+    public Dish() {
+    }
+
+    public Dish(String dishName, double price, CategoryType categoryType, int orders) {
+        this.dishName = dishName;
         this.price = price;
-        this.dishCategory = dishCategory;
+        this.categoryType = categoryType;
+        this.orders = orders;
     }
 
     public long getId() {
@@ -30,12 +37,12 @@ public class Dish {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDishName() {
+        return dishName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDishName(String dishName) {
+        this.dishName = dishName;
     }
 
     public double getPrice() {
@@ -46,21 +53,30 @@ public class Dish {
         this.price = price;
     }
 
-    public String getDishCategory() {
-        return dishCategory;
+    public CategoryType getCategoryType() {
+        return categoryType;
     }
 
-    public void setDishCategory(String dishCategory) {
-        this.dishCategory = dishCategory;
+    public void setCategoryType(CategoryType categoryType) {
+        this.categoryType = categoryType;
+    }
+
+    public int getOrders() {
+        return orders;
+    }
+
+    public void setOrders(int orders) {
+        this.orders = orders;
     }
 
     @Override
     public String toString() {
         return "Dish{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", dishName='" + dishName + '\'' +
                 ", price=" + price +
-                ", dishCategory=" + dishCategory +
+                ", categoryType=" + categoryType +
+                ", orders=" + orders +
                 '}';
     }
 }

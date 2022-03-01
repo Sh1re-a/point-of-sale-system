@@ -34,7 +34,7 @@ public class AdminController {
     public String deleteDish(@PathVariable long id,@RequestBody Dish dish){
         Dish deleteDish = dishRepo.findById(id).get();
         dishRepo.delete(deleteDish);
-        return "Dish" + deleteDish.getName() + " is deleted";
+        return "Dish" + deleteDish.getDishName() + " is deleted";
 
     }
 

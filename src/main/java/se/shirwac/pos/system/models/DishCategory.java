@@ -1,55 +1,64 @@
-package se.shirwac.pos.system.models;
+/*package se.shirwac.pos.system.models;
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity
+@Table(name = "DishCategory")
 public class DishCategory {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private long categoryID;
+   private long id;
+   @Enumerated(EnumType.STRING)
    @Column(name = "CategoryName")
-   private String categoryName;
-   @Column(name = "Dishes")
-   private List<Dish> allDishes;
+   private CategoryType categoryType;
+   @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE, mappedBy = "dishCategory")
+   @JoinColumn(name = "dishName")
+   private Dish dish;
 
-   public DishCategory(long categoryID, String categoryName, List<Dish> allDishes) {
-      this.categoryID = categoryID;
-      this.categoryName = categoryName;
-      this.allDishes = allDishes;
+
+   public DishCategory() {
    }
 
-   public long getCategoryID() {
-      return categoryID;
+   public DishCategory(CategoryType categoryType, Dish dish) {
+      this.categoryType = categoryType;
+      this.dish = dish;
    }
 
-   public void setCategoryID(long categoryID) {
-      this.categoryID = categoryID;
+   public long getId() {
+      return id;
    }
 
-   public String getCategoryName() {
-      return categoryName;
+   public void setId(long id) {
+      this.id = id;
    }
 
-   public void setCategoryName(String categoryName) {
-      this.categoryName = categoryName;
+
+   public CategoryType getCategoryType() {
+      return categoryType;
    }
 
-   public List<Dish> getAllDishes() {
-      return allDishes;
+   public void setCategoryType(CategoryType categoryType) {
+      this.categoryType = categoryType;
    }
 
-   public void setAllDishes(List<Dish> allDishes) {
-      this.allDishes = allDishes;
+   public Dish getDish() {
+      return dish;
    }
+
+   public void setDish(Dish dish) {
+      this.dish = dish;
+   }
+
 
    @Override
    public String toString() {
       return "DishCategory{" +
-              "categoryID=" + categoryID +
-              ", categoryName='" + categoryName + '\'' +
-              ", allDishes=" + allDishes +
+              "id=" + id +
+              ", categoryType=" + categoryType +
+              ", dish=" + dish +
               '}';
    }
 }
+
+ */
