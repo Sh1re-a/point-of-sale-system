@@ -23,9 +23,9 @@ import java.sql.SQLException;
 @EnableSwagger2
 public class App {
     public static void main(String[] args) throws SQLException, FileNotFoundException {
+        SpringApplication.run(App.class, args);
         DatabaseSQL x = new DatabaseSQL();
         x.insert();
-        SpringApplication.run(App.class, args);
     }
 
     @Bean

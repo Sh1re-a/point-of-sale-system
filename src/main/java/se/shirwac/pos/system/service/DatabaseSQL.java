@@ -1,6 +1,7 @@
 package se.shirwac.pos.system.service;
 
 import org.apache.ibatis.jdbc.ScriptRunner;
+import org.springframework.stereotype.Service;
 import se.shirwac.pos.system.models.Dish;
 
 import java.io.BufferedReader;
@@ -13,6 +14,7 @@ import java.sql.SQLException;
 
 
 //Skapat en färdig database man kan leka med, generarat datan från mocakaroGenerator
+@Service
 public class DatabaseSQL {
     private final String url = "jdbc:mysql://localhost:3306/STI?useSSL=false&serverTimezone=UTC";
     private final String user = "root";

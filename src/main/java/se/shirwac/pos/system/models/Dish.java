@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Dish")
-public class Dish {
+public class Dish  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

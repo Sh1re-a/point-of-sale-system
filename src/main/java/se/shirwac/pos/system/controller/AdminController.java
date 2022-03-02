@@ -1,9 +1,13 @@
 package se.shirwac.pos.system.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import se.shirwac.pos.system.enums.CategoryType;
 import se.shirwac.pos.system.models.Dish;
 import se.shirwac.pos.system.repo.DishRepo;
+import se.shirwac.pos.system.service.DishService;
 
 import java.util.List;
 
@@ -22,6 +26,13 @@ public class AdminController {
     public List<Dish> getAllDishes(){
         return dishRepo.findAll();
     }
+
+   @GetMapping(value = "/category/{categoryType}/")
+    public List<Dish> byCategory(@PathVariable CategoryType categoryType){
+        return dishRepo.findByCategoryType(categoryType);
+    }
+
+
 
     @PostMapping(value = "/save/dish")
     public String saveDish(@RequestBody Dish dish){
