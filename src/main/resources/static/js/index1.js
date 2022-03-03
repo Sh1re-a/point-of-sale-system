@@ -44,7 +44,7 @@ function showDishes(idElement){
     var stringCut = categoryText.split('<span')[0]
     document.getElementById("BoxHeader").innerHTML = stringCut +"<div id ='hej'class='content2Text1'><span id ='bra' class='headtext1' onclick='click(this)' >Popular</span>&nbsp; &nbsp;&nbsp;<span id ='bra1' class='headtext2' onclick='click(this)' >A-z</span>&nbsp; &nbsp;&nbsp;<span id='bra2' class='headtext3' onclick='click(this)'>Price</span></div>"
     var cutIdNumber = id1
-    let lowerCase = stringCut.toLowerCase();
+    let upperCase = stringCut.toUpperCase();
     
 
     var element = document.getElementsByClassName("contentBox2")
@@ -53,93 +53,48 @@ function showDishes(idElement){
     var totalDish = 14;
 
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "data/"+lowerCase+".json")
+    xhr.open("GET", "http://localhost:8081/dishes?categoryType="+ upperCase)
     xhr.onload = function(){
         var data = JSON.parse(this.response)
-                if(lowerCase.includes("pre")){
+                if(upperCase.includes("PRE")){
                 s = 0;
                 createDishes(data,s)
            }
-            else if(lowerCase == "mains"){
+            else if(upperCase.includes("MAINS")){
                 s = 1;
                 createDishes(data,s)
             }
-            else if(lowerCase == "dessert"){
+            else if(upperCase.includes("DESSERTS")){
                 s = 2;
                 createDishes(data,s)
             }
-            else if(lowerCase == "wines"){
+            else if(upperCase.includes("WINES")){
                 s = 3;
                 createDishes(data,s)
             }
-            else if(lowerCase == "beers"){
+            else if(upperCase.includes("BEERS")){
                 s = 4;
                 createDishes(data,s)
             }
-            else if(lowerCase == "drinks"){
+            else if(upperCase.includes("DRINKS")){
                 s = 5;
                 createDishes(data,s)
             }
-            else if(lowerCase == "snacks"){
+            else if(upperCase.includes("SNACKS")){
                 s = 6;
                 createDishes(data,s)
             }
-            else if(lowerCase == "addons"){
+            else if(upperCase.includes("ADDONS")){
                 s = 7;
                 createDishes(data,s)
             }
-            else if(lowerCase == "extra"){
+            else if(upperCase.includes("EXTRA")){
                 s = 8;
                 createDishes(data,s)
             } 
      
     }
     xhr.send()
-    
-    
-    
-
-   /* var createContent = document.createElement("div")
-    createContent.setAttribute("class", cutIdNumber)
-    createContent.setAttribute("id", cutIdNumber )
-    var divId = document.getElementById("3")
-    var getCategory = document.getElementById("BoxHeader")
-    var categoryText1 = getCategory.innerHTML
-    var splitText = categoryText1.split('<span')[0]
-    createContent.innerHTML = '<span class="varaHeader">' + stringCut + '</span>'
-    
-
-    
-    
-    var check = document.getElementById("3").children
-    
-   // var children = document.querySelectorAll("3");
-
-    var count = 0;
-        
-            for(var j = 0; j < check.length; j++){
-                var x = check[j]
-                if(id1 == x.id){
-                    count++
-            }
-            }
-
-            if(count > 0){
-                console.log("already exisist")
-            }
-            else
-            divId.append(createContent)
-
-     //  if(!check[i].id == cutIdNumber){
-           
-    //   }
-
-  // }
-   console.log(check[0])
-   console.log(check[1])
-
-    */
-
 }
 
 function createBox(){
@@ -224,6 +179,80 @@ function saveAllItem(){
         
          }            
     xhr.send()
+
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "http://localhost:8081/list")
+    xhr.onload = function(){
+        var data = JSON.parse(this.response) 
+         var i = JSON.stringify(data[3]);
+         var howManyItemsInStock = document.getElementById("nummer" + 2)
+         howManyItemsInStock.innerHTML = i + " "
+        array3 = savingItemInLocalStorage(data[3])
+  
+        
+         }            
+    xhr.send()
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "http://localhost:8081/list")
+    xhr.onload = function(){
+        var data = JSON.parse(this.response) 
+         var i = JSON.stringify(data[4]);
+         var howManyItemsInStock = document.getElementById("nummer" + 2)
+         howManyItemsInStock.innerHTML = i + " "
+        array4 = savingItemInLocalStorage(data[4])
+  
+        
+         }            
+    xhr.send()
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "http://localhost:8081/list")
+    xhr.onload = function(){
+        var data = JSON.parse(this.response) 
+         var i = JSON.stringify(data[5]);
+         var howManyItemsInStock = document.getElementById("nummer" + 2)
+         howManyItemsInStock.innerHTML = i + " "
+        array5 = savingItemInLocalStorage(data[5])
+  
+        
+         }            
+    xhr.send()
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "http://localhost:8081/list")
+    xhr.onload = function(){
+        var data = JSON.parse(this.response) 
+         var i = JSON.stringify(data[6]);
+         var howManyItemsInStock = document.getElementById("nummer" + 2)
+         howManyItemsInStock.innerHTML = i + " "
+        array6 = savingItemInLocalStorage(data[6])
+  
+        
+         }            
+    xhr.send()
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "http://localhost:8081/list")
+    xhr.onload = function(){
+        var data = JSON.parse(this.response) 
+         var i = JSON.stringify(data[7]);
+         var howManyItemsInStock = document.getElementById("nummer" + 2)
+         howManyItemsInStock.innerHTML = i + " "
+        array7 = savingItemInLocalStorage(data[7])
+  
+        
+         }            
+    xhr.send()
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "http://localhost:8081/list")
+    xhr.onload = function(){
+        var data = JSON.parse(this.response) 
+         var i = JSON.stringify(data[8]);
+         var howManyItemsInStock = document.getElementById("nummer" + 2)
+         howManyItemsInStock.innerHTML = i + " "
+        array8 = savingItemInLocalStorage(data[8])
+  
+        
+         }            
+    xhr.send()
+    
 }
 
 
@@ -232,6 +261,14 @@ function saveAllItem(){
 var array0 = []
 var array1 = []
 var array2 = []
+var array3 = []
+var array4 = []
+var array5 = []
+var array6 = []
+var array7 = []
+var array8 = []
+
+
 
 
 
@@ -242,7 +279,7 @@ saveAllItem()
 
 function createDishes(data,s){
     
-    if(s == 0){
+    if(s == 0) {
     for(var i = 0; i < data.length; i++){
     var createContent = document.createElement("div")
     createContent.setAttribute("id", s+ "Box"+ i)
@@ -260,7 +297,8 @@ function createDishes(data,s){
         createContent.classList.remove("faded-out")
       })
     }
-    }
+}
+    
     if(s == 1){
         for(var i = 0; i < data.length; i++){
         var createContent = document.createElement("div")
@@ -299,6 +337,126 @@ function createDishes(data,s){
               })
             }
             }
+
+            if(s == 3){
+                for(var i = 0; i < data.length; i++){
+                var createContent = document.createElement("div")
+                createContent.setAttribute("id", s+"Box"+ i)
+                createContent.setAttribute("class", "contentBox2")
+                createContent.setAttribute("onclick", "addToCashier(this)")
+                createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array3[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+                
+               
+                var divId2 = document.getElementById("2")
+                
+                divId2.appendChild(createContent)
+                createContent.classList.add("dbox" + 1, "faded-out")
+                createContent.classList.remove("faded-out")
+                requestAnimationFrame(() => {
+                    createContent.classList.remove("faded-out")
+                  })
+                }
+                }
+
+                if(s == 4){
+                    for(var i = 0; i < data.length; i++){
+                    var createContent = document.createElement("div")
+                    createContent.setAttribute("id", s+"Box"+ i)
+                    createContent.setAttribute("class", "contentBox2")
+                    createContent.setAttribute("onclick", "addToCashier(this)")
+                    createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array4[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+                    
+                   
+                    var divId2 = document.getElementById("2")
+                    
+                    divId2.appendChild(createContent)
+                    createContent.classList.add("dbox" + 1, "faded-out")
+                    createContent.classList.remove("faded-out")
+                    requestAnimationFrame(() => {
+                        createContent.classList.remove("faded-out")
+                      })
+                    }
+                    }
+
+                    if(s == 5){
+                        for(var i = 0; i < data.length; i++){
+                        var createContent = document.createElement("div")
+                        createContent.setAttribute("id", s+"Box"+ i)
+                        createContent.setAttribute("class", "contentBox2")
+                        createContent.setAttribute("onclick", "addToCashier(this)")
+                        createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array5[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+                        
+                       
+                        var divId2 = document.getElementById("2")
+                        
+                        divId2.appendChild(createContent)
+                        createContent.classList.add("dbox" + 1, "faded-out")
+                        createContent.classList.remove("faded-out")
+                        requestAnimationFrame(() => {
+                            createContent.classList.remove("faded-out")
+                          })
+                        }
+                        }
+
+                        if(s == 6){
+                            for(var i = 0; i < data.length; i++){
+                            var createContent = document.createElement("div")
+                            createContent.setAttribute("id", s+"Box"+ i)
+                            createContent.setAttribute("class", "contentBox2")
+                            createContent.setAttribute("onclick", "addToCashier(this)")
+                            createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array6[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+                            
+                           
+                            var divId2 = document.getElementById("2")
+                            
+                            divId2.appendChild(createContent)
+                            createContent.classList.add("dbox" + 1, "faded-out")
+                            createContent.classList.remove("faded-out")
+                            requestAnimationFrame(() => {
+                                createContent.classList.remove("faded-out")
+                              })
+                            }
+                            }
+
+                            if(s == 7){
+                                for(var i = 0; i < data.length; i++){
+                                var createContent = document.createElement("div")
+                                createContent.setAttribute("id", s+"Box"+ i)
+                                createContent.setAttribute("class", "contentBox2")
+                                createContent.setAttribute("onclick", "addToCashier(this)")
+                                createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array7[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+                                
+                               
+                                var divId2 = document.getElementById("2")
+                                
+                                divId2.appendChild(createContent)
+                                createContent.classList.add("dbox" + 1, "faded-out")
+                                createContent.classList.remove("faded-out")
+                                requestAnimationFrame(() => {
+                                    createContent.classList.remove("faded-out")
+                                  })
+                                }
+                                }
+                                if(s == 8){
+                                    for(var i = 0; i < data.length; i++){
+                                    var createContent = document.createElement("div")
+                                    createContent.setAttribute("id", s+"Box"+ i)
+                                    createContent.setAttribute("class", "contentBox2")
+                                    createContent.setAttribute("onclick", "addToCashier(this)")
+                                    createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array8[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+                                    
+                                   
+                                    var divId2 = document.getElementById("2")
+                                    
+                                    divId2.appendChild(createContent)
+                                    createContent.classList.add("dbox" + 1, "faded-out")
+                                    createContent.classList.remove("faded-out")
+                                    requestAnimationFrame(() => {
+                                        createContent.classList.remove("faded-out")
+                                      })
+                                    }
+                                    }
+            
 }
 
 function getItemCounterByItemName(dishName,data) {
@@ -349,18 +507,18 @@ function addToCashier(idBox){
 
     var dataName = document.getElementById("BoxHeader").innerHTML
     var cutDataName = dataName.split('<div')[0]
-    var dataNameLowerCase = cutDataName.toLowerCase()
+    var dataNameLowerCase = cutDataName.toUpperCase()
            
 
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "data/"+dataNameLowerCase+".json")
+    xhr.open("GET", "http://localhost:8081/dishes?categoryType="+dataNameLowerCase)
     xhr.onload = function(){
     var data = JSON.parse(this.response) 
 
     var found = getItemCounterByItemName(findItem2,data)
         
     if(findElement.innerHTML.includes(item)){
-        if(dataNameLowerCase == "pre"){
+        if(dataNameLowerCase == "PRE"){
             var antal = array0[theCut]
             antal++;
             array0.splice(theCut, 1, antal)
@@ -373,12 +531,12 @@ function addToCashier(idBox){
                 var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
                 counter.innerHTML ="x" + array0[theCut] + " "
                 priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
-                alltihop = alltihop + totalSumma
+                alltihop = alltihop + (totalSumma/array0[theCut])
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
                // findElement.innerHTML = + '<div class ="content31"><span class ="cashierCount"> x' + array[theCut] + '</span><span class ="vara">'+ item + '</span>' + '<span class ="priset">€' +totalSumma + '</span></div>'
                 }
-                if(dataNameLowerCase == "mains"){
+                if(dataNameLowerCase == "MAINS"){
                     var antal = array1[theCut]
                 antal++;
                 array1.splice(theCut, 1, antal)
@@ -392,12 +550,13 @@ function addToCashier(idBox){
                 var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
                 counter.innerHTML ="x" + array1[theCut] + " "
                 priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
-                alltihop = alltihop + totalSumma
+                alltihop = alltihop + (totalSumma/array1[theCut])
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
                 }
-                if(dataNameLowerCase == "dessert"){
+                if(dataNameLowerCase == "DESSERTS"){
                     var antal = array2[theCut]
+                    
                 antal++;
                 array2.splice(theCut, 1, antal)
                 var int  = price.substring(1);
@@ -410,14 +569,122 @@ function addToCashier(idBox){
                 var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
                 counter.innerHTML ="x" + array2[theCut] + " "
                 priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
-                alltihop = alltihop + totalSumma
+                alltihop = alltihop  + (totalSumma/array2[theCut])
+                var ja = alltihop.toFixed(2)
+                kassanId.innerHTML = " €"+ja
+                }
+                if(dataNameLowerCase == "WINES"){
+                    var antal = array3[theCut]
+                antal++;
+                array3.splice(theCut, 1, antal)
+                var int  = price.substring(1);
+                var number = parseFloat(int)
+               // var totalSumma = number * antal
+               var totalSumma = found[0].price * array3[theCut]
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array3[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               findId.style.opacity = "1"
+                var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
+                var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
+                counter.innerHTML ="x" + array3[theCut] + " "
+                priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
+                alltihop = alltihop + (totalSumma/array3[theCut])
+                var ja = alltihop.toFixed(2)
+                kassanId.innerHTML = " €"+ja
+                }
+                if(dataNameLowerCase == "BEERS"){
+                    var antal = array4[theCut]
+                antal++;
+                array4.splice(theCut, 1, antal)
+                var int  = price.substring(1);
+                var number = parseFloat(int)
+               // var totalSumma = number * antal
+               var totalSumma = found[0].price * array4[theCut]
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array4[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               findId.style.opacity = "1"
+                var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
+                var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
+                counter.innerHTML ="x" + array4[theCut] + " "
+                priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
+                alltihop = alltihop + (totalSumma/array4[theCut])
+                var ja = alltihop.toFixed(2)
+                kassanId.innerHTML = " €"+ja
+                }
+                if(dataNameLowerCase == "DRINKS"){
+                    var antal = array5[theCut]
+                antal++;
+                array5.splice(theCut, 1, antal)
+                var int  = price.substring(1);
+                var number = parseFloat(int)
+               // var totalSumma = number * antal
+               var totalSumma = found[0].price * array5[theCut]
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array5[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               findId.style.opacity = "1"
+                var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
+                var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
+                counter.innerHTML ="x" + array5[theCut] + " "
+                priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
+                alltihop = alltihop + (totalSumma/array5[theCut])
+                var ja = alltihop.toFixed(2)
+                kassanId.innerHTML = " €"+ja
+                }
+                if(dataNameLowerCase == "SNACKS"){
+                    var antal = array6[theCut]
+                antal++;
+                array6.splice(theCut, 1, antal)
+                var int  = price.substring(1);
+                var number = parseFloat(int)
+               // var totalSumma = number * antal
+               var totalSumma = found[0].price * array6[theCut]
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array6[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               findId.style.opacity = "1"
+                var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
+                var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
+                counter.innerHTML ="x" + array6[theCut] + " "
+                priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
+                alltihop = alltihop + (totalSumma/array6[theCut])
+                var ja = alltihop.toFixed(2)
+                kassanId.innerHTML = " €"+ja
+                }
+                if(dataNameLowerCase == "ADDONS"){
+                    var antal = array7[theCut]
+                antal++;
+                array7.splice(theCut, 1, antal)
+                var int  = price.substring(1);
+                var number = parseFloat(int)
+               // var totalSumma = number * antal
+               var totalSumma = found[0].price * array7[theCut]
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array7[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               findId.style.opacity = "1"
+                var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
+                var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
+                counter.innerHTML ="x" + array7[theCut] + " "
+                priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
+                alltihop = alltihop + (totalSumma/array7[theCut])
+                var ja = alltihop.toFixed(2)
+                kassanId.innerHTML = " €"+ja
+                }
+                if(dataNameLowerCase == "EXTRA"){
+                    var antal = array8[theCut]
+                antal++;
+                array8.splice(theCut, 1, antal)
+                var int  = price.substring(1);
+                var number = parseFloat(int)
+               // var totalSumma = number * antal
+               var totalSumma = found[0].price * array8[theCut]
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array8[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               findId.style.opacity = "1"
+                var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
+                var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
+                counter.innerHTML ="x" + array8[theCut] + " "
+                priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
+                alltihop = alltihop + (totalSumma/array8[theCut])
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
                 }
 
             }
             else {
-                if(dataNameLowerCase == "pre"){
+                if(dataNameLowerCase == "PRE"){
                      var antal = array0[theCut]
                     antal++
                     array0.splice(theCut, 1, antal)
@@ -432,7 +699,7 @@ function addToCashier(idBox){
                    var ja = alltihop.toFixed(2)
                     kassanId.innerHTML = " €"+ja;
             }
-                if(dataNameLowerCase == "mains"){
+                if(dataNameLowerCase == "MAINS"){
                     var antal = array1[theCut]
                     antal++
                     array1.splice(theCut, 1, antal)
@@ -449,7 +716,7 @@ function addToCashier(idBox){
                     kassanId.innerHTML = " €"+ja;
             }
 
-            if(dataNameLowerCase == "dessert"){
+            if(dataNameLowerCase == "DESSERTS"){
                 var antal = array2[theCut]
                 antal++
                 array2.splice(theCut, 1, antal)
@@ -464,6 +731,101 @@ function addToCashier(idBox){
                var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja;
         }
+
+        if(dataNameLowerCase == "WINES"){
+            var antal = array3[theCut]
+            antal++
+            array3.splice(theCut, 1, antal)
+
+    document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+    findId.style.opacity = "1"
+   findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span id ="räknare'+dataNameLowerCase+ theCut+'"class ="cashierCount"> x' + 1 + ' ' + '</span><span class ="vara">'+ item + '</span>' + '<span id="priset'+dataNameLowerCase+ theCut +'" class ="priset">' +price + '</span></div>'
+            
+            var number = price.substring(1)
+            var lastNumber = parseFloat(number)
+            alltihop = lastNumber +alltihop
+           var ja = alltihop.toFixed(2)
+            kassanId.innerHTML = " €"+ja;
+    }
+    if(dataNameLowerCase == "BEERS"){
+        var antal = array4[theCut]
+        antal++
+        array4.splice(theCut, 1, antal)
+
+        document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+        findId.style.opacity = "1"
+        findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span id ="räknare'+dataNameLowerCase+ theCut+'"class ="cashierCount"> x' + 1 + ' ' + '</span><span class ="vara">'+ item + '</span>' + '<span id="priset'+dataNameLowerCase+ theCut +'" class ="priset">' +price + '</span></div>'
+        
+        var number = price.substring(1)
+        var lastNumber = parseFloat(number)
+        alltihop = lastNumber +alltihop
+       var ja = alltihop.toFixed(2)
+        kassanId.innerHTML = " €"+ja;
+    }
+
+    if(dataNameLowerCase == "DRINKS"){
+        var antal = array5[theCut]
+        antal++
+        array5.splice(theCut, 1, antal)
+
+document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+findId.style.opacity = "1"
+findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span id ="räknare'+dataNameLowerCase+ theCut+'"class ="cashierCount"> x' + 1 + ' ' + '</span><span class ="vara">'+ item + '</span>' + '<span id="priset'+dataNameLowerCase+ theCut +'" class ="priset">' +price + '</span></div>'
+        
+        var number = price.substring(1)
+        var lastNumber = parseFloat(number)
+        alltihop = lastNumber +alltihop
+       var ja = alltihop.toFixed(2)
+        kassanId.innerHTML = " €"+ja;
+}       
+
+if(dataNameLowerCase == "SNACKS"){
+    var antal = array6[theCut]
+    antal++
+    array6.splice(theCut, 1, antal)
+
+document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+findId.style.opacity = "1"
+findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span id ="räknare'+dataNameLowerCase+ theCut+'"class ="cashierCount"> x' + 1 + ' ' + '</span><span class ="vara">'+ item + '</span>' + '<span id="priset'+dataNameLowerCase+ theCut +'" class ="priset">' +price + '</span></div>'
+    
+    var number = price.substring(1)
+    var lastNumber = parseFloat(number)
+    alltihop = lastNumber +alltihop
+   var ja = alltihop.toFixed(2)
+    kassanId.innerHTML = " €"+ja;
+}
+
+if(dataNameLowerCase == "ADDONS"){
+    var antal = array7[theCut]
+    antal++
+    array7.splice(theCut, 1, antal)
+
+document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+findId.style.opacity = "1"
+findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span id ="räknare'+dataNameLowerCase+ theCut+'"class ="cashierCount"> x' + 1 + ' ' + '</span><span class ="vara">'+ item + '</span>' + '<span id="priset'+dataNameLowerCase+ theCut +'" class ="priset">' +price + '</span></div>'
+    
+    var number = price.substring(1)
+    var lastNumber = parseFloat(number)
+    alltihop = lastNumber +alltihop
+   var ja = alltihop.toFixed(2)
+    kassanId.innerHTML = " €"+ja;
+}
+if(dataNameLowerCase == "EXTRA"){
+    var antal = array7[theCut]
+    antal++
+    array7.splice(theCut, 1, antal)
+
+document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+findId.style.opacity = "1"
+findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span id ="räknare'+dataNameLowerCase+ theCut+'"class ="cashierCount"> x' + 1 + ' ' + '</span><span class ="vara">'+ item + '</span>' + '<span id="priset'+dataNameLowerCase+ theCut +'" class ="priset">' +price + '</span></div>'
+    
+    var number = price.substring(1)
+    var lastNumber = parseFloat(number)
+    alltihop = lastNumber +alltihop
+   var ja = alltihop.toFixed(2)
+    kassanId.innerHTML = " €"+ja;
+}
+
 
             }
                 }
@@ -480,6 +842,19 @@ function savingItemInLocalStorage(data){
         array.push(0)
     }
     return array
+}
+
+function buy(){
+    var x = document.getElementById("container")
+    x.style.filter='blur(8px)'
+    var createElement = document.createElement("div")
+    createElement.setAttribute("class", "container2")
+    createElement.setAttribute("id", "container2")
+createElement.innerHTML="hej"
+    createElement.style.gridColumnStart
+    var getBody = document.getElementById("body")
+
+    getBody.appendChild(createElement)
 }
 
 

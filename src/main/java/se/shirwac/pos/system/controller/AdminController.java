@@ -27,7 +27,7 @@ public class AdminController {
         return dishRepo.findAll();
     }
 
-   @GetMapping(value = "/category/{categoryType}/")
+    @GetMapping(value = "/category/{categoryType}/")
     public List<Dish> byCategory(@PathVariable CategoryType categoryType){
         return dishRepo.findByCategoryType(categoryType);
     }

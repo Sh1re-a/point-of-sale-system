@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="../../static/css/styles1.css">
     <link rel="stylesheet" href="../../static/css/boxColor.css">
     <link rel="stylesheet" href="../../static/css/secondBoxes.css">
-    <link rel="stylesheet" href="../../static/css/secondBoxes.css">
+    <link rel="stylesheet" href="../../static/css/thirdBoxes.css">
     
     <title>Document</title>
 </head>
-<body>
+<body id ="body">
    
 
-    <div class="container">
+    <div class="container" id = "container">
         <div class="first">
             <li><a href="#"><img id = "bild1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAADv0lEQVR4nO3dP4gVVxTH8d+JMVFxNyZYBEzinyBaRFy0sRIEkxi18E9gwcLCIq2YBCxSirCN9gmkEbRY0SDYifkHAdEoSSNEC4u1kCCKrmgw6tdi3oNlXXXnzp133sw7H9jy3nvu+TEzj9n7dqUQQgghhBBCaABgAXAUuN35OQIs8K5rIAAfAZd40V/Ax971tRrwBXBnhuZ33QN2eNfZOoABB4Gnr2h+1zNgDHjDu+5WAIaAU7No/HRngXe96280YDVwNaH5XdeBNd77aCRgFHhQofldk8Co934aA5hDcQ9/lqH5U30PzPXeX18DFgPnMjd+qt+A97332ZeAdcCNGpvfdRPY4L3fvgLsBR72oPld/wH7vfftDngb+KGHjZ/uGDDfuw8ugA+AC47N77oCLPPuR08BG4Fbzo2f6jbwqXdfegL4Cnjs3PCZPKF43WHePaoFsBAY9+3xrJwB3ulVX3qSNrBS0mlJn/RivQz+kbTLzK7WvVDtbwyB7ZIuqjnNl6RVki4Au+teqLYA6LxClnRG0qK61qnRkKSTFK9F5tS1SC23IOA9SSckfV7H/A5+lTRqZv/mnjh7AMCIpFOSVuSe29mEpN1mdinnpFlvQcAeSX+ofc2XpA8l/Q7syzlplgCAN4ExSccltfl0wjxJP1K82n4rx4SVb0Gdz8w/SdpUvZxG+UXSTjO7V2WSSgEAw51C1lWZp8EuS9pkZpOpEyTfgihOHYxrcJsvSesljVPhBEaVZ8C3as/HzCq2SPo6dXDSLQhYIuma2v3ALeORpFVmNlF2YOoV8J2i+VPNl3QwZWDpK6DzqeempIUpC7bYpKQlZR/IKVfAVkXzZzKk4nlQSkoAmxPGDIrPyg5ICWAkYcygWFt2QEoASxPGDIrlZQekPIQfS4ojfjP738xKvSNKCYCyYwaJmZXqaXyJwVkE4CwCcBYBOIsAnEUAziIAZxGAswjAWQTgLAJwFgE4iwCcRQDOIgBnTQlgQtKXkobtNSQNS9qp4mtGfa8Jv5CZkDRiZnfKDKL4W0F/qzhW3jNt/IXMgbLNlyQzuyvpmxrqyaoJV8Bw6unjzuntSsfHyyp7BfR9AGU3NF2/19uEW1CrRQDOIgBnEYCzCMBZBOAsAnAWATiLAJxFAM4iAGcRgLMIwFkE4CwCcBYBOIsAnKUE8CB7FS93P8McfV1vSgB/JoxJlWOtvq43JYCjCWNS5VirafW+HnC43r+fDcChQa13tpvaDvxM8W+icpkEzgPbBr3eEEIIIYQQQgihnZ4D0o0a6SfvemkAAAAASUVORK5CYII=">
             </a></li></div>
@@ -38,7 +38,7 @@
         <div class="content1">
             <div id = "cBox1" class="contentBox1" onclick="showDishes(this)">Pre<span class="itemCount"><span id = "nummer0" class="nummer">10 </span>items</span></div>
             <div id = "cBox2" class="contentBox1" onclick="showDishes(this)">Mains<span class="itemCount"><span id = "nummer1" class="nummer">10 </span>items</span></div>
-            <div id = "cBox3" class="contentBox1" onclick="showDishes(this)">Dessert<span class="itemCount"><span id = "nummer2" class="nummer">10 </span>items</span></div>
+            <div id = "cBox3" class="contentBox1" onclick="showDishes(this)">Desserts<span class="itemCount"><span id = "nummer2" class="nummer">10 </span>items</span></div>
             <div id = "cBox4" class="contentBox1" onclick="showDishes(this)">Wines<span class="itemCount"><span id = "nummer3" class="nummer">10 </span>items</span></div>
             <div id = "cBox5" class="contentBox1" onclick="showDishes(this)">Beers<span class="itemCount"><span id = "nummer4" class="nummer">10 </span>items</span></div>
             <div id = "cBox6" class="contentBox1" onclick="showDishes(this)">Drinks<span class="itemCount"><span id = "nummer5" class="nummer">10 </span>items</span></div>
@@ -80,7 +80,7 @@
         </div>
         <div class="footer">Resturant app → Logged in as → Admin</div>
 
-        <div class="buyButton"><span class="buttonText">Charge customer  <span id="kassa"class="lastPrice"></span></span> </div>
+        <div class="buyButton" onclick="buy()"><span class="buttonText">Charge customer  <span id="kassa"class="lastPrice"></span></span> </div>
         <div class="knapp"><img src="image/dialpad.png" style="height: 22px; width: 22px;"></div>
 
 

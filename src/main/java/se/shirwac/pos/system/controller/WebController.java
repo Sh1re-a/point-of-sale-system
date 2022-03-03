@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import se.shirwac.pos.system.enums.CategoryType;
+import se.shirwac.pos.system.models.Dish;
 import se.shirwac.pos.system.repo.DishRepo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 @RestController
@@ -19,7 +21,6 @@ public class WebController {
     private DishRepo dishRepo;
 
     @GetMapping(value = "/list")
-
     public ArrayList<Integer> getCategoryCountItems(){
         ArrayList<Integer> myList = new ArrayList<Integer>();
         for (CategoryType type : CategoryType.values()){
@@ -27,7 +28,12 @@ public class WebController {
         }
         return myList;
 
+    }
 
+    @GetMapping(value="/dishes")
+    public List<Dish> getDish(CategoryType categoryType){
+       List<Dish> dishList = dishRepo.findByCategoryType(categoryType);
+       return dishList;
     }
 
 }

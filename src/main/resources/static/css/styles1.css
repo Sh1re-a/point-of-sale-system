@@ -27,13 +27,15 @@
 }
 body{
     overflow: hidden;
-    background-color: #105E65
+    background-color: #105E65;
 }
 
 
 .container{
+    z-index: 1;
     width: 100vw;
     height: 100vh;
+    position: absolute;
 
     font-family: HelveticaNeue, Helvetica, Arial, Verdana, sans-serif;
     font-weight: normal;
@@ -49,6 +51,18 @@ body{
     padding-right: 20px;
     
     box-sizing: border-box;
+    
+
+}
+.container2{
+    z-index: 1000;
+    display: grid;
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    background-color: white;
+    position: absolute;
 }
 
 .container div{
@@ -255,7 +269,7 @@ img{
     grid-template-columns: repeat(3, 1fr) ;
     grid-template-rows: repeat(3, 1fr) ;
     overflow: auto;
-    
+    filter: blur(1px);
     
     
 }
