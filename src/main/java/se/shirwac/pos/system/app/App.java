@@ -28,7 +28,7 @@ public class App {
         x.insert();
     }
 
-    @Bean
+  /*  @Bean
     public Docket swaggerConfiguration(){
 
         return new Docket(DocumentationType.SWAGGER_2)
@@ -37,4 +37,6 @@ public class App {
                 .build();
 
     }
+
+   */
 }

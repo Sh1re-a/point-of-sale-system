@@ -31,6 +31,10 @@ function click(idPass){
     
 }
 
+function getItemCount(){
+    var myval 
+}
+
 function showDishes(idElement){
     id1 = idElement.id
     var allId = []
