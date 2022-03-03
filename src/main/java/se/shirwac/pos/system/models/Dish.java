@@ -1,12 +1,13 @@
 package se.shirwac.pos.system.models;
 
 import se.shirwac.pos.system.enums.CategoryType;
+import se.shirwac.pos.system.repo.DishRepo;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Dish")
-public class Dish  {
+public class Dish {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
