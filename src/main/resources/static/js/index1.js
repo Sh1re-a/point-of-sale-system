@@ -1,22 +1,49 @@
 
 var id1;
-function click(idPass){
+var counter = 0;
+function clickHeader(idPass){
     var id = idPass.id
-    if(id = "bra"){
+    if(id == "bra"){
         var dt = document.getElementById("bra")
         dt.style.opacity = "1"
-        dt.style.fontSize = "15px"
+        //dt.style.fontSize = "15px"
+        var dt2 = document.getElementById("bra1")
+        dt2.style.opacity = "0.5"
+       // dt2.style.fontSize = "15px"
+        var dt3 = document.getElementById("bra2")
+        dt3.style.opacity = "0.5"
+
+        var element = document.getElementsByClassName("contentBox2")
+        removeDishes(element)
+
+        var getCategory = document.getElementById("huvudText")
+        var save = getCategory.innerHTML
+        var saveUpperCase = save.toUpperCase();
+        apiConnection(saveUpperCase)
+        
     }
-    if(id = "bra1"){
+    if(id == "bra1"){
         var dt = document.getElementById("bra")
         dt.style.opacity = "0.5";
         var dt2 = document.getElementById("bra1")
         dt2.style.opacity = "1"
-        dt2.style.fontSize = "15px"
+       // dt2.style.fontSize = "15px"
         var dt3 = document.getElementById("bra2")
-        dt3.style.opacity = "1"
+        dt3.style.opacity = "0.5"
+
+        var element = document.getElementsByClassName("contentBox2")
+        removeDishes(element)
+
+        var getCategory = document.getElementById("huvudText")
+        var save = getCategory.innerHTML
+        var saveUpperCase = save.toUpperCase();
+        apiConnectionAz(saveUpperCase)
+
+
+
+
     }
-    if(id = "bra2"){
+    if(id == "bra2"){
         var dt = document.getElementById("bra")
         dt.style.opacity = "0.5";
         var dt2 = document.getElementById("bra1")
@@ -24,34 +51,27 @@ function click(idPass){
         
         var dt3 = document.getElementById("bra2")
         dt3.style.opacity = "1"
-        dt3.style.fontSize = "15px"
+       // dt3.style.fontSize = "15px"
+        counter++;
+        var element = document.getElementsByClassName("contentBox2")
+        removeDishes(element)
+
+        var getCategory = document.getElementById("huvudText")
+        var save = getCategory.innerHTML
+        var saveUpperCase = save.toUpperCase();
+        
+        if(counter % 2 == 0){
+            apiConnectionHighPrice(saveUpperCase);
+        }
+        else
+        apiConnectionLowPrice(saveUpperCase);
     }
 
     console.log("knapp tryckt")
     
 }
 
-function getItemCount(){
-    var myval 
-}
-
-function showDishes(idElement){
-    id1 = idElement.id
-    var allId = []
-   
-    var idElement = document.getElementById(id1)
-    var categoryText = idElement.innerHTML
-    var stringCut = categoryText.split('<span')[0]
-    document.getElementById("BoxHeader").innerHTML = stringCut +"<div id ='hej'class='content2Text1'><span id ='bra' class='headtext1' onclick='click(this)' >Popular</span>&nbsp; &nbsp;&nbsp;<span id ='bra1' class='headtext2' onclick='click(this)' >A-z</span>&nbsp; &nbsp;&nbsp;<span id='bra2' class='headtext3' onclick='click(this)'>Price</span></div>"
-    var cutIdNumber = id1
-    let upperCase = stringCut.toUpperCase();
-    
-
-    var element = document.getElementsByClassName("contentBox2")
-    removeDishes(element)
-
-    var totalDish = 14;
-
+function apiConnection(upperCase){
     var xhr = new XMLHttpRequest()
     xhr.open("GET", "http://localhost:8081/dishes?categoryType="+ upperCase)
     xhr.onload = function(){
@@ -97,6 +117,166 @@ function showDishes(idElement){
     xhr.send()
 }
 
+function apiConnectionHighPrice(upperCase){
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "http://localhost:8081/dishes/highPrice?categoryType="+upperCase)
+    xhr.onload = function(){
+        var data = JSON.parse(this.response)
+                if(upperCase.includes("PRE")){
+                s = 0;
+                createDishes(data,s)
+           }
+            else if(upperCase.includes("MAINS")){
+                s = 1;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("DESSERTS")){
+                s = 2;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("WINES")){
+                s = 3;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("BEERS")){
+                s = 4;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("DRINKS")){
+                s = 5;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("SNACKS")){
+                s = 6;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("ADDONS")){
+                s = 7;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("EXTRA")){
+                s = 8;
+                createDishes(data,s)
+            } 
+     
+    }
+    xhr.send()
+}
+
+function apiConnectionLowPrice(upperCase){
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "http://localhost:8081/dishes/lowPrice?categoryType="+upperCase)
+    xhr.onload = function(){
+        var data = JSON.parse(this.response)
+                if(upperCase.includes("PRE")){
+                s = 0;
+                createDishes(data,s)
+           }
+            else if(upperCase.includes("MAINS")){
+                s = 1;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("DESSERTS")){
+                s = 2;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("WINES")){
+                s = 3;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("BEERS")){
+                s = 4;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("DRINKS")){
+                s = 5;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("SNACKS")){
+                s = 6;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("ADDONS")){
+                s = 7;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("EXTRA")){
+                s = 8;
+                createDishes(data,s)
+            } 
+     
+    }
+    xhr.send()
+}
+
+function apiConnectionAz(upperCase){
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "http://localhost:8081/dishes/A-z?categoryType="+upperCase)
+    xhr.onload = function(){
+        var data = JSON.parse(this.response)
+                if(upperCase.includes("PRE")){
+                s = 0;
+                createDishes(data,s)
+           }
+            else if(upperCase.includes("MAINS")){
+                s = 1;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("DESSERTS")){
+                s = 2;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("WINES")){
+                s = 3;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("BEERS")){
+                s = 4;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("DRINKS")){
+                s = 5;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("SNACKS")){
+                s = 6;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("ADDONS")){
+                s = 7;
+                createDishes(data,s)
+            }
+            else if(upperCase.includes("EXTRA")){
+                s = 8;
+                createDishes(data,s)
+            } 
+     
+    }
+    xhr.send()
+}
+
+
+
+function showDishes(idElement){
+    id1 = idElement.id
+    
+   
+    var idElement = document.getElementById(id1)
+    var categoryText = idElement.innerHTML
+    var stringCut = categoryText.split('<span')[0]
+    document.getElementById("BoxHeader").innerHTML ="<span id='huvudText' class='huvudText'>"+ stringCut +"</span><div id ='hej'class='content2Text1'><span id ='bra' class='headtext1' onclick='clickHeader(this)' >Popular</span>&nbsp; &nbsp;&nbsp;<span id ='bra1' class='headtext2' onclick='clickHeader(this)' >A-z</span>&nbsp; &nbsp;&nbsp;<span id='bra2' class='headtext3' onclick='clickHeader(this)'>Price</span></div>"
+    var cutIdNumber = id1
+    let upperCase = stringCut.toUpperCase();
+    
+
+    var element = document.getElementsByClassName("contentBox2")
+    removeDishes(element)
+
+    var totalDish = 14;
+
+    apiConnection(upperCase);
+}
+
 function createBox(){
     var number = id1.substring(4)
     //Skapar boxen i kassan
@@ -104,10 +284,10 @@ function createBox(){
     createContent.setAttribute("class", "ebox"+number)
     createContent.setAttribute("id", "ebox" +number )
     var divId = document.getElementById("3")
-    var getCategory = document.getElementById("BoxHeader")
+    var getCategory = document.getElementById("huvudText").innerHTML
     var categoryText1 = getCategory.innerHTML
-    var splitText = categoryText1.split('<div')[0]
-    createContent.innerHTML = '<span class="varaHeader">' + splitText + '</span>'
+   // var splitText = categoryText1.split('<div')[0]
+    createContent.innerHTML = '<span class="varaHeader">' + getCategory + '</span>'
 
     var check = document.getElementById("3").children
     
@@ -185,7 +365,7 @@ function saveAllItem(){
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[3]);
-         var howManyItemsInStock = document.getElementById("nummer" + 2)
+         var howManyItemsInStock = document.getElementById("nummer" + 3)
          howManyItemsInStock.innerHTML = i + " "
         array3 = savingItemInLocalStorage(data[3])
   
@@ -197,7 +377,7 @@ function saveAllItem(){
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[4]);
-         var howManyItemsInStock = document.getElementById("nummer" + 2)
+         var howManyItemsInStock = document.getElementById("nummer" + 4)
          howManyItemsInStock.innerHTML = i + " "
         array4 = savingItemInLocalStorage(data[4])
   
@@ -209,7 +389,7 @@ function saveAllItem(){
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[5]);
-         var howManyItemsInStock = document.getElementById("nummer" + 2)
+         var howManyItemsInStock = document.getElementById("nummer" + 5)
          howManyItemsInStock.innerHTML = i + " "
         array5 = savingItemInLocalStorage(data[5])
   
@@ -221,7 +401,7 @@ function saveAllItem(){
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[6]);
-         var howManyItemsInStock = document.getElementById("nummer" + 2)
+         var howManyItemsInStock = document.getElementById("nummer" + 6)
          howManyItemsInStock.innerHTML = i + " "
         array6 = savingItemInLocalStorage(data[6])
   
@@ -233,7 +413,7 @@ function saveAllItem(){
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[7]);
-         var howManyItemsInStock = document.getElementById("nummer" + 2)
+         var howManyItemsInStock = document.getElementById("nummer" + 7)
          howManyItemsInStock.innerHTML = i + " "
         array7 = savingItemInLocalStorage(data[7])
   
@@ -245,7 +425,7 @@ function saveAllItem(){
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[8]);
-         var howManyItemsInStock = document.getElementById("nummer" + 2)
+         var howManyItemsInStock = document.getElementById("nummer" + 8)
          howManyItemsInStock.innerHTML = i + " "
         array8 = savingItemInLocalStorage(data[8])
   
@@ -287,6 +467,8 @@ function createDishes(data,s){
     createContent.setAttribute("onclick", "addToCashier(this)")
     createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array0[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
     
+    
+    
    
     var divId2 = document.getElementById("2")
     
@@ -297,6 +479,7 @@ function createDishes(data,s){
         createContent.classList.remove("faded-out")
       })
     }
+
 }
     
     if(s == 1){
@@ -505,9 +688,9 @@ function addToCashier(idBox){
     var findId = document.getElementById(id)
     var kassanId = document.getElementById("kassa")
 
-    var dataName = document.getElementById("BoxHeader").innerHTML
+    var dataName = document.getElementById("huvudText").innerHTML
     var cutDataName = dataName.split('<div')[0]
-    var dataNameLowerCase = cutDataName.toUpperCase()
+    var dataNameLowerCase = dataName.toUpperCase()
            
 
     var xhr = new XMLHttpRequest()

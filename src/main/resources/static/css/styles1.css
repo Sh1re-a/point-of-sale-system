@@ -152,7 +152,7 @@ img{
 .content2Text1{
 
     
-    font-size: 13px;
+    font-size: 15px;
     display: flex;
     justify-content: space-evenly;
 
@@ -259,6 +259,11 @@ img{
 .content2::-webkit-scrollbar {
     display: none;
   }
+
+.content3::-webkit-scrollbar{
+    display: none;
+}
+
 .content2{
     display: grid;
     grid-column-start: 5;
@@ -363,11 +368,11 @@ img{
 
 .knapp{
     display: grid;
-    grid-column-end: 11;
+    grid-column: 10;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     grid-row: 7;
-    width: 40px;
+    width: 80px;
     border-left: 2px solid white;
     display: flex;
     justify-content: center;
@@ -375,8 +380,7 @@ img{
     align-content: center;
     background-color: #008395;
     position: relative;
-    left: 35px
-    
+    left: 30px;
     
 }
 

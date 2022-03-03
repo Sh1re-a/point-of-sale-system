@@ -36,4 +36,22 @@ public class WebController {
        return dishList;
     }
 
+    @GetMapping(value="/dishes/highPrice")
+    public List<Dish> getDishByHighPrice(CategoryType categoryType){
+        List<Dish> dishList = dishRepo.findByCategoryTypeOrderByHighPrice(categoryType);
+        return dishList;
+    }
+
+    @GetMapping(value="/dishes/lowPrice")
+    public List<Dish> getDishByLowPrice(CategoryType categoryType){
+        List<Dish> dishList = dishRepo.findByCategoryTypeOrderByLowPrice(categoryType);
+        return dishList;
+    }
+
+    @GetMapping(value="/dishes/A-z")
+    public List<Dish> getDishByAz(CategoryType categoryType){
+        List<Dish> dishList = dishRepo.findByCategoryTypeOrderByAz(categoryType);
+        return dishList;
+    }
+
 }

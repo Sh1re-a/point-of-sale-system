@@ -15,13 +15,19 @@ public interface DishRepo extends JpaRepository<Dish, Long> {
 
 
 
-    @Query("SELECT a FROM Dish a WHERE a.categoryType = ?1")
+    @Query("SELECT a FROM Dish a WHERE a.categoryType = ?1 ORDER BY orders DESC")
     List<Dish> findByCategoryType(CategoryType categoryType);
 
 
     @Query("SELECT COUNT(dishName) FROM Dish a where a.categoryType= ?1")
     int findHowManyItemsInStockByCategory(CategoryType categoryType);
 
-    //SELECT a FROM Dish a WHERE a.categoryType =?1 ORDER BY price DESC/ASC Order by price   DESC för högsta pris/ASC för lägsta pris
+    @Query("SELECT a FROM Dish a WHERE a.categoryType =?1 ORDER BY price DESC")
+    List<Dish> findByCategoryTypeOrderByHighPrice(CategoryType categoryType);
 
+    @Query("SELECT a FROM Dish a WHERE a.categoryType =?1 ORDER BY price ASC")
+    List<Dish> findByCategoryTypeOrderByLowPrice(CategoryType categoryType);
+
+    @Query("SELECT a FROM Dish a WHERE a.categoryType =?1 ORDER BY dishName ASC")
+    List<Dish> findByCategoryTypeOrderByAz(CategoryType categoryType);
 }
