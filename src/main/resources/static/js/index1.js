@@ -1028,16 +1028,24 @@ function savingItemInLocalStorage(data){
 }
 
 function buy(){
-    var x = document.getElementById("container")
-    x.style.filter='blur(8px)'
+  //  var x = document.getElementById("container")
+  //  x.style.filter='blur(8px)'
+  //  var getBuyScreen = document.getElementById("buyScreen")
+  
+
+
     var createElement = document.createElement("div")
-    createElement.setAttribute("class", "container2")
-    createElement.setAttribute("id", "container2")
-createElement.innerHTML="hej"
-    createElement.style.gridColumnStart
-    var getBody = document.getElementById("body")
+    createElement.setAttribute("class", "buyScreen")
+    createElement.setAttribute("id", "buyScreen1")
+    createElement.innerHTML="hej"
+   // createElement.style.filter="blur(0px)"
+    var getBody = document.getElementById("container1")
 
     getBody.appendChild(createElement)
+    
+    var getContainer = document.getElementById("container")
+    getContainer.style.filter="blur(8px)"
+    
 }
 
 
