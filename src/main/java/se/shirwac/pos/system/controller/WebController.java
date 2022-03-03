@@ -12,7 +12,7 @@ import se.shirwac.pos.system.repo.DishRepo;
 import java.util.ArrayList;
 
 
-@Controller
+@RestController
 public class WebController {
 
     @Autowired
@@ -20,16 +20,12 @@ public class WebController {
 
     @GetMapping(value = "/list")
 
-    public String getCategoryCountItems(Model model){
-        model.addAttribute("mykey","myvalue");
+    public ArrayList<Integer> getCategoryCountItems(){
         ArrayList<Integer> myList = new ArrayList<Integer>();
         for (CategoryType type : CategoryType.values()){
             myList.add(dishRepo.findHowManyItemsInStockByCategory(type));
         }
-        model.addAttribute("myList", myList);
-
-
-        return "V2.0/index2";
+        return myList;
 
 
     }

@@ -184,30 +184,28 @@ function removeDishes(elements){
 
 
 function saveAllItem(){
-    var pre = "pre"
-    var mains = "mains"
-    var dessert = "dessert"
-
+    
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "data/"+pre+".json")
+    xhr.open("GET", "http://localhost:8081/list")
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
-         var i = 0;
-         var howManyItemsInStock = document.getElementById("nummer" + i)
-         howManyItemsInStock.innerHTML = data.length + " "
-          array0 = savingItemInLocalStorage(data)
+         var i = JSON.stringify(data[0])
+         
+         var howManyItemsInStock = document.getElementById("nummer" + 0)
+        howManyItemsInStock.innerHTML = i + " ";
+         array0 = savingItemInLocalStorage(data[0])
   
          }             
     xhr.send()
 
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "data/"+mains+".json")
+    xhr.open("GET", "http://localhost:8081/list")
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
-         var i = 1;
-         var howManyItemsInStock = document.getElementById("nummer" + i)
-         howManyItemsInStock.innerHTML = data.length + " "
-         array1 = savingItemInLocalStorage(data)
+         var i = JSON.stringify(data[1])
+         var howManyItemsInStock = document.getElementById("nummer" + 1)
+         howManyItemsInStock.innerHTML = i+ " "
+         array1 = savingItemInLocalStorage(data[1])
   
         
          }             
@@ -215,13 +213,13 @@ function saveAllItem(){
 
 
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "data/"+dessert+".json")
+    xhr.open("GET", "http://localhost:8081/list")
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
-         var i = 2;
-         var howManyItemsInStock = document.getElementById("nummer" + i)
-        howManyItemsInStock.innerHTML = data.length + " "
-        array2 = savingItemInLocalStorage(data)
+         var i = JSON.stringify(data[2]);
+         var howManyItemsInStock = document.getElementById("nummer" + 2)
+         howManyItemsInStock.innerHTML = i + " "
+        array2 = savingItemInLocalStorage(data[2])
   
         
          }            
@@ -478,8 +476,8 @@ function addToCashier(idBox){
 
 function savingItemInLocalStorage(data){
     var array = []
-    for(var i = 0; i < data.length; i++){
-        array.push(data[i].add)
+    for(var i = 0; i < data; i++){
+        array.push(0)
     }
     return array
 }
