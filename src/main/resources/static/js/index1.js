@@ -1,6 +1,13 @@
 
+
 var id1;
 var counter = 0;
+runLocalStorage();
+
+window.onunload = function () {
+	localStorage.setItem("checker",0)
+}
+
 function clickHeader(idPass){
     var id = idPass.id
     if(id == "bra"){
@@ -70,6 +77,24 @@ function clickHeader(idPass){
     console.log("knapp tryckt")
     
 }
+function runLocalStorage(){
+    if(localStorage.getItem("checker") != 1){
+    
+    var category = ["PRE","MAINS","DESSERTS","WINES","BEERS","DRINKS","SNACKS","ADDONS","EXTRA"]
+    for(var i = 0; i < 9; i++){
+        var xhr = new XMLHttpRequest()
+        xhr.open("GET", "http://localhost:8081/dishes?categoryType="+ category[i])
+        xhr.onload = function(){
+        var data = JSON.parse(this.response)
+        savingInLocal(data)
+    }
+    xhr.send()
+        
+
+    }
+}
+
+}
 
 function apiConnection(upperCase){
     var xhr = new XMLHttpRequest()
@@ -78,39 +103,59 @@ function apiConnection(upperCase){
         var data = JSON.parse(this.response)
                 if(upperCase.includes("PRE")){
                 s = 0;
+                
                 createDishes(data,s)
+                
+                
            }
             else if(upperCase.includes("MAINS")){
                 s = 1;
+                
                 createDishes(data,s)
+                
+                
             }
             else if(upperCase.includes("DESSERTS")){
                 s = 2;
+               
                 createDishes(data,s)
+                
             }
             else if(upperCase.includes("WINES")){
                 s = 3;
+                
                 createDishes(data,s)
+                
             }
             else if(upperCase.includes("BEERS")){
                 s = 4;
+                
                 createDishes(data,s)
+                
             }
             else if(upperCase.includes("DRINKS")){
                 s = 5;
+                
                 createDishes(data,s)
+                
             }
             else if(upperCase.includes("SNACKS")){
                 s = 6;
+                
                 createDishes(data,s)
+                
             }
             else if(upperCase.includes("ADDONS")){
                 s = 7;
+                
                 createDishes(data,s)
+                
             }
             else if(upperCase.includes("EXTRA")){
                 s = 8;
+                
                 createDishes(data,s)
+                
             } 
      
     }
@@ -329,6 +374,7 @@ function saveAllItem(){
          var howManyItemsInStock = document.getElementById("nummer" + 0)
         howManyItemsInStock.innerHTML = i + " ";
          array0 = savingItemInLocalStorage(data[0])
+         
   
          }             
     xhr.send()
@@ -341,6 +387,7 @@ function saveAllItem(){
          var howManyItemsInStock = document.getElementById("nummer" + 1)
          howManyItemsInStock.innerHTML = i+ " "
          array1 = savingItemInLocalStorage(data[1])
+         
   
         
          }             
@@ -465,14 +512,18 @@ function createDishes(data,s){
     createContent.setAttribute("id", s+ "Box"+ i)
     createContent.setAttribute("class", "contentBox2")
     createContent.setAttribute("onclick", "addToCashier(this)")
-    createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array0[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
-    
+    createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+localStorage.getItem(data[i].dishName) +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+   
     
     
    
     var divId2 = document.getElementById("2")
     
     divId2.appendChild(createContent)
+    if(localStorage.getItem(data[i].dishName) > 0){
+        var find = document.getElementById(s+"Box"+i)
+        find.style.opacity="1"
+    }
     createContent.classList.add("dbox" + 1, "faded-out")
     createContent.classList.remove("faded-out")
     requestAnimationFrame(() => {
@@ -488,12 +539,16 @@ function createDishes(data,s){
         createContent.setAttribute("id", s +"Box"+ i)
         createContent.setAttribute("class", "contentBox2")
         createContent.setAttribute("onclick", "addToCashier(this)")
-        createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array1[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+        createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+localStorage.getItem(data[i].dishName) +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
         
        
         var divId2 = document.getElementById("2")
         
         divId2.appendChild(createContent)
+        if(localStorage.getItem(data[i].dishName) > 0){
+            var find = document.getElementById(s+"Box"+i)
+            find.style.opacity="1"
+        }
         createContent.classList.add("dbox" + 1, "faded-out")
         createContent.classList.remove("faded-out")
         requestAnimationFrame(() => {
@@ -507,12 +562,16 @@ function createDishes(data,s){
             createContent.setAttribute("id", s+"Box"+ i)
             createContent.setAttribute("class", "contentBox2")
             createContent.setAttribute("onclick", "addToCashier(this)")
-            createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array2[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+            createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+localStorage.getItem(data[i].dishName) +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
             
            
             var divId2 = document.getElementById("2")
             
             divId2.appendChild(createContent)
+            if(localStorage.getItem(data[i].dishName) > 0){
+                var find = document.getElementById(s+"Box"+i)
+                find.style.opacity="1"
+            }
             createContent.classList.add("dbox" + 1, "faded-out")
             createContent.classList.remove("faded-out")
             requestAnimationFrame(() => {
@@ -527,12 +586,16 @@ function createDishes(data,s){
                 createContent.setAttribute("id", s+"Box"+ i)
                 createContent.setAttribute("class", "contentBox2")
                 createContent.setAttribute("onclick", "addToCashier(this)")
-                createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array3[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+                createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+localStorage.getItem(data[i].dishName) +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
                 
                
                 var divId2 = document.getElementById("2")
                 
                 divId2.appendChild(createContent)
+                if(localStorage.getItem(data[i].dishName) > 0){
+                    var find = document.getElementById(s+"Box"+i)
+                    find.style.opacity="1"
+                }
                 createContent.classList.add("dbox" + 1, "faded-out")
                 createContent.classList.remove("faded-out")
                 requestAnimationFrame(() => {
@@ -547,12 +610,16 @@ function createDishes(data,s){
                     createContent.setAttribute("id", s+"Box"+ i)
                     createContent.setAttribute("class", "contentBox2")
                     createContent.setAttribute("onclick", "addToCashier(this)")
-                    createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array4[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+                    createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+localStorage.getItem(data[i].dishName) +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
                     
                    
                     var divId2 = document.getElementById("2")
                     
                     divId2.appendChild(createContent)
+                    if(localStorage.getItem(data[i].dishName) > 0){
+                        var find = document.getElementById(s+"Box"+i)
+                        find.style.opacity="1"
+                    }
                     createContent.classList.add("dbox" + 1, "faded-out")
                     createContent.classList.remove("faded-out")
                     requestAnimationFrame(() => {
@@ -567,12 +634,16 @@ function createDishes(data,s){
                         createContent.setAttribute("id", s+"Box"+ i)
                         createContent.setAttribute("class", "contentBox2")
                         createContent.setAttribute("onclick", "addToCashier(this)")
-                        createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array5[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+                        createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+localStorage.getItem(data[i].dishName)+"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
                         
                        
                         var divId2 = document.getElementById("2")
                         
                         divId2.appendChild(createContent)
+                        if(localStorage.getItem(data[i].dishName) > 0){
+                            var find = document.getElementById(s+"Box"+i)
+                            find.style.opacity="1"
+                        }
                         createContent.classList.add("dbox" + 1, "faded-out")
                         createContent.classList.remove("faded-out")
                         requestAnimationFrame(() => {
@@ -587,12 +658,16 @@ function createDishes(data,s){
                             createContent.setAttribute("id", s+"Box"+ i)
                             createContent.setAttribute("class", "contentBox2")
                             createContent.setAttribute("onclick", "addToCashier(this)")
-                            createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array6[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+                            createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+localStorage.getItem(data[i].dishName)+"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
                             
                            
                             var divId2 = document.getElementById("2")
                             
                             divId2.appendChild(createContent)
+                            if(localStorage.getItem(data[i].dishName) > 0){
+                                var find = document.getElementById(s+"Box"+i)
+                                find.style.opacity="1"
+                            }
                             createContent.classList.add("dbox" + 1, "faded-out")
                             createContent.classList.remove("faded-out")
                             requestAnimationFrame(() => {
@@ -607,12 +682,16 @@ function createDishes(data,s){
                                 createContent.setAttribute("id", s+"Box"+ i)
                                 createContent.setAttribute("class", "contentBox2")
                                 createContent.setAttribute("onclick", "addToCashier(this)")
-                                createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array7[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+                                createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+localStorage.getItem(data[i].dishName)+"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
                                 
                                
                                 var divId2 = document.getElementById("2")
                                 
                                 divId2.appendChild(createContent)
+                                if(localStorage.getItem(data[i].dishName) > 0){
+                                    var find = document.getElementById(s+"Box"+i)
+                                    find.style.opacity="1"
+                                }
                                 createContent.classList.add("dbox" + 1, "faded-out")
                                 createContent.classList.remove("faded-out")
                                 requestAnimationFrame(() => {
@@ -626,12 +705,16 @@ function createDishes(data,s){
                                     createContent.setAttribute("id", s+"Box"+ i)
                                     createContent.setAttribute("class", "contentBox2")
                                     createContent.setAttribute("onclick", "addToCashier(this)")
-                                    createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+array8[i] +"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
+                                    createContent.innerHTML = "<span id='tja"+i+"' class='itemCountS'>"+localStorage.getItem(data[i].dishName)+"</span> <span id='tjo"+i +"'class='item'>"+data[i].dishName +"</span> <span <span id='tjena"+i +"' class='price'>€"+data[i].price+ "</span>"
                                     
                                    
                                     var divId2 = document.getElementById("2")
                                     
                                     divId2.appendChild(createContent)
+                                    if(localStorage.getItem(data[i].dishName) > 0){
+                                        var find = document.getElementById(s+"Box"+i)
+                                        find.style.opacity="1"
+                                    }
                                     createContent.classList.add("dbox" + 1, "faded-out")
                                     createContent.classList.remove("faded-out")
                                     requestAnimationFrame(() => {
@@ -702,165 +785,165 @@ function addToCashier(idBox){
         
     if(findElement.innerHTML.includes(item)){
         if(dataNameLowerCase == "PRE"){
-            var antal = array0[theCut]
+            var antal = localStorage.getItem(findItem2)
             antal++;
-            array0.splice(theCut, 1, antal)
+            localStorage.setItem(findItem2,antal)
             var int  = price.substring(1);
             var number = parseFloat(int)
-            var totalSumma = found[0].price * array0[theCut]
-            document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array0[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+            var totalSumma = found[0].price * localStorage.getItem(findItem2)
+            document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+localStorage.getItem(findItem2) +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
             findId.style.opacity = "1"
                 var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
                 var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
-                counter.innerHTML ="x" + array0[theCut] + " "
+                counter.innerHTML ="x" + localStorage.getItem(findItem2) + " "
                 priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
-                alltihop = alltihop + (totalSumma/array0[theCut])
+                alltihop = alltihop + (totalSumma/localStorage.getItem(findItem2))
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
                // findElement.innerHTML = + '<div class ="content31"><span class ="cashierCount"> x' + array[theCut] + '</span><span class ="vara">'+ item + '</span>' + '<span class ="priset">€' +totalSumma + '</span></div>'
                 }
                 if(dataNameLowerCase == "MAINS"){
-                    var antal = array1[theCut]
+                    var antal = localStorage.getItem(findItem2)
                 antal++;
-                array1.splice(theCut, 1, antal)
+                localStorage.setItem(findItem2,antal)
                 var int  = price.substring(1);
                 var number = parseFloat(int)
                // var totalSumma = number * antal
-               var totalSumma = found[0].price * array1[theCut]
-               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array1[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               var totalSumma = found[0].price * localStorage.getItem(findItem2)
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+localStorage.getItem(findItem2) +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                findId.style.opacity = "1"
                 var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
                 var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
-                counter.innerHTML ="x" + array1[theCut] + " "
+                counter.innerHTML ="x" + localStorage.getItem(findItem2) + " "
                 priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
-                alltihop = alltihop + (totalSumma/array1[theCut])
+                alltihop = alltihop + (totalSumma/localStorage.getItem(findItem2))
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
                 }
                 if(dataNameLowerCase == "DESSERTS"){
-                    var antal = array2[theCut]
+                    var antal = localStorage.getItem(findItem2)
                     
                 antal++;
-                array2.splice(theCut, 1, antal)
+                localStorage.setItem(findItem2,antal)
                 var int  = price.substring(1);
                 var number = parseFloat(int)
                // var totalSumma = number * antal
-               var totalSumma = found[0].price * array2[theCut]
-               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array2[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               var totalSumma = found[0].price * localStorage.getItem(findItem2)
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+localStorage.getItem(findItem2)+"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                findId.style.opacity = "1"
                 var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
                 var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
-                counter.innerHTML ="x" + array2[theCut] + " "
+                counter.innerHTML ="x" + localStorage.getItem(findItem2) + " "
                 priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
-                alltihop = alltihop  + (totalSumma/array2[theCut])
+                alltihop = alltihop  + (totalSumma/localStorage.getItem(findItem2))
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
                 }
                 if(dataNameLowerCase == "WINES"){
-                    var antal = array3[theCut]
+                    var antal = localStorage.getItem(findItem2)
                 antal++;
-                array3.splice(theCut, 1, antal)
+                localStorage.setItem(findItem2,antal)
                 var int  = price.substring(1);
                 var number = parseFloat(int)
                // var totalSumma = number * antal
-               var totalSumma = found[0].price * array3[theCut]
-               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array3[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               var totalSumma = found[0].price * localStorage.getItem(findItem2)
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+localStorage.getItem(findItem2) +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                findId.style.opacity = "1"
                 var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
                 var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
-                counter.innerHTML ="x" + array3[theCut] + " "
+                counter.innerHTML ="x" + localStorage.getItem(findItem2) + " "
                 priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
-                alltihop = alltihop + (totalSumma/array3[theCut])
+                alltihop = alltihop + (totalSumma/localStorage.getItem(findItem2))
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
                 }
                 if(dataNameLowerCase == "BEERS"){
-                    var antal = array4[theCut]
+                    var antal = localStorage.getItem(findItem2)
                 antal++;
-                array4.splice(theCut, 1, antal)
+                localStorage.setItem(findItem2,antal)
                 var int  = price.substring(1);
                 var number = parseFloat(int)
                // var totalSumma = number * antal
-               var totalSumma = found[0].price * array4[theCut]
-               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array4[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               var totalSumma = found[0].price * localStorage.getItem(findItem2)
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+localStorage.getItem(findItem2) +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                findId.style.opacity = "1"
                 var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
                 var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
-                counter.innerHTML ="x" + array4[theCut] + " "
+                counter.innerHTML ="x" + localStorage.getItem(findItem2) + " "
                 priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
-                alltihop = alltihop + (totalSumma/array4[theCut])
+                alltihop = alltihop + (totalSumma/localStorage.getItem(findItem2))
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
                 }
                 if(dataNameLowerCase == "DRINKS"){
-                    var antal = array5[theCut]
+                    var antal = localStorage.getItem(findItem2)
                 antal++;
-                array5.splice(theCut, 1, antal)
+                localStorage.setItem(findItem2,antal)
                 var int  = price.substring(1);
                 var number = parseFloat(int)
                // var totalSumma = number * antal
-               var totalSumma = found[0].price * array5[theCut]
-               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array5[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               var totalSumma = found[0].price * localStorage.getItem(findItem2)
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+localStorage.getItem(findItem2)+"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                findId.style.opacity = "1"
                 var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
                 var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
-                counter.innerHTML ="x" + array5[theCut] + " "
+                counter.innerHTML ="x" + localStorage.getItem(findItem2) + " "
                 priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
-                alltihop = alltihop + (totalSumma/array5[theCut])
+                alltihop = alltihop + (totalSumma/localStorage.getItem(findItem2))
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
                 }
                 if(dataNameLowerCase == "SNACKS"){
-                    var antal = array6[theCut]
+                    var antal = localStorage.getItem(findItem2)
                 antal++;
-                array6.splice(theCut, 1, antal)
+                localStorage.setItem(findItem2,antal)
                 var int  = price.substring(1);
                 var number = parseFloat(int)
                // var totalSumma = number * antal
-               var totalSumma = found[0].price * array6[theCut]
-               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array6[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               var totalSumma = found[0].price * localStorage.getItem(findItem2)
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+localStorage.getItem(findItem2) +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                findId.style.opacity = "1"
                 var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
                 var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
-                counter.innerHTML ="x" + array6[theCut] + " "
+                counter.innerHTML ="x" + localStorage.getItem(findItem2) + " "
                 priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
-                alltihop = alltihop + (totalSumma/array6[theCut])
+                alltihop = alltihop + (totalSumma/localStorage.getItem(findItem2))
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
                 }
                 if(dataNameLowerCase == "ADDONS"){
-                    var antal = array7[theCut]
+                    var antal = localStorage.getItem(findItem2)
                 antal++;
-                array7.splice(theCut, 1, antal)
+                localStorage.setItem(findItem2,antal)
                 var int  = price.substring(1);
                 var number = parseFloat(int)
                // var totalSumma = number * antal
-               var totalSumma = found[0].price * array7[theCut]
-               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array7[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               var totalSumma = found[0].price * localStorage.getItem(findItem2)
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+localStorage.getItem(findItem2) +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                findId.style.opacity = "1"
                 var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
                 var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
-                counter.innerHTML ="x" + array7[theCut] + " "
+                counter.innerHTML ="x" + localStorage.getItem(findItem2) + " "
                 priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
-                alltihop = alltihop + (totalSumma/array7[theCut])
+                alltihop = alltihop + (totalSumma/localStorage.getItem(findItem2))
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
                 }
                 if(dataNameLowerCase == "EXTRA"){
-                    var antal = array8[theCut]
+                    var antal = localStorage.getItem(findItem2)
                 antal++;
-                array8.splice(theCut, 1, antal)
+                localStorage.setItem(findItem2,antal)
                 var int  = price.substring(1);
                 var number = parseFloat(int)
                // var totalSumma = number * antal
-               var totalSumma = found[0].price * array8[theCut]
-               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+array8[theCut] +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
+               var totalSumma = found[0].price * localStorage.getItem(findItem2)
+               document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+localStorage.getItem(findItem2) +"</span> <span id='tjo"+theCut+"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                findId.style.opacity = "1"
                 var counter = document.getElementById("räknare" +dataNameLowerCase+ theCut)
                 var priceTotal = document.getElementById("priset" +dataNameLowerCase+ theCut)
-                counter.innerHTML ="x" + array8[theCut] + " "
+                counter.innerHTML ="x" + localStorage.getItem(findItem2) + " "
                 priceTotal.innerHTML = "£" + totalSumma.toFixed(2)
-                alltihop = alltihop + (totalSumma/array8[theCut])
+                alltihop = alltihop + (totalSumma/localStorage.getItem(findItem2))
                 var ja = alltihop.toFixed(2)
                 kassanId.innerHTML = " €"+ja
                 }
@@ -868,9 +951,9 @@ function addToCashier(idBox){
             }
             else {
                 if(dataNameLowerCase == "PRE"){
-                     var antal = array0[theCut]
+                    var antal = localStorage.getItem(findItem2)
                     antal++
-                    array0.splice(theCut, 1, antal)
+                    localStorage.setItem(findItem2, antal)
 
                 document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
                 findId.style.opacity = "1"
@@ -883,9 +966,9 @@ function addToCashier(idBox){
                     kassanId.innerHTML = " €"+ja;
             }
                 if(dataNameLowerCase == "MAINS"){
-                    var antal = array1[theCut]
+                    var antal = localStorage.getItem(findItem2)
                     antal++
-                    array1.splice(theCut, 1, antal)
+                    localStorage.setItem(findItem2,antal)
 
                     
             document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
@@ -900,9 +983,9 @@ function addToCashier(idBox){
             }
 
             if(dataNameLowerCase == "DESSERTS"){
-                var antal = array2[theCut]
+                var antal = localStorage.getItem(findItem2)
                 antal++
-                array2.splice(theCut, 1, antal)
+                localStorage.setItem(findItem2,antal)
 
         document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
         findId.style.opacity = "1"
@@ -916,9 +999,9 @@ function addToCashier(idBox){
         }
 
         if(dataNameLowerCase == "WINES"){
-            var antal = array3[theCut]
+            var antal = localStorage.getItem(findItem2)
             antal++
-            array3.splice(theCut, 1, antal)
+            localStorage.setItem(findItem2,antal)
 
     document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
     findId.style.opacity = "1"
@@ -931,9 +1014,9 @@ function addToCashier(idBox){
             kassanId.innerHTML = " €"+ja;
     }
     if(dataNameLowerCase == "BEERS"){
-        var antal = array4[theCut]
+        var antal = localStorage.getItem(findItem2)
         antal++
-        array4.splice(theCut, 1, antal)
+        localStorage.setItem(findItem2,antal)
 
         document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
         findId.style.opacity = "1"
@@ -947,9 +1030,9 @@ function addToCashier(idBox){
     }
 
     if(dataNameLowerCase == "DRINKS"){
-        var antal = array5[theCut]
+        var antal = localStorage.getItem(findItem2)
         antal++
-        array5.splice(theCut, 1, antal)
+        localStorage.setItem(findItem2,antal)
 
 document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
 findId.style.opacity = "1"
@@ -963,9 +1046,9 @@ findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span i
 }       
 
 if(dataNameLowerCase == "SNACKS"){
-    var antal = array6[theCut]
+    var antal = localStorage.getItem(findItem2)
     antal++
-    array6.splice(theCut, 1, antal)
+    localStorage.setItem(findItem2,antal)
 
 document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
 findId.style.opacity = "1"
@@ -979,9 +1062,9 @@ findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span i
 }
 
 if(dataNameLowerCase == "ADDONS"){
-    var antal = array7[theCut]
+    var antal = localStorage.getItem(findItem2)
     antal++
-    array7.splice(theCut, 1, antal)
+    localStorage.setItem(findItem2,antal)
 
 document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
 findId.style.opacity = "1"
@@ -994,9 +1077,9 @@ findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span i
     kassanId.innerHTML = " €"+ja;
 }
 if(dataNameLowerCase == "EXTRA"){
-    var antal = array7[theCut]
+    var antal = localStorage.getItem(findItem2)
     antal++
-    array7.splice(theCut, 1, antal)
+    localStorage.setItem(findItem2,antal)
 
 document.getElementById(id).innerHTML = "<span id='tja"+theCut+"' class='itemCountS'>"+ 1 +"</span> <span id='tjo"+theCut +"' class='item'>"+findItem2+"</span> <span id='tjena"+theCut+"' class='price'>"+findPrice2+"</span>"
 findId.style.opacity = "1"
@@ -1148,5 +1231,13 @@ function duplicateChildNodes (parentId,targetId){
         
 
   }
+
+}
+
+function savingInLocal(data){
+    localStorage.setItem("checker", 1)
+    for(var i = 0; i < data.length; i++){
+        localStorage.setItem(data[i].dishName, 0)
+    }
 
 }
