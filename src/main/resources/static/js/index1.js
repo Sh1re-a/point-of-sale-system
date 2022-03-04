@@ -1051,16 +1051,38 @@ function buy(){
     createElement2.setAttribute("class", "buyScreen2")
     createElement2.setAttribute("id", "buyScreen2")
     
-    createElement2.innerHTML = "hej min bror"
+    
    getBody.appendChild(createElement2)
 
     var fixed = alltihop.toFixed(2)
     var taxCut = fixed * 0.12;
     var fixedTaxCut = taxCut.toFixed(2)
+    var toInt1 = parseInt(fixed)
+    var toInt2 = parseInt(fixedTaxCut)
+
+
+    var lastPrice = toInt1 + toInt2
+    var fixedLastPrice = lastPrice.toFixed(2)
 
     var getNewElement2 = document.getElementById("buyScreen2")
     getNewElement2.innerHTML = "<div class='rad1'><span id='subTotal' class='buyTax'>SubTotal</span><span id='priceBeforeTax' class='priceBeforeTax'>£"+
-    fixed + "</span></div><div class ='rad1'<span id='tax' class'tax'>Tax</span><span id='taxAdd' class='taxAdd'>£" + fixedTaxCut + "</span></div>"
+    fixed + "</span></div><div class ='rad1'><span id='tax' class'tax'>Tax</span><span id='taxAdd' class='taxAdd'>£" + fixedTaxCut + "</span></div><div class='rad2'><span id='totalEndPrice' class='totalEndPrice'>Total</span><span id=lastPrice>£"+
+    fixedLastPrice +"</span></div>"
+
+    var createElement3 = document.createElement("div")
+    createElement3.setAttribute("class","checkOutButton")
+    createElement3.setAttribute("id", "checkOutButton")
+    createElement3.innerHTML="<span id='payKnapp' onclick='pay()'>Pay</span>"
+
+    getBody.appendChild(createElement3)
+
+    var createElement4 = document.createElement("div")
+    createElement4.setAttribute("class","cancelButton")
+    createElement4.setAttribute("id", "cancelButton")
+    createElement4.innerHTML="<span id='cancelKnapp' onclick='cancel()'>Cancel</span>"
+
+    getBody.appendChild(createElement4)
+
 
 
     
@@ -1083,3 +1105,48 @@ function duplicateChildNodes (parentId,targetId){
   };
 
 
+  function cancel(){
+      var doc1 = document.getElementById("backScreen1")
+      doc1.remove();
+
+      var doc2 = document.getElementById("buyScreen1")
+      doc2.remove();
+      
+      var doc3 = document.getElementById("buyScreen2")
+      doc3.remove();
+
+      var doc4 = document.getElementById("checkOutButton")
+      doc4.remove();
+
+      var doc5 = document.getElementById("cancelButton")
+      doc5.remove();
+      
+  }
+
+  function pay(){
+    let s= new Date()
+    var totalPrice1 = document.getElementById("lastPrice")
+    var x = totalPrice1.innerHTML;
+    var cut = x.substring(1)
+
+    let postObj = {
+        id: 0,
+        date: s,
+        totalPrice: cut
+    }
+
+    let post = JSON.stringify(postObj)
+
+    var xhr = new XMLHttpRequest()
+    xhr.open("POST", "http://localhost:8081/save/receipt")
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8")
+    xhr.send(post)
+    xhr.onload = function(){
+        if(xhr.status === 200){
+            console.log("Det funka")
+        }
+        
+
+  }
+
+}

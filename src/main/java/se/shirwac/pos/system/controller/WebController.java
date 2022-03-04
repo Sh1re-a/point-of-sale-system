@@ -3,12 +3,12 @@ package se.shirwac.pos.system.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import se.shirwac.pos.system.enums.CategoryType;
 import se.shirwac.pos.system.models.Dish;
+import se.shirwac.pos.system.models.Receipt;
 import se.shirwac.pos.system.repo.DishRepo;
+import se.shirwac.pos.system.repo.ReceiptRepo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +19,9 @@ public class WebController {
 
     @Autowired
     private DishRepo dishRepo;
+
+    @Autowired
+    private ReceiptRepo receiptRepo;
 
     @GetMapping(value = "/list")
     public ArrayList<Integer> getCategoryCountItems(){
@@ -52,6 +55,12 @@ public class WebController {
     public List<Dish> getDishByAz(CategoryType categoryType){
         List<Dish> dishList = dishRepo.findByCategoryTypeOrderByAz(categoryType);
         return dishList;
+    }
+
+    @PostMapping(value = "/save/receipt")
+    public String saveReceipt(@RequestBody Receipt receipt){
+        receiptRepo.save(receipt);
+        return "Receipt saved";
     }
 
 }

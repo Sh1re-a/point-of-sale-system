@@ -4,3 +4,54 @@
     opacity: 0.6;
     font-size: 15px;
 }
+
+.rad2{
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.checkOutButton{
+    display: flex;
+    z-index: 4;
+    grid-column: 4;
+    grid-column-end: 6;
+    grid-row: 7;
+    grid-row-end: 8;
+    border-radius: 50px;
+    -webkit-backdrop-filter: blur(100px);
+    backdrop-filter: blur(100px);
+    border-radius: 200px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+.cancelButton{
+    z-index: 4;
+    grid-column: 6;
+    grid-column-end: 8;
+    grid-row: 7;
+    grid-row-end: 8;
+    -webkit-backdrop-filter: blur(100px);
+    backdrop-filter: blur(100px);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+.checkOutButton:hover{
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transition: 0.6s;
+}
+
+.cancelButton:hover{
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transition: 0.6s;
+}
