@@ -16,6 +16,7 @@
 
 #cBox1{
     background-color: #6EB6FF;
+    backdrop-filter: blur(100px);
     text-align: start;
     
 }

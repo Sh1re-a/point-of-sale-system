@@ -1028,25 +1028,58 @@ function savingItemInLocalStorage(data){
 }
 
 function buy(){
-  //  var x = document.getElementById("container")
-  //  x.style.filter='blur(8px)'
-  //  var getBuyScreen = document.getElementById("buyScreen")
-  
+    var getBody = document.getElementById("container")
+    var createBackground = document.createElement("div")
+    createBackground.setAttribute("class", "backScreen")
+    createBackground.setAttribute("id", "backScreen1")
+    getBody.appendChild(createBackground)
 
 
     var createElement = document.createElement("div")
     createElement.setAttribute("class", "buyScreen")
     createElement.setAttribute("id", "buyScreen1")
-    createElement.innerHTML="hej"
-   // createElement.style.filter="blur(0px)"
-    var getBody = document.getElementById("container1")
-
-    getBody.appendChild(createElement)
     
-    var getContainer = document.getElementById("container")
-    getContainer.style.filter="blur(8px)"
+   // createElement.style.filter="blur(0px)"
+    
+    
+    getBody.appendChild(createElement)
+    var getNewElement = document.getElementById("buyScreen1")
+
+    duplicateChildNodes("3",getNewElement)
+
+    var createElement2 = document.createElement("div")
+    createElement2.setAttribute("class", "buyScreen2")
+    createElement2.setAttribute("id", "buyScreen2")
+    
+    createElement2.innerHTML = "hej min bror"
+   getBody.appendChild(createElement2)
+
+    var fixed = alltihop.toFixed(2)
+    var taxCut = fixed * 0.12;
+    var fixedTaxCut = taxCut.toFixed(2)
+
+    var getNewElement2 = document.getElementById("buyScreen2")
+    getNewElement2.innerHTML = "<div class='rad1'><span id='subTotal' class='buyTax'>SubTotal</span><span id='priceBeforeTax' class='priceBeforeTax'>£"+
+    fixed + "</span></div><div class ='rad1'<span id='tax' class'tax'>Tax</span><span id='taxAdd' class='taxAdd'>£" + fixedTaxCut + "</span></div>"
+
+
+    
+
+
+    
+    
+    
     
 }
 
+function duplicateChildNodes (parentId,targetId){
+    var parent = document.getElementById(parentId);
+    NodeList.prototype.forEach = Array.prototype.forEach;
+    var children = parent.childNodes;
+    children.forEach(function(item){
+      var cln = item.cloneNode(true);
+      targetId.appendChild(cln);
+    });
+  };
 
 
