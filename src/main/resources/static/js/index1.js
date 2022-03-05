@@ -8,6 +8,26 @@ window.onunload = function () {
 	localStorage.setItem("checker",0)
 }
 
+
+const reload = setInterval(reloaditemStock, 10000)
+
+
+function reloaditemStock(){
+    for(var i = 0; i < 9; i++){
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "http://localhost:8081/list")
+    xhr.onload = function(){
+        var data = JSON.parse(this.response) 
+         var x = JSON.stringify(data[i])
+         
+         var howManyItemsInStock = document.getElementById("nummer" + i)
+        howManyItemsInStock.innerHTML = x + " ";
+
+    }
+    console.log("Den når")
+}
+}
+
 function clickHeader(idPass){
     var id = idPass.id
     if(id == "bra"){
@@ -482,26 +502,7 @@ function saveAllItem(){
     
 }
 
-
-//Sparar alla antalet rätter som är tillagda
-
-var array0 = []
-var array1 = []
-var array2 = []
-var array3 = []
-var array4 = []
-var array5 = []
-var array6 = []
-var array7 = []
-var array8 = []
-
-
-
-
-
 saveAllItem()
-
-
 
 
 function createDishes(data,s){
@@ -1155,14 +1156,16 @@ function buy(){
     var createElement3 = document.createElement("div")
     createElement3.setAttribute("class","checkOutButton")
     createElement3.setAttribute("id", "checkOutButton")
-    createElement3.innerHTML="<span id='payKnapp' onclick='pay()'>Pay</span>"
+    createElement3.setAttribute("onclick","pay()")
+    createElement3.innerHTML="<span id='payKnapp'>Pay</span>"
 
     getBody.appendChild(createElement3)
 
     var createElement4 = document.createElement("div")
     createElement4.setAttribute("class","cancelButton")
     createElement4.setAttribute("id", "cancelButton")
-    createElement4.innerHTML="<span id='cancelKnapp' onclick='cancel()'>Cancel</span>"
+    createElement4.setAttribute("onclick","cancel()")
+    createElement4.innerHTML="<span id='cancelKnapp'>Cancel</span>"
 
     getBody.appendChild(createElement4)
 
@@ -1187,6 +1190,12 @@ function duplicateChildNodes (parentId,targetId){
     });
   };
 
+  function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
 
   function cancel(){
       var doc1 = document.getElementById("backScreen1")
@@ -1207,7 +1216,7 @@ function duplicateChildNodes (parentId,targetId){
   }
 
   function pay(){
-    let s= new Date()
+    var s = new Date()
     var totalPrice1 = document.getElementById("lastPrice")
     var x = totalPrice1.innerHTML;
     var cut = x.substring(1)
@@ -1227,10 +1236,33 @@ function duplicateChildNodes (parentId,targetId){
     xhr.onload = function(){
         if(xhr.status === 200){
             console.log("Det funka")
-        }
-        
+        } 
 
   }
+ /* var find1 = document.getElementsByClassName("buyScreen");
+  for(var i = 0; i < find1.length; i++){
+  find1[i].remove();
+  } */
+
+  var findbyId = document.getElementById("buyScreen1")
+  removeAllChildNodes(findbyId)
+
+  
+  var find2 = document.getElementById("buyScreen2");
+    find2.remove();
+    
+  var find3 = document.getElementById("checkOutButton")
+  find3.remove()
+
+  var find4 = document.getElementById("cancelButton")
+  find4.remove()
+  
+  var createDiv = document.createElement("div")
+  createDiv.setAttribute("class","lds-dual-ring")
+   var findDiv = document.getElementById("buyScreen1")
+   findDiv.appendChild(createDiv)
+
+
 
 }
 

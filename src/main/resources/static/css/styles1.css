@@ -263,10 +263,10 @@ img{
     color: white;
     font-size: 15px;
     border: none;
-    border-bottom: 1px solid white;
+    
     padding-bottom: 35px;
     -webkit-appearance:none;
-    border-image-width: 0px 0px 6px 0px;
+   
     
     
     
@@ -296,6 +296,18 @@ img{
 
     position: relative;
     right: 50px;
+}
+
+.content3text4:hover span{
+    display: none;
+    
+}
+
+.content3text4:hover:before{
+    opacity: 0.5;
+    font-size: 17px;
+    content: "Clear the bag"
+
 }
 
 
@@ -473,7 +485,7 @@ img{
     text-align: left;
     align-items: center;
     font-size: 15px;
-    background-color:#407472;
+    background-color:#6360BA;
     backdrop-filter: blur(100px);
    
     
