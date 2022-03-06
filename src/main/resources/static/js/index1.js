@@ -24,19 +24,21 @@ function checkCashier(){
 
 
 function reloaditemStock(){
-    for(var i = 0; i < 9; i++){
+    
     var xhr = new XMLHttpRequest()
     xhr.open("GET", "http://localhost:8081/list")
     xhr.onload = function(){
+        for(var i = 0; i < 9; i++){
         var data = JSON.parse(this.response) 
          var x = JSON.stringify(data[i])
          
          var howManyItemsInStock = document.getElementById("nummer" + i)
         howManyItemsInStock.innerHTML = x + " ";
-
     }
-    console.log("Den når")
 }
+    xhr.send()
+    console.log("Den når")
+
 }
 
 function clickHeader(idPass){
@@ -1271,6 +1273,7 @@ function pay(){
   
     var createDiv = document.createElement("div")
     createDiv.setAttribute("class","lds-dual-ring")
+    createDiv.setAttribute("id", "lds")
     var findDiv = document.getElementById("buyScreen1")
     findDiv.style.display = "flex"
     findDiv.style.justifyContent= "center"
@@ -1281,9 +1284,10 @@ function pay(){
 
 
 //TODO: Funktionen excute direkt vet inte vrf.
-    setTimeout(function (){
-        createDiv.remove();
-    }, 5000)
+    setTimeout(function(){
+        var find = document.getElementById("lds")
+        find.remove()
+    },3000)
     
 
     findDiv.innerHTML = "Thanks for shopping with us!"
@@ -1403,8 +1407,50 @@ function pushDish(){
     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8")
     xhr.send(post)
     xhr.onload = function(){
-        if(xhr.status === 200){
-            console.log("Det funka")
+
+
+        if(xhr.status === 200 || xhr.status === 201){
+            var findDash = document.getElementById("adminDashDiv")
+            findDash.remove()
+
+            var findBackButton = document.getElementById("backButton")
+            findBackButton.remove()
+
+            var findExitButton = document.getElementById("exitButton")
+            findExitButton.remove()
+
+            var createDiv = document.createElement("div")
+            createDiv.setAttribute("class","lds-dual-ring")
+            createDiv.setAttribute("id", "lds")
+
+
+            var findAdmin = document.getElementById("adminDashboard")
+            findAdmin.style= "align-items: center"
+            findAdmin.appendChild(createDiv)
+
+            setTimeout(function(){
+                var find = document.getElementById("lds")
+                createDiv.remove()
+                
+            },3000)
+
+            
+                findAdmin.innerHTML= "Dish is added..."
+            
+
+            setTimeout(function(){
+                var find1 = document.getElementById("adminDashboard")
+                find1.remove()
+                var find2 = document.getElementById("backScreen1")
+                find2.remove()
+                reloaditemStock()
+            },3000)
+
+            
+
+            
+
+            
         } 
     }
 
