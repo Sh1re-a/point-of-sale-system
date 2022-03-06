@@ -7,14 +7,31 @@
     grid-row: 2;
     grid-row-end: 8;
     backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    
     font-size: 25px;
 }
+
+.exitButton{
+    z-index: 5;
+    display: grid;
+    grid-column: 7;
+    grid-row: 2;
+    position: relative;
+    left: 90px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.exitDot:hover{
+    content: "Close"
+}
+
+
 
 #text10:hover{
     color: green;
@@ -31,4 +48,14 @@
 #text13:hover{
     color: yellow;
     cursor: pointer;
+}
+
+.adminDashDiv{
+    z-index: 4;
+    display: grid;
+    grid-column-start: 4;
+    grid-column-end: 8;
+    grid-row: 2;
+    grid-row-end: 8;
+    
 }

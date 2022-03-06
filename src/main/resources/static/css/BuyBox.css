@@ -26,6 +26,7 @@
     align-items: center;
     color: white;
     cursor: pointer;
+    animation: fade-in 0.1s;
 }
 
 .cancelButton{
@@ -42,6 +43,7 @@
     align-items: center;
     color: white;
     cursor: pointer;
+    animation: fade-in 0.1s;
 }
 
 .checkOutButton:hover{

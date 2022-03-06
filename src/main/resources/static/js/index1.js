@@ -1316,13 +1316,51 @@ function adminDash(){
     createBackground.setAttribute("id", "backScreen1")
     getBody.appendChild(createBackground)
 
+    var createExitButton = document.createElement("div")
+    createExitButton.setAttribute("class", "exitButton")
+    createExitButton.setAttribute("id", "exitButton")
+    createExitButton.innerHTML="<span id='exitDot' onclick='closeWin()'>x</span>"
+
+
     var createDiv = document.createElement("div")
     createDiv.setAttribute("class", "adminDashboard")
     createDiv.setAttribute("id", "adminDashboard")
 
-    createDiv.innerHTML="<span id='text10' onclick ='addDish()'>ADD</span><span id='text11' onclick='updateDish()'>UPDATE</span><span id='text12' onclick = 'deleteDish()'>DELETE</span><span id='text13' onclick='listDish()'>LIST</span>"
     
+    createDiv.innerHTML= "<span id='text10' onclick ='addDish()'>ADD</span><span id='text11' onclick='updateDish()'>UPDATE</span><span id='text12' onclick = 'deleteDish()'>DELETE</span><span id='text13' onclick='listDish()'>LIST</span>"
+
     getBody.appendChild(createDiv);
+    getBody.appendChild(createExitButton)
 
     
+
+    
+}
+
+function closeWin(){
+      var doc5 = document.getElementById("backScreen1")
+      doc5.remove();
+    
+      var doc6 = document.getElementById("exitButton")
+      doc6.remove();
+
+      var doc7 = document.getElementById("adminDashboard")
+      doc7.remove();
+}
+
+function addDish(){
+    var find = document.getElementById("adminDashboard")
+    find.remove()
+
+    var createDiv = document.createElement("div")
+    createDiv.setAttribute("class", "adminDashDiv")
+    createDiv.setAttribute("id", "adminDashDiv")
+    createDiv.innerHTML= '<div class="well"><form action="/person.php" method="POST" ><div class="form-group"><label for="firstname">Dish Name</label><input class="form-control" type="text" name="dishName" placeholder="Enter your dish name"></div>'
+     +'<div class="form-group"><label for="dishPrice">Dish Price</label><input class="form-control" type="number" name="dishPrice" placeholder="Enter your dish price"> '+
+     '</div><div class="categoryChoose"><label for="cars">Choose a category:</label><select name="category" id="category">'+
+    '<option value="PRE">PRE</option><option value="MAINS">MAINS</option><option value="DESSERTS">DESSERTS</option><option value="WINES">WINES</option><option value="WINES">BEERS</option><option value="DRINKS">DRINKS</option> ' +
+    '<option value="SNACKS">SNACKS</option><option value="ADDONS">ADDONS</option><option value="EXTRA">EXTRA</option></select></div><input type="submit" class="btn btn-primary" value="Submit"></form></div>'
+
+    var findBody = document.getElementById("backScreen1")
+    findBody.appendChild(createDiv)
 }

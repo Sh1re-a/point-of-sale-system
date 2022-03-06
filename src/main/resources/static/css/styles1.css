@@ -68,7 +68,7 @@ body{
     
     background-repeat: no-repeat;
     background-size: fill;
-    animation: fade-in 0.5s;
+    animation: fade-in 0.1s;
 }
 
 
@@ -100,7 +100,7 @@ body{
     backdrop-filter: blur(100px);
     overflow: overlay;
     border-radius: 10px;
-    animation: fade-in 0.5s;
+    animation: fade-in 0.1s;
     
     
 }
@@ -116,7 +116,7 @@ body{
     -webkit-backdrop-filter: blur(100px);
     backdrop-filter: blur(100px);
     border-radius: 10px;
-    animation: fade-in 0.5s;
+    animation: fade-in 0.1s;
 }
 
 .container div{
@@ -261,7 +261,7 @@ img{
 }
 .dags{
     position: absolute;
-    right: 264px;
+    right: 262px;
     top: 35px;
     width: 130px;
     background-color: #105E65;
@@ -370,7 +370,7 @@ img{
     background-color: white;
     opacity: 0.2;
     filter: blur(50px);
-    -webkit-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
     
 }
 
@@ -423,6 +423,7 @@ img{
     background-color: white;
     opacity: 0.2;
     filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
 }
 
 .content2{
@@ -451,6 +452,7 @@ img{
     background-color: white;
     opacity: 0.2;
     filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
 
 }
 .content3{
@@ -496,7 +498,7 @@ img{
 .contentBox1{
     height: 145px;
     cursor:pointer;
-    width: 100px;
+    
     
     
     
@@ -504,7 +506,7 @@ img{
 .contentBox2{
     display: flex;
     height: 145px;
-    width: 100px;
+    
     flex-direction: column;
     justify-content: space-between;
     border-radius: 6px;
@@ -544,8 +546,10 @@ img{
     text-align: left;
     align-items: center;
     font-size: 15px;
+    cursor: pointer;
     background-color:#50303D;
     backdrop-filter: blur(100px);
+    
    
     
 
