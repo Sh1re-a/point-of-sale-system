@@ -66,6 +66,7 @@ body{
     
     background-repeat: no-repeat;
     background-size: fill;
+    animation: fade-in 0.5s;
 }
 
 
@@ -97,6 +98,7 @@ body{
     backdrop-filter: blur(100px);
     overflow: overlay;
     border-radius: 10px;
+    animation: fade-in 0.5s;
     
     
 }
@@ -112,6 +114,7 @@ body{
     -webkit-backdrop-filter: blur(100px);
     backdrop-filter: blur(100px);
     border-radius: 10px;
+    animation: fade-in 0.5s;
 }
 
 .container div{
@@ -349,10 +352,10 @@ img{
 .content3{
     
     
-    backdrop-filter: blur(100px);
+    
 }
-
-.content1{
+.copyContent1{
+    z-index: 1;
     display: grid;
     grid-column-start: 2;
     grid-column-end: 5;
@@ -362,6 +365,25 @@ img{
     grid-template-columns: repeat(3, 1fr) ;
     grid-template-rows: repeat(3, 1fr) ;
     overflow: auto;
+    background-color: white;
+    opacity: 0.2;
+    filter: blur(50px);
+}
+
+.content1{
+    z-index:2 ;
+    display: grid;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end:  8;
+    gap:10px;
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-rows: repeat(3, 1fr) ;
+    overflow: auto;
+    
+    
+    
     
     
     
@@ -383,7 +405,8 @@ img{
     display: none;
 }
 
-.content2{
+.copyContent2{
+    z-index: 1;
     display: grid;
     grid-column-start: 5;
     grid-column-end: 8;
@@ -393,12 +416,41 @@ img{
     grid-template-columns: repeat(3, 1fr) ;
     grid-template-rows: repeat(3, 1fr) ;
     overflow: auto;
-    transition: 0.5s ease-in;  
-    
-    
-    
+    background-color: white;
+    opacity: 0.2;
+    filter: blur(50px);
+}
+
+.content2{
+    z-index: 2;
+    display: grid;
+    grid-column-start: 5;
+    grid-column-end: 8;
+    grid-row-start: 2;
+    grid-row-end:  8;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-rows: repeat(3, 1fr) ;
+    overflow: auto;
+    animation: fadein 0.2s;
+}
+
+.copyContent3{
+    z-index: 1;
+    display: grid;
+    overflow: auto;
+    grid-column-start: 8;
+    grid-column-end: 11;
+    grid-row-start: 2;
+    grid-row-end:  7;
+    gap: 10px;
+    background-color: white;
+    opacity: 0.2;
+    filter: blur(50px);
+
 }
 .content3{
+    z-index: 2;
     display: grid;
     overflow: auto;
     grid-column-start: 8;
@@ -443,6 +495,7 @@ img{
     width: 100px;
     
     
+    
 }
 .contentBox2{
     display: flex;
@@ -452,8 +505,10 @@ img{
     justify-content: space-between;
     border-radius: 6px;
     cursor: pointer;
+    
     opacity: 0.5;
     background-color: #313131
+    
     
     
 }
@@ -485,7 +540,7 @@ img{
     text-align: left;
     align-items: center;
     font-size: 15px;
-    background-color:#6360BA;
+    background-color:#50303D;
     backdrop-filter: blur(100px);
    
     
@@ -527,4 +582,23 @@ img{
 .buttonText{
     position: relative;
     left: -40px;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 0.5; }
+}
+@keyframes fade-out {
+    from { opacity: 0.5;}
+    to { opacity: 0;}
+    
+}
+
+.contentBox2.dbox1{
+    animation: fade-in 0.2s;
+
+}
+
+.contentBox2{
+    animation: fade-out 0.2s;
 }

@@ -1,11 +1,22 @@
 
 
+
 var id1;
 var counter = 0;
 runLocalStorage();
 
 window.onunload = function () {
 	localStorage.setItem("checker",0)
+}
+
+function checkCashier(){
+    var hasNumber = /\d/;
+    var testString = document.getElementById("köpText").innerHTML
+    var knapp = document.getElementById("buyButton")
+    if(hasNumber.test(testString)){
+        knapp.style.backgroundColor = "#6360BA"
+    }
+    
 }
 
 
@@ -1095,6 +1106,7 @@ findElement.innerHTML = findElement.innerHTML + '<div class ="content31"><span i
 
 
             }
+            
                 }
                    
         xhr.send()
@@ -1215,7 +1227,7 @@ function duplicateChildNodes (parentId,targetId){
       
   }
 
-  function pay(){
+function pay(){
     var s = new Date()
     var totalPrice1 = document.getElementById("lastPrice")
     var x = totalPrice1.innerHTML;
@@ -1257,10 +1269,32 @@ function duplicateChildNodes (parentId,targetId){
   var find4 = document.getElementById("cancelButton")
   find4.remove()
   
-  var createDiv = document.createElement("div")
-  createDiv.setAttribute("class","lds-dual-ring")
-   var findDiv = document.getElementById("buyScreen1")
-   findDiv.appendChild(createDiv)
+    var createDiv = document.createElement("div")
+    createDiv.setAttribute("class","lds-dual-ring")
+    var findDiv = document.getElementById("buyScreen1")
+    findDiv.style.display = "flex"
+    findDiv.style.justifyContent= "center"
+    findDiv.style.alignItems = "center"
+    findDiv.style.position = "relative"
+    findDiv.style.position = "right: 20px"
+    findDiv.appendChild(createDiv)
+
+
+//TODO: Funktionen excute direkt vet inte vrf.
+    setTimeout(function (){
+        createDiv.remove();
+    }, 5000)
+    
+
+    findDiv.innerHTML = "Thanks for shopping with us!"
+
+    setTimeout(function (){
+        location.reload()
+    }, 3000)
+    
+    
+
+   
 
 
 
@@ -1272,4 +1306,13 @@ function savingInLocal(data){
         localStorage.setItem(data[i].dishName, 0)
     }
 
+}
+
+
+function adminDash(){
+    var createDiv = document.createElement("div")
+    createDiv.setAttribute("class", "adminDashboard")
+    createDiv.setAttribute("id", "adminDashboard")
+    var getBody = document.getElementById("container")
+    getBody.appendChild(createDiv);
 }
