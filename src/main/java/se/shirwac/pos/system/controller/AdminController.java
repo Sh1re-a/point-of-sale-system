@@ -17,10 +17,7 @@ public class AdminController {
     @Autowired
     private DishRepo dishRepo;
 
-    @GetMapping(value = "/")
-    public String welcomePage(){
-        return "Welcome to my page";
-    }
+
 
     @GetMapping(value = "/allDishes")
     public List<Dish> getAllDishes(){
