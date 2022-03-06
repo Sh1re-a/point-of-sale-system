@@ -1138,8 +1138,6 @@ function buy(){
     createElement.setAttribute("id", "buyScreen1")
     
    // createElement.style.filter="blur(0px)"
-    
-    
     getBody.appendChild(createElement)
     var getNewElement = document.getElementById("buyScreen1")
 
@@ -1182,16 +1180,7 @@ function buy(){
     createElement4.innerHTML="<span id='cancelKnapp'>Cancel</span>"
 
     getBody.appendChild(createElement4)
-
-
-
-    
-
-
-    
-    
-    
-    
+ 
 }
 
 function duplicateChildNodes (parentId,targetId){
@@ -1204,14 +1193,14 @@ function duplicateChildNodes (parentId,targetId){
     });
   };
 
-  function removeAllChildNodes(parent) {
+function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
 
 
-  function cancel(){
+function cancel(){
       var doc1 = document.getElementById("backScreen1")
       doc1.remove();
 
@@ -1227,7 +1216,7 @@ function duplicateChildNodes (parentId,targetId){
       var doc5 = document.getElementById("cancelButton")
       doc5.remove();
       
-  }
+}
 
 function pay(){
     var s = new Date()
@@ -1287,14 +1276,16 @@ function pay(){
     setTimeout(function(){
         var find = document.getElementById("lds")
         find.remove()
+        findDiv.innerHTML = "Thanks for shopping with us!"
     },3000)
     
 
-    findDiv.innerHTML = "Thanks for shopping with us!"
+   
 
     setTimeout(function (){
+        findDiv.innerHTML = "Thanks for shopping with us!"
         location.reload()
-    }, 3000)
+    }, 5000)
     
     
 
@@ -1353,6 +1344,9 @@ function closeWin(){
 
       var doc7 = document.getElementById("adminDashboard")
       doc7.remove();
+
+      var doc8 = document.getElementById("backButton")
+      doc8.remove()
 }
 
 function goBack(){
@@ -1360,25 +1354,28 @@ function goBack(){
     find.innerHTML=""
     find.innerHTML= "<span id='text10' onclick ='addDish()'>ADD</span><span id='text11' onclick='updateDish()'>UPDATE</span><span id='text12' onclick = 'deleteDish()'>DELETE</span><span id='text13' onclick='listDish()'>LIST</span>"
     find.style = "align-items:center"
+    var find2 = document.getElementById("backButton")
+    find2.remove()
 }
 
 function addDish(){
     var find = document.getElementById("adminDashboard")
     find.innerHTML=""
     find.style = "align-items: space-between"
+    findContainer = document.getElementById("container")
 
     var createBackButton = document.createElement("div")
     createBackButton.setAttribute("class", "backButton")
     createBackButton.setAttribute("id", "backButton")
     createBackButton.innerHTML="<span id='backDot' onclick='goBack()'>←</span>"
-    find.appendChild(createBackButton)
+    findContainer.appendChild(createBackButton)
 
     
     var createDiv = document.createElement("div")
     createDiv.setAttribute("class", "adminDashDiv")
     createDiv.setAttribute("id", "adminDashDiv")
-    createDiv.innerHTML= '<div class="form-group"><label for="firstname">Dish Name</label><input id="dishNamn" class="form-control" type="text" name="dishName" placeholder=" Enter your dish name"></div>'
-     +'<div class="form-group"><label for="dishPrice">Dish Price</label><input id="dishPris" class="form-control" type="number" name="dishPrice" placeholder=" Enter your dish price"></div> '+
+    createDiv.innerHTML= '<div class="form-group"><label for="firstname">Dish Name</label><input id="dishNamn" class="form-control" type="text" name="dishName" placeholder=" Enter your dish name" required></div>'
+     +'<div class="form-group"><label for="dishPrice">Dish Price</label><input id="dishPris" class="form-control" type="number" name="dishPrice" placeholder=" Enter your dish price" required></div> '+
      '<div class="categoryChoose"><label for="cars">Choose a category:</label><select name="category" id="category">'+
     '<option value="PRE">PRE</option><option value="MAINS">MAINS</option><option value="DESSERTS">DESSERTS</option><option value="WINES">WINES</option><option value="WINES">BEERS</option><option value="DRINKS">DRINKS</option> ' +
     '<option value="SNACKS">SNACKS</option><option value="ADDONS">ADDONS</option><option value="EXTRA">EXTRA</option></select></div><input id ="drop"type="submit" class="btn btn-primary" onclick = "pushDish()">'
@@ -1393,6 +1390,7 @@ function pushDish(){
     var dishPrice1 = document.getElementById("dishPris").value
     var category1 = document.getElementById("category").value
 
+    localStorage.setItem(dishName1, 0)
 
     let postObj = {
         "dishName": dishName1,
@@ -1431,20 +1429,21 @@ function pushDish(){
             setTimeout(function(){
                 var find = document.getElementById("lds")
                 createDiv.remove()
-                
+                findAdmin.innerHTML= "Dish is added..."
             },3000)
 
             
-                findAdmin.innerHTML= "Dish is added..."
+                
             
 
             setTimeout(function(){
+                findAdmin.innerHTML= "Dish is added..."
                 var find1 = document.getElementById("adminDashboard")
                 find1.remove()
                 var find2 = document.getElementById("backScreen1")
                 find2.remove()
                 reloaditemStock()
-            },3000)
+            },5000)
 
             
 
@@ -1456,4 +1455,77 @@ function pushDish(){
 
 
     
+}
+
+function updateDish(){
+    var find = document.getElementById("adminDashboard")
+    find.innerHTML=""
+    var getBody = document.getElementById("container")
+
+    var createBackButton = document.createElement("div")
+    createBackButton.setAttribute("class", "backButton")
+    createBackButton.setAttribute("id", "backButton")
+    createBackButton.innerHTML="<span id='backDot' onclick='goBack()'>←</span>"
+    getBody.appendChild(createBackButton)
+
+    find.innerHTML = '<div id = "categorySwitch"><select name="category" id="category"><option value="PRE">PRE</option><option value="MAINS">MAINS</option> ' +
+    '<option value="DESSERTS">DESSERTS</option><option value="WINES">WINES</option><option value="WINES">BEERS</option><option value="DRINKS">DRINKS</option>' +
+    '<option value="SNACKS">SNACKS</option><option value="ADDONS">ADDONS</option><option value="EXTRA">EXTRA</option></select></div>'
+
+    var category1 = document.getElementById("category").value
+
+    find.style.gridColumn = "2"
+    find.style.gridColumnEnd = "10"
+    find.style.fontSize = "12px"
+
+    var createDiv2 = document.createElement("div")
+    createDiv2.setAttribute("class", "tableDash")
+    createDiv2.setAttribute("id", "tableDash")
+    find.appendChild(createDiv2)
+    
+    listDish(category1)
+    
+
+    
+
+}
+
+function listDish(upperCase){
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "http://localhost:8081/dishes?categoryType="+ upperCase)
+    xhr.onload = function(){
+        var data = JSON.parse(this.response)
+        createTable(data)
+    }
+    xhr.send()
+    
+}
+
+function createCell(content){
+    var aCell = document.createElement("td")
+    aCell.innerHTML = content
+    return aCell;
+}
+
+function createRow(id,dishName, price){
+    var aRow = document.createElement("tr")
+    
+
+    aRow.appendChild(createCell(id))
+    aRow.appendChild(createCell(dishName))
+    aRow.appendChild(createCell(price))
+    return aRow
+}
+
+function createTable(data){
+    var appElement = document.getElementById("tableDash")
+    var aTable = document.createElement("table")
+
+    appElement.appendChild(aTable)
+    for(var i = 0; i < data.length; i++){
+        aTable.appendChild(createRow(data[i].id, data[i].dishName, data[i].price))
+    }
+    
+    
+
 }

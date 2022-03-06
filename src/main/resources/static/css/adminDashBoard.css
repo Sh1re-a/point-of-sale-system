@@ -14,6 +14,16 @@
     justify-content: space-evenly;
     
     font-size: 25px;
+    overflow: auto;
+}
+
+.tableDash{
+    z-index: 4;
+    display: grid;
+    grid-column: 2;
+    grid-column-end: 10;
+    grid-row: 3;
+    grid-row-end: 8;
 }
 
 .exitButton{
@@ -33,7 +43,8 @@
     grid-column: 2;
     grid-row: 2;
     position: relative;
-    top: -30px;
+    left: 300px;
+    top: 2px;
     opacity: 0.9;
     cursor: pointer;
 }
@@ -69,7 +80,7 @@
     justify-content: space-between;
     font-size: 20px;
     position: relative;
-    top: -30px;
+    top: -10px;
 
 }
 
@@ -100,4 +111,7 @@
     cursor: pointer;
     border-radius: 5px;
     border: none;
+    background-color: blueviolet;
+    color: white;
+    
 }
