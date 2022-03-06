@@ -28,6 +28,8 @@
 body{
     overflow: hidden;
     background-color: #105E65;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 
@@ -368,6 +370,8 @@ img{
     background-color: white;
     opacity: 0.2;
     filter: blur(50px);
+    -webkit-filter: blur(50px);
+    
 }
 
 .content1{

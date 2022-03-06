@@ -20,7 +20,7 @@ function checkCashier(){
 }
 
 
-const reload = setInterval(reloaditemStock, 10000)
+//const reload = setInterval(reloaditemStock, 10000)
 
 
 function reloaditemStock(){
@@ -1310,9 +1310,19 @@ function savingInLocal(data){
 
 
 function adminDash(){
+    var getBody = document.getElementById("container")
+    var createBackground = document.createElement("div")
+    createBackground.setAttribute("class", "backScreen")
+    createBackground.setAttribute("id", "backScreen1")
+    getBody.appendChild(createBackground)
+
     var createDiv = document.createElement("div")
     createDiv.setAttribute("class", "adminDashboard")
     createDiv.setAttribute("id", "adminDashboard")
-    var getBody = document.getElementById("container")
+
+    createDiv.innerHTML="<span id='text10' onclick ='addDish()'>ADD</span><span id='text11' onclick='updateDish()'>UPDATE</span><span id='text12' onclick = 'deleteDish()'>DELETE</span><span id='text13' onclick='listDish()'>LIST</span>"
+    
     getBody.appendChild(createDiv);
+
+    
 }
