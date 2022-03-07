@@ -25,7 +25,9 @@ Ifall min Heroku app inte fungerar som det ska, kan det bero på att jag använd
 ```java
   private final String url ="mysql://localhost:3306/STI?";
 	```
-Nu borde du kunna köra igång programmet! Sen är det bara gå till localhost.
+
+
+   4. Nu borde du kunna köra igång programmet! Sen är det bara gå till localhost.
     
 
 
