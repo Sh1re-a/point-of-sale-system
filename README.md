@@ -1,3 +1,23 @@
+<link rel="stylesheet" href="editormd/css/editormd.css" />
+<div id="test-editor">
+    <textarea style="display:none;">### Editor.md
+
+**Editor.md**: The open source embeddable online markdown editor, based on CodeMirror & jQuery & Marked.
+    </textarea>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="editormd/editormd.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var editor = editormd("test-editor", {
+            // width  : "100%",
+            // height : "100%",
+            path   : "editormd/lib/"
+        });
+    });
+</script>
+
+
 ### Features so far
 
 - Lägga till rätter som skickas till databasen.
@@ -22,7 +42,7 @@
 Jag har byggt ett Point of Sale system, där användaren kan välja mellan 9 olika kategorier. Användaren ska kunna lägga till, modifiera, och ta bort olika rätter. Sedan ska användaren också kunna lägga beställningar. Jag har även lagt ner mycket tid på att bygga ett användarvänligt UI. 
 
 Några svårigheter jag har just nu:
-* Jag har deploy appen på Heroku men jag har haft problem med databaserna på heroku, de som har vart gratis då de har haft ett max antal connection och max_questions. Så har mitt projekt svårt att köra på heroku. Det kan vara beror på att jag har rätt många questions och connections mot databasen. Men jag håller på att läsa på om Cached queries.
+* Jag har deploy appen på Heroku men jag har haft problem med databaserna på heroku, med de som har vart gratis då de har haft ett max antal connection och max_questions. Så har mitt projekt svårt att köra på heroku. Det kan vara beror på att jag har rätt många questions och connections mot databasen. Men jag håller på att läsa på om Cached queries.
 * Jag känner att min hemsida brister lite i smooth animation, har inte riktigt haft mycket tid  och ge mig in på det, men fixar det så småningom.
 
 ### Build with
