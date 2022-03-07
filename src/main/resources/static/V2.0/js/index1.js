@@ -1529,3 +1529,35 @@ function createTable(data){
     
 
 }
+
+function kvittoDash(){
+    var getBody = document.getElementById("container")
+    var createBackground = document.createElement("div")
+    createBackground.setAttribute("class", "backScreen")
+    createBackground.setAttribute("id", "backScreen1")
+    getBody.appendChild(createBackground)
+
+    var createExitButton = document.createElement("div")
+    createExitButton.setAttribute("class", "exitButton")
+    createExitButton.setAttribute("id", "exitButton")
+    createExitButton.innerHTML="<span id='exitDot' onclick='closeWin()'>x</span>"
+    
+    
+    getBody.appendChild(createExitButton)
+    var findId= document.getElementById("exitDot")
+    findId.style.position="relative"
+    findId.style.left= "300px"
+
+    var createDiv = document.createElement("div")
+    createDiv.setAttribute("class", "adminDashboard")
+    createDiv.setAttribute("id", "adminDashboard")
+    createDiv.style.gridColumn = "2"
+    createDiv.style.gridColumnEnd = "10"
+    createDiv.style.fontSize = "12px"
+    var find = document.getElementById("container")
+    find.appendChild(createDiv)
+    var find2 = document.getElementById("adminDashboard")
+    find2.innerHTML = "<table><tr><th>Id</th><th>orderPrice</th><th>Date</th></tr>"
+    for
+
+}

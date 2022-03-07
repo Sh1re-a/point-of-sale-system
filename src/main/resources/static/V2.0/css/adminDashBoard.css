@@ -115,3 +115,11 @@
     color: white;
     
 }
+
+#kvittoknapp{
+    cursor: pointer;
+}
+
+#adminknapp{
+    cursor: pointer;
+}

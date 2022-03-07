@@ -63,4 +63,9 @@ public class WebController {
         return "Receipt saved";
     }
 
+    @GetMapping(value ="/receipt")
+    public List<Receipt> getReceipts(){
+        return receiptRepo.findAll();
+    }
+
 }
