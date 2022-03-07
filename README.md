@@ -21,9 +21,9 @@ Ifall min Heroku app inte fungerar som det ska, kan det bero på att jag använd
 	server.port=8081
    ```
    3. För att få du ska få in lite data du kan leka med och prova dig runt. Måste du ändra en url string den ligger under mappen Service i SpringBoot. Använd samma som du hade i application.properties.
-    ```java
+    
+```java
   private final String url ="mysql://localhost:3306/STI?";
-
 	```
 Nu borde du kunna köra igång programmet! Sen är det bara gå till localhost.
     
