@@ -26,7 +26,7 @@ function checkCashier(){
 function reloaditemStock(){
     
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/list")
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/list")
     xhr.onload = function(){
         for(var i = 0; i < 9; i++){
         var data = JSON.parse(this.response) 
@@ -116,7 +116,7 @@ function runLocalStorage(){
     var category = ["PRE","MAINS","DESSERTS","WINES","BEERS","DRINKS","SNACKS","ADDONS","EXTRA"]
     for(var i = 0; i < 9; i++){
         var xhr = new XMLHttpRequest()
-        xhr.open("GET", "http://localhost:8081/dishes?categoryType="+ category[i])
+        xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/dishes?categoryType="+ category[i])
         xhr.onload = function(){
         var data = JSON.parse(this.response)
         savingInLocal(data)
@@ -131,7 +131,7 @@ function runLocalStorage(){
 
 function apiConnection(upperCase){
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/dishes?categoryType="+ upperCase)
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/dishes?categoryType="+ upperCase)
     xhr.onload = function(){
         var data = JSON.parse(this.response)
                 if(upperCase.includes("PRE")){
@@ -197,7 +197,7 @@ function apiConnection(upperCase){
 
 function apiConnectionHighPrice(upperCase){
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/dishes/highPrice?categoryType="+upperCase)
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/dishes/highPrice?categoryType="+upperCase)
     xhr.onload = function(){
         var data = JSON.parse(this.response)
                 if(upperCase.includes("PRE")){
@@ -243,7 +243,7 @@ function apiConnectionHighPrice(upperCase){
 
 function apiConnectionLowPrice(upperCase){
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/dishes/lowPrice?categoryType="+upperCase)
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/dishes/lowPrice?categoryType="+upperCase)
     xhr.onload = function(){
         var data = JSON.parse(this.response)
                 if(upperCase.includes("PRE")){
@@ -289,7 +289,7 @@ function apiConnectionLowPrice(upperCase){
 
 function apiConnectionAz(upperCase){
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/dishes/A-z?categoryType="+upperCase)
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/dishes/A-z?categoryType="+upperCase)
     xhr.onload = function(){
         var data = JSON.parse(this.response)
                 if(upperCase.includes("PRE")){
@@ -399,7 +399,7 @@ function removeDishes(elements){
 function saveAllItem(){
     
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/list")
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/list")
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[0])
@@ -413,7 +413,7 @@ function saveAllItem(){
     xhr.send()
 
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/list")
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/list")
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[1])
@@ -428,7 +428,7 @@ function saveAllItem(){
 
 
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/list")
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/list")
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[2]);
@@ -441,7 +441,7 @@ function saveAllItem(){
     xhr.send()
 
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/list")
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/list")
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[3]);
@@ -453,7 +453,7 @@ function saveAllItem(){
          }            
     xhr.send()
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/list")
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/list")
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[4]);
@@ -465,7 +465,7 @@ function saveAllItem(){
          }            
     xhr.send()
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/list")
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/list")
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[5]);
@@ -477,7 +477,7 @@ function saveAllItem(){
          }            
     xhr.send()
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/list")
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/list")
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[6]);
@@ -489,7 +489,7 @@ function saveAllItem(){
          }            
     xhr.send()
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/list")
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/list")
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[7]);
@@ -501,7 +501,7 @@ function saveAllItem(){
          }            
     xhr.send()
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/list")
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/list")
     xhr.onload = function(){
         var data = JSON.parse(this.response) 
          var i = JSON.stringify(data[8]);
@@ -791,7 +791,7 @@ function addToCashier(idBox){
            
 
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/dishes?categoryType="+dataNameLowerCase)
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/dishes?categoryType="+dataNameLowerCase)
     xhr.onload = function(){
     var data = JSON.parse(this.response) 
 
@@ -1233,7 +1233,7 @@ function pay(){
     let post = JSON.stringify(postObj)
 
     var xhr = new XMLHttpRequest()
-    xhr.open("POST", "http://localhost:8081/save/receipt")
+    xhr.open("POST", "https://shirwac-pos-system.herokuapp.com/save/receipt")
     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8")
     xhr.send(post)
     xhr.onload = function(){
@@ -1401,7 +1401,7 @@ function pushDish(){
     let post = JSON.stringify(postObj)
 
     var xhr = new XMLHttpRequest()
-    xhr.open("POST", "http://localhost:8081/save/dish")
+    xhr.open("POST", "https://shirwac-pos-system.herokuapp.com/save/dish")
     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8")
     xhr.send(post)
     xhr.onload = function(){
@@ -1492,7 +1492,7 @@ function updateDish(){
 
 function listDish(upperCase){
     var xhr = new XMLHttpRequest()
-    xhr.open("GET", "http://localhost:8081/dishes?categoryType="+ upperCase)
+    xhr.open("GET", "https://shirwac-pos-system.herokuapp.com/dishes?categoryType="+ upperCase)
     xhr.onload = function(){
         var data = JSON.parse(this.response)
         createTable(data)
