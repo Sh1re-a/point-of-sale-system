@@ -1,4 +1,31 @@
+<!-- GETTING STARTED -->
+## Getting Started
 
+Ifall min Heroku app inte fungerar som det ska, kan det bero på att jag använder mig free tier database. Den har mycket limit som 10 max_connection och det ser ut som mitt projekt slår nästan direkt i det taket samma med max_question. Så ifall nu inte fungerar har jag skapat ett liknande repo fast med localhost. Ifall det fungerar kan du skippa den dela och scrolla vidare.
+
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Sh1re-a/local.pos-system
+   ```
+2. Sedan måste du röra dig mot application.properties som ligger under resource mappen och ändra dessa värden. Du måste även skapa en database som heter STI innan du kör igång
+```java
+    spring.datasource.url=jdbc: mysql://localhost:3306/STI?
+	spring.datasource.username=root
+	spring.datasource.password=
+	spring.jpa.hibernate.ddl-auto=create-drop
+	spring.mvc.pathmatch.matching-strategy = ANT_PATH_MATCHER
+	spring.output.ansi.enabled=ALWAYS
+	server.port=8081
+   ```
+   3. För att få du ska få in lite data du kan leka med och prova dig runt. Måste du ändra en url string den ligger under mappen Service i SpringBoot. Använd samma som du hade i application.properties.
+```java
+  private final String url ="mysql://localhost:3306/STI?";
+
+	```
+Nu borde du kunna köra igång programmet! Sen är det bara gå till localhost.
     
 
 
