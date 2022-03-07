@@ -1,21 +1,5 @@
-<link rel="stylesheet" href="editormd/css/editormd.css" />
-<div id="test-editor">
-    <textarea style="display:none;">### Editor.md
 
-**Editor.md**: The open source embeddable online markdown editor, based on CodeMirror & jQuery & Marked.
-    </textarea>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="editormd/editormd.min.js"></script>
-<script type="text/javascript">
-    $(function() {
-        var editor = editormd("test-editor", {
-            // width  : "100%",
-            // height : "100%",
-            path   : "editormd/lib/"
-        });
-    });
-</script>
+    
 
 
 ### Features so far
@@ -66,15 +50,15 @@ Några svårigheter jag har just nu:
 
 
 
-#Function
+# Function
 
-####Hämta rätter
+#### Hämta rätter
 ![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/gif1.mov?raw=true)
 
 
 
 
-#####Javascript　
+##### Javascript　
 
 ```javascript
 function apiConnection(categories){
@@ -88,7 +72,7 @@ function apiConnection(categories){
 	}
 ```
 
-####Java
+#### Java
 
 ```Java
 @GetMapping(value = "/category/{categoryType}/")
@@ -97,11 +81,11 @@ function apiConnection(categories){
     }
 ```
 
-####Filter/Order dishes
+#### Filter/Order dishes
 ![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/gif2.mov?raw=true)
 ###### Ändrar ordningen på rätterna utifrån Popular(hur många beställningar varje rätt har), sen utifrån bokstavsordning och pris. Jag gör ett anropp till databasen som ger tillbaks i den ordning användern klickar på. Sparar också antalet varor i localStorage som jag tömmer efter webbläsaren laddar om.
 
-####Java
+#### Java
 
 ```Java
 @Query("SELECT a FROM Dish a WHERE a.categoryType = ?1 ORDER BY ‰ DESC")
@@ -120,11 +104,11 @@ function apiConnection(categories){
     List<Dish> findByCategoryTypeOrderByAz(CategoryType categoryType);
 ```
 
-####Lägg till rätt i databasen
+#### Lägg till rätt i databasen
 ![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/ezgif.com-video-to-gif-6.mov?raw=true)
 ###### Med hjälp av PUT request som jag skickar via JS till API jag skapade i spring boot, kan jag skicka in rätter in till databasen. Sedan när jag klickar på den kategorin dyker upp rätten upp.
 
-####Java
+#### Java
 
 ```Java
 @PostMapping(value = "/save/dish")
@@ -137,11 +121,11 @@ function apiConnection(categories){
 ![alt-text](https://github.com/Sh1re-a/pos.system/blob/master/image/Skärmavbild%202022-03-07%20kl.%2015.11.35.png?raw=true)
 
 
-####Lägg till kvittot i databasen
+#### Lägg till kvittot i databasen
 ![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/gif4.mov?raw=true)
 ###### Med hjälp av PUT request som jag skickar via JS till API jag skapade i spring boot, kan jag skicka in kvittot in till databasen.
 
-####Java
+#### Java
 
 ```Java
 @PostMapping(value = "/save/receipt")
