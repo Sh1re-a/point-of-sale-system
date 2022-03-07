@@ -60,7 +60,7 @@ public class WebController {
     @PostMapping(value = "/save/receipt")
     public String saveReceipt(@RequestBody Receipt receipt){
         receiptRepo.save(receipt);
-        return "Receipt saved";
+        return "Receipt saved...";
     }
 
     @GetMapping(value ="/receipt")
