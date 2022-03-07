@@ -16,7 +16,7 @@ import java.sql.SQLException;
 //Skapat en färdig database man kan leka med, generarat datan från mocakaroGenerator
 @Service
 public class DatabaseSQL {
-    private final String url = "jdbc:mysql://b3f4c27078cef1:095e3132@us-cdbr-east-05.cleardb.net/heroku_d979d5442dba2a7?reconnect=true";
+    private final String url = "jdbc:mysql://localhost:3306/STI?";
     private final String user = "root";
     private final String password = "";
 
