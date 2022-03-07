@@ -1,182 +1,136 @@
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
+### Features so far
+
+- Lägga till rätter som skickas till databasen.
+- Hämta rätter från databasen med ett query vilken kategori som gäller.
+- Filter funktion för att sortera efter hur många beställningar, bokstavningsordning och pris.
+- För varje beställning skickas ett kvitto till databasen med tid och totala pris.
+- Hämta antal varor varje kategori har och uppdaterat varje gång en rätt har antingen lagts in.
+- När en vara läggs in i varukorgen så sparas det i localstorage som sedan försvinner efter att sidan har laddats om.
+
+### Features coming
+- Kunna uppdatera rätterna via hemsidan
+- Kunna radera rätterna via hemsidan
+- Kunna hantera flera beställningar samtidigt
+- Inloggning system
 
 
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
 
-img src<>
+# About The Project
+![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/bild1.png?raw=true)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+Jag har byggt ett Point of Sale system, där användaren kan välja mellan 9 olika kategorier. Användaren ska kunna lägga till, modifiera, och ta bort olika rätter. Sedan ska användaren också kunna lägga beställningar. Jag har även lagt ner mycket tid på att bygga ett användarvänligt UI. 
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+Några svårigheter jag har just nu:
+* Jag har deploy appen på Heroku men jag har haft problem med databaserna på heroku, de som har vart gratis då de har haft ett max antal connection och max_questions. Så har mitt projekt svårt att köra på heroku. Det kan vara beror på att jag har rätt många questions och connections mot databasen. Men jag håller på att läsa på om Cached queries.
+* Jag känner att min hemsida brister lite i smooth animation, har inte riktigt haft mycket tid  och ge mig in på det, men fixar det så småningom.
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+### Build with
 
 
 
-### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+* [Spring-Boot](https://spring.io)
+* [Vanilla JS](https://www.javascript.com)
+* [HTML](https:///)
+* [CSS](https:///)
+* [JPA](https://jakarta.ee/specifications/persistence/3.0/)
+* [SWAGGER](https://swagger.io)
+* [MySQL](https://mysql.com)
+* [JAVA](https://java.com)
 
 
 
-<!-- GETTING STARTED -->
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-<!-- ROADMAP -->
-## Roadmap
+#Function
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+####Hämta rätter
+![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/gif1.mov?raw=true)
 
 
 
-<!-- CONTRIBUTING -->
-## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+#####Javascript　
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+```javascript
+function apiConnection(categories){
+    var xhr = new XMLHttpRequest()
+    xhr.open("GET", "http://localhost:8081/dishes?categoryType="+ categories)
+    xhr.onload = function(){
+        var data = JSON.parse(this.response)
+                createDishes(data)
+           }
+	xhr.send()
+	}
+```
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+####Java
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+```Java
+@GetMapping(value = "/category/{categoryType}/")
+    public List<Dish> byCategory(@PathVariable CategoryType categoryType){
+        return dishRepo.findByCategoryType(categoryType);
+    }
+```
+
+####Filter/Order dishes
+![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/gif2.mov?raw=true)
+###### Ändrar ordningen på rätterna utifrån Popular(hur många beställningar varje rätt har), sen utifrån bokstavsordning och pris. Jag gör ett anropp till databasen som ger tillbaks i den ordning användern klickar på. Sparar också antalet varor i localStorage som jag tömmer efter webbläsaren laddar om.
+
+####Java
+
+```Java
+@Query("SELECT a FROM Dish a WHERE a.categoryType = ?1 ORDER BY ‰ DESC")
+    List<Dish> findByCategoryType(CategoryType categoryType);
+
+    @Query("SELECT COUNT(dishName) FROM Dish a where a.categoryType= ?1")
+    int findHowManyItemsInStockByCategory(CategoryType categoryType);
+
+    @Query("SELECT a FROM Dish a WHERE a.categoryType =?1 ORDER BY price DESC")
+    List<Dish> findByCategoryTypeOrderByHighPrice(CategoryType categoryType);
+
+    @Query("SELECT a FROM Dish a WHERE a.categoryType =?1 ORDER BY price ASC")
+    List<Dish> findByCategoryTypeOrderByLowPrice(CategoryType categoryType);
+
+    @Query("SELECT a FROM Dish a WHERE a.categoryType =?1 ORDER BY dishName ASC")
+    List<Dish> findByCategoryTypeOrderByAz(CategoryType categoryType);
+```
+
+####Lägg till rätt i databasen
+![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/ezgif.com-video-to-gif-6.mov?raw=true)
+###### Med hjälp av PUT request som jag skickar via JS till API jag skapade i spring boot, kan jag skicka in rätter in till databasen. Sedan när jag klickar på den kategorin dyker upp rätten upp.
+
+####Java
+
+```Java
+@PostMapping(value = "/save/dish")
+    public String saveDish(@RequestBody Dish dish){
+        dishRepo.save(dish);
+        return "Dish is saved";
+    }
+```
+###### Vi kan se nedan att rätten är sparad i vår databas.
+![alt-text](https://github.com/Sh1re-a/pos.system/blob/master/image/Skärmavbild%202022-03-07%20kl.%2015.11.35.png?raw=true)
 
 
+####Lägg till kvittot i databasen
+![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/gif4.mov?raw=true)
+###### Med hjälp av PUT request som jag skickar via JS till API jag skapade i spring boot, kan jag skicka in kvittot in till databasen.
 
-<!-- LICENSE -->
-## License
+####Java
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+```Java
+@PostMapping(value = "/save/receipt")
+    public String saveReceipt(@RequestBody Receipt receipt){
+        receiptRepo.save(receipt);
+        return "Receipt saved...";
+    }
+```
+###### Vi kan se nedan att rätten är sparad i vår databas. Jag har försökt lösa så varorna även kommer med i kvittot, men jag har förstått att MySql inte kan läsa av Java list, så jag får framöver fixa två tabeller med relationer sedan sätta ihop.
+![alt-text](https://github.com/Sh1re-a/pos.system/blob/master/image/Skärmavbild%202022-03-07%20kl.%2015.21.57.png?raw=true)
 
 
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
