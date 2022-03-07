@@ -1558,6 +1558,5 @@ function kvittoDash(){
     find.appendChild(createDiv)
     var find2 = document.getElementById("adminDashboard")
     find2.innerHTML = "<table><tr><th>Id</th><th>orderPrice</th><th>Date</th></tr>"
-    for
-
+    
 }
