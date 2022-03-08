@@ -3,6 +3,9 @@
 
 Ifall min Heroku app inte fungerar som det ska, kan det bero på att jag använder mig free tier database. Den har mycket limit som 10 max_connection och det ser ut som mitt projekt slår nästan direkt i det taket samma med max_question. Så ifall det inte fungerar nu har jag skapat ett liknande repo fast med localhost. Men ifall det fungerar kan du skippa den dela och scrolla vidare.
 
+UI-inspirationen kommer från 
+https://dribbble.com/shots/14607661-Cashier-prototype
+
 
 ### Installation
 
