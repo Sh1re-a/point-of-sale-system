@@ -1322,7 +1322,7 @@ function adminDash(){
     createDiv.setAttribute("id", "adminDashboard")
 
     
-    createDiv.innerHTML= "<span id='text10' onclick ='addDish()'>ADD</span><span id='text11' onclick='updateDish()'>UPDATE</span><span id='text12' onclick = 'deleteDish()'>DELETE</span><span id='text13' onclick='listDish()'>LIST</span>"
+    createDiv.innerHTML= "<span id='text10' onclick ='addDish()'>ADD</span><span id='text11'>UPDATE</span><span id='text12' onclick = 'deleteDish()'>DELETE</span><span id='text13' onclick='listDish()'>LIST</span>"
     var find = document.getElementById("adminDashboard")
     createDiv.style.alignItems = "center"
 
@@ -1557,6 +1557,6 @@ function kvittoDash(){
     var find = document.getElementById("container")
     find.appendChild(createDiv)
     var find2 = document.getElementById("adminDashboard")
-    find2.innerHTML = "<table><tr><th>Id</th><th>orderPrice</th><th>Date</th></tr>"
+    find2.innerHTML = "Inte färdigt"
     
 }
