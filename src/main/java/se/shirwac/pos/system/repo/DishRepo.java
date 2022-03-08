@@ -15,7 +15,7 @@ public interface DishRepo extends JpaRepository<Dish, Long> {
 
 
 
-    @Query("SELECT a FROM Dish a WHERE a.categoryType = ?1 ORDER BY DESC")
+    @Query("SELECT a FROM Dish a WHERE a.categoryType = ?1 ORDER BY orders DESC")
     List<Dish> findByCategoryType(CategoryType categoryType);
 
 
