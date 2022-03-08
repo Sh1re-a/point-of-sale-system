@@ -6,6 +6,15 @@ Ifall min Heroku app inte fungerar som det ska, kan det bero på att jag använd
 UI-inspirationen kommer från 
 https://dribbble.com/shots/14607661-Cashier-prototype
 
+##### UPDATE
+Jag har ändrat databasen från create-drop till update, databasen verkar hämta data mycket smidigare nu och det verkar inte ske några kraschar heller. Nu borde Heroku appen fungera!
+
+
+##### Heroku länk och REST-API
+https://shirwac-pos-system.herokuapp.com/
+
+https://shirwac-pos-system.herokuapp.com/swagger-ui.html#/
+
 
 ### Installation
 
