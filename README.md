@@ -132,7 +132,7 @@ function apiConnection(categories){
 #### Java
 
 ```Java
-@Query("SELECT a FROM Dish a WHERE a.categoryType = ?1 ORDER BY ‰ DESC")
+@Query("SELECT a FROM Dish a WHERE a.categoryType = ?1 ORDER BY orders DESC")
     List<Dish> findByCategoryType(CategoryType categoryType);
 
     @Query("SELECT COUNT(dishName) FROM Dish a where a.categoryType= ?1")
