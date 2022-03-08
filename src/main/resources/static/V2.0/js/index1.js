@@ -1352,7 +1352,7 @@ function closeWin(){
 function goBack(){
     var find = document.getElementById("adminDashboard")
     find.innerHTML=""
-    find.innerHTML= "<span id='text10' onclick ='addDish()'>ADD</span><span id='text11' onclick='updateDish()'>UPDATE</span><span id='text12' onclick = 'deleteDish()'>DELETE</span><span id='text13' onclick='listDish()'>LIST</span>"
+    find.innerHTML= "<span id='text10' onclick ='addDish()'>ADD</span><span id='text11'>UPDATE</span><span id='text12' onclick = 'deleteDish()'>DELETE</span><span id='text13' onclick='listDish()'>LIST</span>"
     find.style = "align-items:center"
     var find2 = document.getElementById("backButton")
     find2.remove()
