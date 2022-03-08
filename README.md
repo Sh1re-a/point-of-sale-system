@@ -10,7 +10,7 @@ Ifall min Heroku app inte fungerar som det ska, kan det bero på att jag använd
    ```sh
    git clone https://github.com/Sh1re-a/local.pos-system
    ```
-2. Sedan måste du röra dig mot application.properties som ligger under resource mappen och ändra dessa värden. Du måste även skapa en database som heter STI innan du kör igång
+2. Sedan måste du röra dig mot application.properties som ligger under resource mappen och ändra dessa värden. Du måste även skapa en database som heter STI innan du kör igång. Sedan måste du även ange username och password för JUST DIN databas
 ```java
     spring.datasource.url=jdbc: mysql://localhost:3306/STI?
 	spring.datasource.username=root
@@ -23,7 +23,9 @@ Ifall min Heroku app inte fungerar som det ska, kan det bero på att jag använd
    3. För att få du ska få in lite data du kan leka med och prova dig runt. Måste du ändra en url string den ligger under mappen Service i SpringBoot. Använd samma som du hade i application.properties.
     
 ```java
-  private final String url ="mysql://localhost:3306/STI?"; 
+  private final String url ="mysql://localhost:3306/STI?";
+  private final String user = "root";
+  private final String password = "";
   ```
 
 
