@@ -98,7 +98,7 @@ Några svårigheter jag har just nu:
 
 ### 01. Hämta rätter
 ![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/gif1.mov?raw=true)
-###### Vi hämtar rätterna från databasen med hjälp av XMLHttpRequest till APIn jag har skapat och sedan skapas elementen utifrån hur många rätter varje kategori består av. Sen uppdateras även antal items på kategoriens ruta.
+###### Vi hämtar rätterna från databasen med hjälp av XMLHttpRequest till API:in jag har skapat och sedan skapas elementen utifrån hur många rätter varje kategori består av. Sen uppdateras även antal items på kategoriens ruta.
 
 
 
@@ -127,7 +127,7 @@ function apiConnection(categories){
 
 ### 02. Filter/Order dishes
 ![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/gif2.mov?raw=true)
-###### Ändrar ordningen på rätterna utifrån Popular(hur många beställningar varje rätt har), sen utifrån bokstavsordning och pris. Jag gör ett anropp till databasen som ger tillbaks i den ordning användern klickar på. Sparar också antalet varor i localStorage som jag tömmer efter webbläsaren laddar om.
+###### Ändrar ordningen på rätterna utifrån Popular(hur många beställningar varje rätt har), sen utifrån bokstavsordning och pris. Jag gör ett anropp till databasen som ger tillbaks i den ordning som användern klickar på. Sparar också antalet varor i localStorage som jag tömmer efter webbläsaren har laddats om.
 
 #### Java
 
@@ -150,7 +150,7 @@ function apiConnection(categories){
 
 ### 03. Lägg till rätt i databasen
 ![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/ezgif.com-video-to-gif-6.mov?raw=true)
-###### Med hjälp av PUT request som jag skickar via JS till API jag skapade i spring boot, kan jag skicka in rätter in till databasen. Sedan när jag klickar på den kategorin dyker upp rätten upp.
+###### Med hjälp av PUT request som jag skickar via JS till API:in som jag skapade i spring boot, kan jag skicka in rätter in till databasen. Sedan när jag klickar på den kategorin jag la den in, dyker upp rätten upp.
 
 #### Java
 
@@ -167,7 +167,7 @@ function apiConnection(categories){
 
 #### 04. Lägg till kvittot i databasen
 ![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/gif4.mov?raw=true)
-###### Med hjälp av PUT request som jag skickar via JS till API jag skapade i spring boot, kan jag skicka in kvittot in till databasen.
+###### Med hjälp av PUT request som jag skickar via JS till API:in som jag skapade i spring boot, kan jag spara kvittot in databasen.
 
 #### Java
 
