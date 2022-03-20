@@ -22,7 +22,7 @@ https://shirwac-pos-system.herokuapp.com/swagger-ui.html#/
    ```sh
    git clone https://github.com/Sh1re-a/local.pos-system
    ```
-2. Sedan måste du röra dig mot application.properties som ligger under resource mappen och ändra dessa värden. Du måste även skapa en database som heter STI innan du kör igång. Sedan måste du även ange username och password för JUST DIN databas
+2. Sedan måste du navigera dig mot application.properties som ligger under resource mappen och ändra dessa värden. Du måste även skapa en database som heter STI innan du kör igång. Sedan måste du även ange username och password för JUST DIN databas
 ```java
     spring.datasource.url=jdbc: mysql://localhost:3306/STI?
 	spring.datasource.username=root
@@ -32,7 +32,7 @@ https://shirwac-pos-system.herokuapp.com/swagger-ui.html#/
 	spring.output.ansi.enabled=ALWAYS
 	server.port=8081
    ```
-   3. För att få du ska få in lite data du kan leka med och prova dig runt. Måste du ändra en url string den ligger under mappen Service i SpringBoot. Använd samma som du hade i application.properties.
+   3.  För att få du ska få in lite data du kan leka runt med behöver du ändra URL stringen, den ligger under mappen ”Service” i SpringBoot. Använd samma som du hade i application.properties
     
 ```java
   private final String url ="mysql://localhost:3306/STI?";
@@ -42,7 +42,7 @@ https://shirwac-pos-system.herokuapp.com/swagger-ui.html#/
 
 
 
-   4. Nu borde du kunna köra igång programmet! Sen är det bara gå till localhost.
+   4. Nu borde du kunna köra igång programmet! Sen är det bara gå till localhost:8081.
     
 
 
@@ -52,8 +52,8 @@ https://shirwac-pos-system.herokuapp.com/swagger-ui.html#/
 - Hämta rätter från databasen med ett query vilken kategori som gäller.
 - Filter funktion för att sortera efter hur många beställningar, bokstavningsordning och pris.
 - För varje beställning skickas ett kvitto till databasen med tid och totala pris.
-- Hämta antal varor varje kategori har och uppdaterat varje gång en rätt har antingen lagts in.
-- När en vara läggs in i varukorgen så sparas det i localstorage som sedan försvinner efter att sidan har laddats om.
+- Hämta varor från varje kategori samt uppdateras varje gång en rätt har lagts in..
+- När en vara läggs in i varukorgen så sparas det i "localstorage" som sedan försvinner efter att sidan har laddats om.
 
 ### Features coming
 - Kunna uppdatera rätterna via hemsidan
@@ -70,8 +70,8 @@ https://shirwac-pos-system.herokuapp.com/swagger-ui.html#/
 Jag har byggt ett Point of Sale system, där användaren kan välja mellan 9 olika kategorier. Användaren ska kunna lägga till, modifiera, och ta bort olika rätter. Sedan ska användaren också kunna lägga beställningar. Jag har även lagt ner mycket tid på att bygga ett användarvänligt UI. 
 
 Några svårigheter jag har just nu:
-* Jag har deploy appen på Heroku men jag har haft problem med databaserna på heroku, med de som har vart gratis då de har haft ett max antal connection och max_questions. Så har mitt projekt svårt att köra på heroku. Det kan vara beror på att jag har rätt många questions och connections mot databasen. Men jag håller på att läsa på om Cached queries.
-* Jag känner att min hemsida brister lite i smooth animation, har inte riktigt haft mycket tid  och ge mig in på det, men fixar det så småningom.
+* Jag har deploy appen på Heroku men jag har haft problem med databaserna i det programmet då det var en gratisversion vilket resulterar i att man bara har ett max antal connections och max_questions. Därav har mitt projekt haft svårigheter att köras på Heroku. Det kan bero på att jag har rätt många questions och connections mot databasen. Men i nuläget håller jag på att läsa på om Cached queries för att lösa dessa problem.
+* Jag känner att min hemsida brister lite i smooth animation, har inte riktigt haft mycket tid  och ge mig in på det, men fixar det inom en snar tid.
 
 ### Build with
 
