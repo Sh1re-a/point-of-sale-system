@@ -1,49 +1,33 @@
-<!-- GETTING STARTED -->
-## Getting Started
 
-Ifall min Heroku app inte fungerar som det ska, kan det bero på att jag använder mig free tier database. Den har mycket limit som 10 max_connection och det ser ut som mitt projekt slår nästan direkt i det taket samma med max_question. Så ifall det inte fungerar nu har jag skapat ett liknande repo fast med localhost. Men ifall det fungerar kan du skippa installation delen och kan du fortsätta ner för mer information om projektet.
+# Point of sale system
+![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/bild1.png?raw=true)
+
+Jag har byggt ett Point of Sale system, där användaren kan välja mellan 9 olika kategorier. Användaren ska kunna lägga till, modifiera, och ta bort olika rätter. Sedan ska användaren också kunna lägga beställningar. 
 
 UI-inspirationen kommer från 
 https://dribbble.com/shots/14607661-Cashier-prototype
-
-##### UPDATE
-Jag har ändrat databasen från create-drop till update, databasen verkar hämta data mycket smidigare nu och det verkar inte ske några kraschar heller. Nu borde Heroku appen fungera!
-
 
 ##### Heroku länk och REST-API
 https://shirwac-pos-system.herokuapp.com/
 
 https://shirwac-pos-system.herokuapp.com/swagger-ui.html#/
 
+Några svårigheter jag har just nu:
+* Jag har deploy appen på Heroku men jag har haft problem med databaserna i det programmet då det var en gratisversion vilket resulterar i att man bara har ett max antal connections och max_questions. Därav har mitt projekt haft svårigheter att köras på Heroku. Det kan bero på att jag har rätt många questions och connections mot databasen. Men i nuläget håller jag på att läsa lite om Cached queries, så det inte blir rätt många questions.
+* Jag känner att min hemsida brister lite i smooth animation, har inte riktigt haft mycket tid  och ge mig in på det, men fixar det inom en snar tid.
 
-### Installation
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/Sh1re-a/local.pos-system
-   ```
-2. Sedan måste du navigera dig mot application.properties som ligger under resource mappen och ändra dessa värden. Du måste även skapa en database som heter STI innan du kör igång. Sedan måste du även ange username och password för JUST DIN databas
-```java
-    spring.datasource.url=jdbc: mysql://localhost:3306/STI?
-	spring.datasource.username=root
-	spring.datasource.password=
-	spring.jpa.hibernate.ddl-auto=create-drop
-	spring.mvc.pathmatch.matching-strategy = ANT_PATH_MATCHER
-	spring.output.ansi.enabled=ALWAYS
-	server.port=8081
-   ```
-   3.  För att få du ska få in lite data du kan leka runt med behöver du ändra URL stringen, den ligger under mappen ”Service” i SpringBoot. Använd samma som du hade i application.properties
-    
-```java
-  private final String url ="mysql://localhost:3306/STI?";
-  private final String user = "root";
-  private final String password = "";
-  ```
+### Build with
 
 
 
-   4. Nu borde du kunna köra igång programmet! Sen är det bara gå till localhost:8081.
-    
+* [Spring-Boot](https://spring.io)
+* [Vanilla JS](https://www.javascript.com)
+* [HTML](https:///)
+* [CSS](https:///)
+* [JPA](https://jakarta.ee/specifications/persistence/3.0/)
+* [SWAGGER](https://swagger.io)
+* [MySQL](https://mysql.com)
+* [JAVA](https://java.com)
 
 
 ### Features so far
@@ -64,37 +48,9 @@ https://shirwac-pos-system.herokuapp.com/swagger-ui.html#/
 
 
 
-# About The Project
-![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/bild1.png?raw=true)
-
-Jag har byggt ett Point of Sale system, där användaren kan välja mellan 9 olika kategorier. Användaren ska kunna lägga till, modifiera, och ta bort olika rätter. Sedan ska användaren också kunna lägga beställningar. Jag har även lagt ner mycket tid på att bygga ett användarvänligt UI. 
-
-Några svårigheter jag har just nu:
-* Jag har deploy appen på Heroku men jag har haft problem med databaserna i det programmet då det var en gratisversion vilket resulterar i att man bara har ett max antal connections och max_questions. Därav har mitt projekt haft svårigheter att köras på Heroku. Det kan bero på att jag har rätt många questions och connections mot databasen. Men i nuläget håller jag på att läsa på om Cached queries för att lösa dessa problem.
-* Jag känner att min hemsida brister lite i smooth animation, har inte riktigt haft mycket tid  och ge mig in på det, men fixar det inom en snar tid.
-
-### Build with
 
 
-
-* [Spring-Boot](https://spring.io)
-* [Vanilla JS](https://www.javascript.com)
-* [HTML](https:///)
-* [CSS](https:///)
-* [JPA](https://jakarta.ee/specifications/persistence/3.0/)
-* [SWAGGER](https://swagger.io)
-* [MySQL](https://mysql.com)
-* [JAVA](https://java.com)
-
-
-
-
-
-
-
-
-
-# Functions
+# Funktioner
 
 ### 01. Hämta rätter
 ![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/gif1.mov?raw=true)
