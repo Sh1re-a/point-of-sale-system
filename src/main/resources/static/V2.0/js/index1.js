@@ -5,6 +5,8 @@ var id1;
 var counter = 0;
 runLocalStorage();
 
+
+
 window.onunload = function () {
 	localStorage.setItem("checker",0)
 }

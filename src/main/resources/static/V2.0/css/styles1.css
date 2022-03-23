@@ -30,7 +30,16 @@ body{
     background-color: #105E65;
     -webkit-user-select: none;
     user-select: none;
+    max-width: 1440px;
+    max-height: 743px;
 }
+
+@media screen and (min-width: 1500px) {
+    body {
+        max-width: 1440px;
+        max-height: 743px;
+    }
+  }
 
 
 .container{
