@@ -1,77 +1,20 @@
-<!-- GETTING STARTED -->
-## Getting Started
 
-Ifall min Heroku app inte fungerar som det ska, kan det bero på att jag använder mig free tier database. Den har mycket limit som 10 max_connection och det ser ut som mitt projekt slår nästan direkt i det taket samma med max_question. Så ifall det inte fungerar nu har jag skapat ett liknande repo fast med localhost. Men ifall det fungerar kan du skippa installation delen och kan du fortsätta ner för mer information om projektet.
+# Point of sale system
+![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/bild1.png?raw=true)
+
+Jag har byggt ett Point of Sale system, där användaren kan välja mellan 9 olika kategorier. Användaren ska kunna lägga till, modifiera, och ta bort olika rätter. Sedan ska användaren också kunna lägga beställningar. 
 
 UI-inspirationen kommer från 
 https://dribbble.com/shots/14607661-Cashier-prototype
-
-##### UPDATE
-Jag har ändrat databasen från create-drop till update, databasen verkar hämta data mycket smidigare nu och det verkar inte ske några kraschar heller. Nu borde Heroku appen fungera!
-
 
 ##### Heroku länk och REST-API
 https://shirwac-pos-system.herokuapp.com/
 
 https://shirwac-pos-system.herokuapp.com/swagger-ui.html#/
 
-
-### Installation
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/Sh1re-a/local.pos-system
-   ```
-2. Sedan måste du röra dig mot application.properties som ligger under resource mappen och ändra dessa värden. Du måste även skapa en database som heter STI innan du kör igång. Sedan måste du även ange username och password för JUST DIN databas
-```java
-    spring.datasource.url=jdbc: mysql://localhost:3306/STI?
-	spring.datasource.username=root
-	spring.datasource.password=
-	spring.jpa.hibernate.ddl-auto=create-drop
-	spring.mvc.pathmatch.matching-strategy = ANT_PATH_MATCHER
-	spring.output.ansi.enabled=ALWAYS
-	server.port=8081
-   ```
-   3. För att få du ska få in lite data du kan leka med och prova dig runt. Måste du ändra en url string den ligger under mappen Service i SpringBoot. Använd samma som du hade i application.properties.
-    
-```java
-  private final String url ="mysql://localhost:3306/STI?";
-  private final String user = "root";
-  private final String password = "";
-  ```
-
-
-
-   4. Nu borde du kunna köra igång programmet! Sen är det bara gå till localhost.
-    
-
-
-### Features so far
-
-- Lägga till rätter som skickas till databasen.
-- Hämta rätter från databasen med ett query vilken kategori som gäller.
-- Filter funktion för att sortera efter hur många beställningar, bokstavningsordning och pris.
-- För varje beställning skickas ett kvitto till databasen med tid och totala pris.
-- Hämta antal varor varje kategori har och uppdaterat varje gång en rätt har antingen lagts in.
-- När en vara läggs in i varukorgen så sparas det i localstorage som sedan försvinner efter att sidan har laddats om.
-
-### Features coming
-- Kunna uppdatera rätterna via hemsidan
-- Kunna radera rätterna via hemsidan
-- Kunna hantera flera beställningar samtidigt
-- Inloggning system
-
-
-
-
-# About The Project
-![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/bild1.png?raw=true)
-
-Jag har byggt ett Point of Sale system, där användaren kan välja mellan 9 olika kategorier. Användaren ska kunna lägga till, modifiera, och ta bort olika rätter. Sedan ska användaren också kunna lägga beställningar. Jag har även lagt ner mycket tid på att bygga ett användarvänligt UI. 
-
 Några svårigheter jag har just nu:
-* Jag har deploy appen på Heroku men jag har haft problem med databaserna på heroku, med de som har vart gratis då de har haft ett max antal connection och max_questions. Så har mitt projekt svårt att köra på heroku. Det kan vara beror på att jag har rätt många questions och connections mot databasen. Men jag håller på att läsa på om Cached queries.
-* Jag känner att min hemsida brister lite i smooth animation, har inte riktigt haft mycket tid  och ge mig in på det, men fixar det så småningom.
+* Jag har deploy appen på Heroku men jag har haft problem med databaserna i det programmet då det var en gratisversion vilket resulterar i att man bara har ett max antal connections och max_questions. Därav har mitt projekt haft svårigheter att köras på Heroku. Det kan bero på att jag har rätt många questions och connections mot databasen. Men i nuläget håller jag på att läsa lite om Cached queries, så det inte blir rätt många questions.
+* Jag känner att min hemsida brister lite i smooth animation, har inte riktigt haft mycket tid  och ge mig in på det, men fixar det inom en snar tid.
 
 ### Build with
 
@@ -87,18 +30,31 @@ Några svårigheter jag har just nu:
 * [JAVA](https://java.com)
 
 
+### Features so far
+
+- Lägga till rätter som skickas till databasen.
+- Hämta rätter från databasen med ett query vilken kategori som gäller.
+- Filter funktion för att sortera efter hur många beställningar, bokstavningsordning och pris.
+- För varje beställning skickas ett kvitto till databasen med tid och totala pris.
+- Hämta varor från varje kategori samt uppdateras varje gång en rätt har lagts in..
+- När en vara läggs in i varukorgen så sparas det i "localstorage" som sedan försvinner efter att sidan har laddats om.
+
+### Features coming
+- Kunna uppdatera rätterna via hemsidan
+- Kunna radera rätterna via hemsidan
+- Kunna hantera flera beställningar samtidigt
+- Inloggning system
 
 
 
 
 
 
-
-# Functions
+# Funktioner
 
 ### 01. Hämta rätter
 ![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/gif1.mov?raw=true)
-###### Vi hämtar rätterna från databasen med hjälp av XMLHttpRequest till APIn jag har skapat och sedan skapas elementen utifrån hur många rätter varje kategori består av. Sen uppdateras även antal items på kategoriens ruta.
+###### Vi hämtar rätterna från databasen med hjälp av XMLHttpRequest till API:in jag har skapat och sedan skapas elementen utifrån hur många rätter varje kategori består av. Sen uppdateras även antal items på kategoriens ruta.
 
 
 
@@ -127,7 +83,7 @@ function apiConnection(categories){
 
 ### 02. Filter/Order dishes
 ![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/gif2.mov?raw=true)
-###### Ändrar ordningen på rätterna utifrån Popular(hur många beställningar varje rätt har), sen utifrån bokstavsordning och pris. Jag gör ett anropp till databasen som ger tillbaks i den ordning användern klickar på. Sparar också antalet varor i localStorage som jag tömmer efter webbläsaren laddar om.
+###### Ändrar ordningen på rätterna utifrån Popular(hur många beställningar varje rätt har), sen utifrån bokstavsordning och pris. Jag gör ett anropp till databasen som ger tillbaks i den ordning som användern klickar på. Sparar också antalet varor i localStorage som jag tömmer efter webbläsaren har laddats om.
 
 #### Java
 
@@ -150,7 +106,7 @@ function apiConnection(categories){
 
 ### 03. Lägg till rätt i databasen
 ![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/ezgif.com-video-to-gif-6.mov?raw=true)
-###### Med hjälp av PUT request som jag skickar via JS till API jag skapade i spring boot, kan jag skicka in rätter in till databasen. Sedan när jag klickar på den kategorin dyker upp rätten upp.
+###### Med hjälp av PUT request som jag skickar via JS till API:in som jag skapade i spring boot, kan jag skicka in rätter in till databasen. Sedan när jag klickar på den kategorin jag la den in, dyker upp rätten upp.
 
 #### Java
 
@@ -167,7 +123,7 @@ function apiConnection(categories){
 
 #### 04. Lägg till kvittot i databasen
 ![alt text](https://github.com/Sh1re-a/pos.system/blob/master/image/gif4.mov?raw=true)
-###### Med hjälp av PUT request som jag skickar via JS till API jag skapade i spring boot, kan jag skicka in kvittot in till databasen.
+###### Med hjälp av PUT request som jag skickar via JS till API:in som jag skapade i spring boot, kan jag spara kvittot in databasen.
 
 #### Java
 
