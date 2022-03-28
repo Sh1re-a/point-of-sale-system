@@ -27,7 +27,7 @@ Några svårigheter jag har just nu:
 * [JPA](https://jakarta.ee/specifications/persistence/3.0/)
 * [SWAGGER](https://swagger.io)
 * [MySQL](https://mysql.com)
-* [JAVA](https://java.com)
+* [Java](https://java.com)
 
 
 ### Features so far
